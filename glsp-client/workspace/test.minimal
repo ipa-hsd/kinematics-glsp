@@ -1,0 +1,22 @@
+{
+  "id": "glsp-graph",
+  "children": [
+    {
+      "id": "2bdd8ba5-0072-469c-84c2-091d42358f70",
+      "cssClasses": [
+        "minimal-node"
+      ],
+      "type": "node",
+      "position": {
+        "x": 306.0,
+        "y": 306.0
+      },
+      "size": {
+        "width": 120.0,
+        "height": 65.0
+      }
+    }
+  ],
+  "type": "graph",
+  "revision": 3
+}
