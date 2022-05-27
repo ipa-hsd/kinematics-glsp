@@ -11,18 +11,65 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.source>11</java.source>
 		<java.target>11</java.target>
+		<maven.build.helper.plugin.version>3.3.0</maven.build.helper.plugin.version>
+		<emf.ecore.xmi.version>2.16.0</emf.ecore.xmi.version>
+		<glsp.version>0.10.0-SNAPSHOT</glsp.version>
     </properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.eclipse.glsp</groupId>
 			<artifactId>org.eclipse.glsp.server</artifactId>
-			<version>0.9.0</version>
+			<version>${glsp.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+			<version>${emf.ecore.xmi.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.glsp</groupId>
+			<artifactId>org.eclipse.glsp.server.emf</artifactId>
+			<version>${glsp.version}</version>
 		</dependency>
 	</dependencies>
 
 	<build>
         <plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>${maven.build.helper.plugin.version}</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src-gen</source>
+							</sources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>add-resource</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>add-resource</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<resource>
+									<directory>model</directory>
+									<targetPath>model</targetPath>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.0</version>

@@ -1,3 +1,5 @@
+package org.eclipse.glsp.example;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -9,9 +11,6 @@ import org.eclipse.glsp.server.types.EdgeTypeHint;
 import org.eclipse.glsp.server.types.ShapeTypeHint;
 
 public class MyGLSPDiagramConfiguration extends BaseDiagramConfiguration {
-
-    @Override
-    public Map<String, EClass> getTypeMappings() { return DefaultTypes.getDefaultTypeMappings(); }
 
     @Override
     public List<ShapeTypeHint> getShapeTypeHints() {

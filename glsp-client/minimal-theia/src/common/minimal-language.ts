@@ -16,8 +16,8 @@
 import { GLSPDiagramLanguage } from '@eclipse-glsp/theia-integration/lib/common';
 
 export const MinimalLanguage: GLSPDiagramLanguage = {
-    contributionId: 'Minimal',
-    label: 'Minimal diagram',
+    contributionId: 'TaskList',
+    label: 'Tasklist diagram',
     diagramType: 'my-glsp-diagram',
-    fileExtensions: ['.minimal']
+    fileExtensions: ['.tasklist']
 };
