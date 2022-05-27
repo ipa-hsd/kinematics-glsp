@@ -97,7 +97,7 @@
 							<transformers>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>MyGLSPServerLauncher</mainClass>
+									<mainClass>org.eclipse.glsp.example.MyGLSPServerLauncher</mainClass>
 								</transformer>
 							</transformers>
 							<filters>
