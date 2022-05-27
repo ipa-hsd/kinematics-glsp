@@ -20,11 +20,6 @@ public class MyGLSPDiagramModule extends GModelJsonDiagramModule {
       return JsonFileGModelLoader.class;
    }
 
-   @Override
-   protected void configureOperationHandlers(final MultiBinding<OperationHandler> binding) {
-      super.configureOperationHandlers(binding);
-      binding.add(MyCreateNodeOperationHandler.class);
-      binding.remove(LayoutOperationHandler.class);
    }
 
    @Override
