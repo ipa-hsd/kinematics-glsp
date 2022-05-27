@@ -1,3 +1,5 @@
+package org.eclipse.glsp.example;
+
 import java.io.IOException;
 
 import org.apache.commons.cli.ParseException;
@@ -13,6 +15,7 @@ public final class MyGLSPServerLauncher {
     @SuppressWarnings("uncommentedmain")
     public static void main(final String[] args) {
         try {
+        	System.out.println("starting server");
             DefaultCLIParser cliParser = new DefaultCLIParser(args, "My GLSP server");
             LaunchUtil.configure(cliParser);
             int port = cliParser.parsePort();
