@@ -23,7 +23,7 @@ export const DEFAULT_PORT = 5007;
 export const PORT_ARG_KEY = 'MINIMAL_GLSP';
 export const LOG_DIR = join(__dirname, '..', '..', 'logs');
 const JAR_FILE = resolve(
-    join(__dirname, '..', '..', '..', '..', 'glsp-server', 'target', 'org.eclipse.glsp.example.kinematics-0.9.0-glsp.jar')
+    join(__dirname, '..', '..', '..', '..', 'glsp-server', 'target', 'org.eclipse.glsp.example.javaemf-0.10.0-glsp.jar')
 );
 
 @injectable()
