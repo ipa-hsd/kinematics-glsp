@@ -16,18 +16,15 @@
 package org.eclipse.glsp.example.javaemf.handler;
 
 import java.util.Optional;
-import java.util.UUID;
 import java.util.function.Function;
+
+import com.google.inject.Inject;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.glsp.example.javaemf.TaskListModelTypes;
-import org.eclipse.glsp.example.tasklist.model.ModelFactory;
-import org.eclipse.glsp.example.tasklist.model.ModelPackage;
-import org.eclipse.glsp.example.tasklist.model.Task;
-import org.eclipse.glsp.example.tasklist.model.TaskList;
 import org.eclipse.glsp.graph.GModelElement;
 import org.eclipse.glsp.graph.GPoint;
 import org.eclipse.glsp.graph.GraphPackage;
@@ -42,71 +39,73 @@ import org.eclipse.glsp.server.emf.model.notation.Shape;
 import org.eclipse.glsp.server.emf.notation.EMFNotationModelState;
 import org.eclipse.glsp.server.operations.CreateNodeOperation;
 
-import com.google.inject.Inject;
+import xacro.Link;
+import xacro.Robot;
+import xacro.XacroFactory;
+import xacro.XacroPackage;
 
 public class CreateTaskNodeHandler extends AbstractEMFCreateNodeOperationHandler {
 
-   @Inject
-   protected EMFNotationModelState modelState;
+    @Inject
+    protected EMFNotationModelState modelState;
 
-   @Inject
-   protected EMFIdGenerator idGenerator;
+    @Inject
+    protected EMFIdGenerator idGenerator;
 
-   public CreateTaskNodeHandler() {
-      super(TaskListModelTypes.TASK);
-   }
+    public CreateTaskNodeHandler() {
+        super(TaskListModelTypes.TASK);
+    }
 
-   @Override
-   public Optional<Command> createCommand(final CreateNodeOperation operation) {
-      GModelElement container = modelState.getIndex().get(operation.getContainerId()).orElseGet(modelState::getRoot);
-      Optional<GPoint> absoluteLocation = getLocation(operation);
-      Optional<GPoint> relativeLocation = getRelativeLocation(operation, absoluteLocation, container);
+    @Override
+    public Optional<Command> createCommand(final CreateNodeOperation operation) {
+        GModelElement container = modelState.getIndex().get(operation.getContainerId()).orElseGet(modelState::getRoot);
+        Optional<GPoint> absoluteLocation = getLocation(operation);
+        Optional<GPoint> relativeLocation = getRelativeLocation(operation, absoluteLocation, container);
 
-      return Optional.of(createTaskAndShape(relativeLocation));
-   }
+        return Optional.of(createTaskAndShape(relativeLocation));
+    }
 
-   @Override
-   public String getLabel() { return "Task"; }
+    @Override
+    public String getLabel() { return "Link"; }
 
-   protected Command createTaskAndShape(final Optional<GPoint> relativeLocation) {
-      TaskList taskList = modelState.getSemanticModel(TaskList.class).orElseThrow();
-      Diagram diagram = modelState.getNotationModel();
-      EditingDomain editingDomain = modelState.getEditingDomain();
+    protected Command createTaskAndShape(final Optional<GPoint> relativeLocation) {
+        Robot robot = modelState.getSemanticModel(Robot.class).orElseThrow();
+        Diagram diagram = modelState.getNotationModel();
+        EditingDomain editingDomain = modelState.getEditingDomain();
 
-      Task newTask = createTask();
-      Command taskCommand = AddCommand.create(editingDomain, taskList,
-         ModelPackage.Literals.TASK_LIST__TASKS, newTask);
+        Link newLink = createTask();
+        Command taskCommand = AddCommand.create(editingDomain, robot.getBody(),
+            XacroPackage.Literals.BODY__LINK, newLink);
 
-      Shape shape = createShape(idGenerator.getOrCreateId(newTask), relativeLocation);
-      Command shapeCommand = AddCommand.create(editingDomain, diagram,
-         NotationPackage.Literals.DIAGRAM__ELEMENTS, shape);
+        Shape shape = createShape(newLink.getResolved(), relativeLocation);
+        Command shapeCommand = AddCommand.create(editingDomain, diagram,
+            NotationPackage.Literals.DIAGRAM__ELEMENTS, shape);
 
-      CompoundCommand compoundCommand = new CompoundCommand();
-      compoundCommand.append(taskCommand);
-      compoundCommand.append(shapeCommand);
-      return compoundCommand;
-   }
+        CompoundCommand compoundCommand = new CompoundCommand();
+        compoundCommand.append(taskCommand);
+        compoundCommand.append(shapeCommand);
+        return compoundCommand;
+    }
 
-   protected Task createTask() {
-      Task newTask = ModelFactory.eINSTANCE.createTask();
-      newTask.setId(UUID.randomUUID().toString());
-      setInitialName(newTask);
-      return newTask;
-   }
+    protected void setInitialName(final Link link) {
+        Function<Integer, String> nameProvider = i -> "New" + link.eClass().getName() + i;
+        int nodeCounter = modelState.getIndex().getCounter(GraphPackage.Literals.GNODE, nameProvider);
+        link.setResolved(nameProvider.apply(nodeCounter));
+    }
 
-   protected void setInitialName(final Task task) {
-      Function<Integer, String> nameProvider = i -> "New" + task.eClass().getName() + i;
-      int nodeCounter = modelState.getIndex().getCounter(GraphPackage.Literals.GNODE, nameProvider);
-      task.setName(nameProvider.apply(nodeCounter));
-   }
+    protected Link createTask() {
+        Link newLink = XacroFactory.eINSTANCE.createLink();
+        setInitialName(newLink);
+        return newLink;
+    }
 
-   protected Shape createShape(final String elementId, final Optional<GPoint> relativeLocation) {
-      Shape newTask = NotationFactory.eINSTANCE.createShape();
-      newTask.setPosition(relativeLocation.orElse(GraphUtil.point(0, 0)));
-      newTask.setSize(GraphUtil.dimension(60, 25));
-      SemanticElementReference reference = NotationFactory.eINSTANCE.createSemanticElementReference();
-      reference.setElementId(elementId);
-      newTask.setSemanticElement(reference);
-      return newTask;
-   }
+    protected Shape createShape(final String elementId, final Optional<GPoint> relativeLocation) {
+        Shape newLink = NotationFactory.eINSTANCE.createShape();
+        newLink.setPosition(relativeLocation.orElse(GraphUtil.point(0, 0)));
+        newLink.setSize(GraphUtil.dimension(60, 25));
+        SemanticElementReference reference = NotationFactory.eINSTANCE.createSemanticElementReference();
+        reference.setElementId(elementId);
+        newLink.setSemanticElement(reference);
+        return newLink;
+    }
 }

@@ -15,21 +15,14 @@
  ********************************************************************************/
 package org.eclipse.glsp.example.javaemf.model;
 
-import java.util.Iterator;
 import java.util.Map;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.glsp.example.javaemf.TaskListModelTypes;
-import org.eclipse.glsp.example.tasklist.model.Task;
-import org.eclipse.glsp.example.tasklist.model.TaskList;
-import org.eclipse.glsp.example.tasklist.model.Transition;
 import org.eclipse.glsp.graph.DefaultTypes;
 import org.eclipse.glsp.graph.GGraph;
-import org.eclipse.glsp.graph.GModelElement;
 import org.eclipse.glsp.graph.GModelRoot;
 import org.eclipse.glsp.graph.GNode;
-import org.eclipse.glsp.graph.builder.impl.GEdgeBuilder;
 import org.eclipse.glsp.graph.builder.impl.GLabelBuilder;
 import org.eclipse.glsp.graph.builder.impl.GLayoutOptions;
 import org.eclipse.glsp.graph.builder.impl.GNodeBuilder;
@@ -37,47 +30,36 @@ import org.eclipse.glsp.graph.util.GConstants;
 import org.eclipse.glsp.server.emf.model.notation.Diagram;
 import org.eclipse.glsp.server.emf.notation.EMFNotationGModelFactory;
 
+import xacro.Link;
+import xacro.Robot;
+
 public class TaskListGModelFactory extends EMFNotationGModelFactory {
 
    @Override
    protected void fillRootElement(final EObject semanticModel, final Diagram notationModel, final GModelRoot newRoot) {
-      TaskList taskList = TaskList.class.cast(semanticModel);
+      Robot robot = Robot.class.cast(semanticModel);
       GGraph graph = GGraph.class.cast(newRoot);
+      System.out.println("id: " + newRoot.getId());
+      System.out.println("type: " + notationModel.getType());
+      System.out.println("semantic: " + notationModel.getSemanticElement());
+      System.out.println("resolved: " + notationModel.getSemanticElement().getResolvedSemanticElement());
       if (notationModel.getSemanticElement() != null
          && notationModel.getSemanticElement().getResolvedSemanticElement() != null) {
-         taskList.getTasks().stream()
+
+         robot.getBody().getLink().stream()
             .map(this::createTaskNode)
             .forEachOrdered(graph.getChildren()::add);
-
-         for (Iterator<Transition> iterator = taskList.getTransitions().iterator(); iterator.hasNext();) {
-            Transition transition = iterator.next();
-            String sourceId = transition.getSource().getId();
-            String targetId = transition.getTarget().getId();
-
-            GModelElement sourceNode = findGNodeById(graph.getChildren(), sourceId);
-            GModelElement targetNode = findGNodeById(graph.getChildren(), targetId);
-
-            GEdgeBuilder builder = new GEdgeBuilder(TaskListModelTypes.TRANSITION).source(sourceNode).target(targetNode)
-               .id(idGenerator.getOrCreateId(transition));
-            applyEdgeData(transition, builder);
-            graph.getChildren().add(builder.build());
-         }
       }
    }
 
-   protected GModelElement findGNodeById(EList<GModelElement> eList, String elementId) {
-      return eList.stream().filter(node -> elementId.equals(node.getId())).findFirst().orElse(null);
-   }
-
-   protected GNode createTaskNode(final Task task) {
+   protected GNode createTaskNode(final Link link) {
       GNodeBuilder taskNodeBuilder = new GNodeBuilder(TaskListModelTypes.TASK)
-         .id(idGenerator.getOrCreateId(task))
+         .id(link.getResolved())
          .addCssClass("minimal-node")
-         .add(new GLabelBuilder(DefaultTypes.LABEL).text(task.getName()).build())
+         .add(new GLabelBuilder(DefaultTypes.LABEL).text(link.getResolved()).build())
          .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_LEFT, 5));
 
-      applyShapeData(task, taskNodeBuilder);
+      applyShapeData(link, taskNodeBuilder);
       return taskNodeBuilder.build();
    }
-
 }
