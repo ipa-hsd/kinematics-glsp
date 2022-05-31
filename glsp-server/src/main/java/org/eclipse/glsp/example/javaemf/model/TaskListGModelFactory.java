@@ -28,6 +28,8 @@ import org.eclipse.glsp.graph.builder.impl.GLayoutOptions;
 import org.eclipse.glsp.graph.builder.impl.GNodeBuilder;
 import org.eclipse.glsp.graph.util.GConstants;
 import org.eclipse.glsp.server.emf.model.notation.Diagram;
+import org.eclipse.glsp.server.emf.model.notation.NotationFactory;
+import org.eclipse.glsp.server.emf.model.notation.SemanticElementReference;
 import org.eclipse.glsp.server.emf.notation.EMFNotationGModelFactory;
 
 import xacro.Link;
@@ -39,9 +41,12 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
    protected void fillRootElement(final EObject semanticModel, final Diagram notationModel, final GModelRoot newRoot) {
       Robot robot = Robot.class.cast(semanticModel);
       GGraph graph = GGraph.class.cast(newRoot);
-      System.out.println("resolved: " + notationModel.getSemanticElement().getResolvedSemanticElement());
-      if (notationModel.getSemanticElement() != null
-         && notationModel.getSemanticElement().getResolvedSemanticElement() != null) {
+      if (notationModel.getSemanticElement() != null) {
+         if (notationModel.getSemanticElement().getResolvedSemanticElement() == null) {
+            SemanticElementReference reference = NotationFactory.eINSTANCE.createSemanticElementReference();
+            reference.setElementId(robot.getName());
+            notationModel.getSemanticElement().setResolvedSemanticElement(reference);
+         }
 
          robot.getBody().getLink().stream()
             .map(this::createTaskNode)
