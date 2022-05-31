@@ -39,9 +39,6 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
    protected void fillRootElement(final EObject semanticModel, final Diagram notationModel, final GModelRoot newRoot) {
       Robot robot = Robot.class.cast(semanticModel);
       GGraph graph = GGraph.class.cast(newRoot);
-      System.out.println("id: " + newRoot.getId());
-      System.out.println("type: " + notationModel.getType());
-      System.out.println("semantic: " + notationModel.getSemanticElement());
       System.out.println("resolved: " + notationModel.getSemanticElement().getResolvedSemanticElement());
       if (notationModel.getSemanticElement() != null
          && notationModel.getSemanticElement().getResolvedSemanticElement() != null) {
