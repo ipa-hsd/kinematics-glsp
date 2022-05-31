@@ -45,4 +45,12 @@
             class="org.eclipse.glsp.example.tasklist.model.util.ModelResourceFactoryImpl"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated xacro -->
+      <package
+            uri="http://www.ipa.fraunhofer.de/xacro"
+            class="xacro.XacroPackage"
+            genModel="model/xacro.genmodel"/>
+   </extension>
+
 </plugin>
