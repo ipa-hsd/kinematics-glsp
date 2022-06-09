@@ -13,13 +13,12 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-package org.eclipse.glsp.example.javaemf.model;
+package de.kinematics.ipa.kinematics.glsp.model;
 
 import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.glsp.example.javaemf.KinematicsModelTypes;
 import org.eclipse.glsp.graph.DefaultTypes;
 import org.eclipse.glsp.graph.GEdge;
 import org.eclipse.glsp.graph.GGraph;
@@ -34,6 +33,7 @@ import org.eclipse.glsp.graph.util.GConstants;
 import org.eclipse.glsp.server.emf.model.notation.Diagram;
 import org.eclipse.glsp.server.emf.notation.EMFNotationGModelFactory;
 
+import de.kinematics.ipa.kinematics.glsp.KinematicsModelTypes;
 import kinematics.Joint;
 import kinematics.Link;
 import kinematics.Robot;

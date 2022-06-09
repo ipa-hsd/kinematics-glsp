@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.eclipse.glsp.example</groupId>
+	<groupId>de.fraunhofer.ipa.kinematics.glsp</groupId>
 	<version>0.10.0</version>
-	<artifactId>org.eclipse.glsp.example.javaemf</artifactId>
+	<artifactId>de.fraunhofer.ipa.kinematics.glsp</artifactId>
 	<description>Server component for the Java/EMF/Theia GLSP example</description>
 	<url>https://github.com/eclipse/glsp-examples</url>
 
@@ -260,7 +260,7 @@
 						<configuration>
 							<transformers>
 								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>org.eclipse.glsp.example.javaemf.launch.KinematicsServerLauncher</mainClass>
+									<mainClass>de.fraunhofer.ipa.kinematics.glsp.launch.KinematicsServerLauncher</mainClass>
 								</transformer>
 								<transformer implementation="org.apache.maven.plugins.shade.resource.properties.PropertiesTransformer">
 									<resource>plugin.properties</resource>

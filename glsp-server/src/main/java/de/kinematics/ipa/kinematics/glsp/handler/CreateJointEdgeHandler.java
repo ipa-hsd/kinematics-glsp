@@ -1,4 +1,4 @@
-package org.eclipse.glsp.example.javaemf.handler;
+package de.kinematics.ipa.kinematics.glsp.handler;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -9,7 +9,6 @@ import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.glsp.example.javaemf.KinematicsModelTypes;
 import org.eclipse.glsp.graph.GraphPackage;
 import org.eclipse.glsp.server.emf.AbstractEMFCreateEdgeOperationHandler;
 import org.eclipse.glsp.server.emf.EMFIdGenerator;
@@ -24,6 +23,7 @@ import org.eclipse.glsp.server.operations.CreateEdgeOperation;
 
 import com.google.inject.Inject;
 
+import de.kinematics.ipa.kinematics.glsp.KinematicsModelTypes;
 import kinematics.Joint;
 import kinematics.KinematicsFactory;
 import kinematics.KinematicsPackage;

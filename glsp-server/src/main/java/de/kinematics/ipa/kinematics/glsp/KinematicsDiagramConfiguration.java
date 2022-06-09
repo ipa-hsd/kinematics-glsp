@@ -13,7 +13,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-package org.eclipse.glsp.example.javaemf;
+package de.kinematics.ipa.kinematics.glsp;
 
 import java.util.Arrays;
 import java.util.List;
@@ -27,21 +27,21 @@ public class KinematicsDiagramConfiguration extends BaseDiagramConfiguration {
    @Override
    public List<ShapeTypeHint> getShapeTypeHints() {
       // tasks can be moved, deleted and resized
-      return List.of(new ShapeTypeHint(KinematicsModelTypes.TASK, true, true, true, false));
+      return List.of(new ShapeTypeHint(KinematicsModelTypes.LINK, true, true, true, false));
    }
 
    @Override
    public List<EdgeTypeHint> getEdgeTypeHints() {
-      return List.of(createDefaultEdgeTypeHint(KinematicsModelTypes.TRANSITION));
+      return List.of(createDefaultEdgeTypeHint(KinematicsModelTypes.JOINT));
    }
 
    @Override
    public EdgeTypeHint createDefaultEdgeTypeHint(final String elementId) {
       EdgeTypeHint hint = super.createDefaultEdgeTypeHint(elementId);
       hint.setSourceElementTypeIds(
-         Arrays.asList(KinematicsModelTypes.TASK));
+         Arrays.asList(KinematicsModelTypes.LINK));
       hint.setTargetElementTypeIds(
-         Arrays.asList(KinematicsModelTypes.TASK));
+         Arrays.asList(KinematicsModelTypes.LINK));
       return hint;
    }
 

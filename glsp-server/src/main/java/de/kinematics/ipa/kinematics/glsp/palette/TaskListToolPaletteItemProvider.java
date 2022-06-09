@@ -13,33 +13,34 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-package org.eclipse.glsp.example.javaemf.palette;
+package de.kinematics.ipa.kinematics.glsp.palette;
 
 import java.util.List;
 import java.util.Map;
 
-import com.google.common.collect.Lists;
-
-import org.eclipse.glsp.example.javaemf.KinematicsModelTypes;
 import org.eclipse.glsp.server.actions.TriggerNodeCreationAction;
 import org.eclipse.glsp.server.features.toolpalette.PaletteItem;
 import org.eclipse.glsp.server.features.toolpalette.ToolPaletteItemProvider;
 
+import com.google.common.collect.Lists;
+
+import de.kinematics.ipa.kinematics.glsp.KinematicsModelTypes;
+
 public class TaskListToolPaletteItemProvider implements ToolPaletteItemProvider {
 
-    @Override
-    public List<PaletteItem> getItems(Map<String, String> args) {
-        return Lists.newArrayList(nodes());
-    }
+   @Override
+   public List<PaletteItem> getItems(final Map<String, String> args) {
+      return Lists.newArrayList(nodes());
+   }
 
-    private PaletteItem nodes() {
-        PaletteItem createTask = node(KinematicsModelTypes.TASK, "Task");
-        List<PaletteItem> nodes = Lists.newArrayList(createTask);
-        return PaletteItem.createPaletteGroup("nodes", "Nodes", nodes, "symbol-property");
-    }
+   private PaletteItem nodes() {
+      PaletteItem createTask = node(KinematicsModelTypes.LINK, "Task");
+      List<PaletteItem> nodes = Lists.newArrayList(createTask);
+      return PaletteItem.createPaletteGroup("nodes", "Nodes", nodes, "symbol-property");
+   }
 
-    private PaletteItem node(String elementTypeId, String label) {
-        return new PaletteItem(elementTypeId, label, new TriggerNodeCreationAction(elementTypeId));
-    }
+   private PaletteItem node(final String elementTypeId, final String label) {
+      return new PaletteItem(elementTypeId, label, new TriggerNodeCreationAction(elementTypeId));
+   }
 
 }

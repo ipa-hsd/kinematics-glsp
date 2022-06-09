@@ -13,17 +13,18 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-package org.eclipse.glsp.example.javaemf.launch;
+package de.kinematics.ipa.kinematics.glsp.launch;
 
 import java.io.IOException;
 
 import org.apache.commons.cli.ParseException;
-import org.eclipse.glsp.example.javaemf.KinematicsDiagramModule;
 import org.eclipse.glsp.server.di.ServerModule;
 import org.eclipse.glsp.server.launch.DefaultCLIParser;
 import org.eclipse.glsp.server.launch.GLSPServerLauncher;
 import org.eclipse.glsp.server.launch.SocketGLSPServerLauncher;
 import org.eclipse.glsp.server.utils.LaunchUtil;
+
+import de.kinematics.ipa.kinematics.glsp.KinematicsDiagramModule;
 
 public final class KinematicsServerLauncher {
    private KinematicsServerLauncher() {}

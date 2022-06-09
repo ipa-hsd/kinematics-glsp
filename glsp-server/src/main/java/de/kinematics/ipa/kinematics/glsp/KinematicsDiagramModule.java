@@ -13,12 +13,8 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-package org.eclipse.glsp.example.javaemf;
+package de.kinematics.ipa.kinematics.glsp;
 
-import org.eclipse.glsp.example.javaemf.handler.CreateLinkNodeHandler;
-import org.eclipse.glsp.example.javaemf.handler.CreateJointEdgeHandler;
-import org.eclipse.glsp.example.javaemf.model.KinematicsGModelFactory;
-import org.eclipse.glsp.example.javaemf.model.KinematicsSourceModelStorage;
 import org.eclipse.glsp.server.di.MultiBinding;
 import org.eclipse.glsp.server.diagram.DiagramConfiguration;
 import org.eclipse.glsp.server.emf.EMFIdGenerator;
@@ -27,6 +23,11 @@ import org.eclipse.glsp.server.emf.idgen.AttributeIdGenerator;
 import org.eclipse.glsp.server.emf.notation.EMFNotationDiagramModule;
 import org.eclipse.glsp.server.features.core.model.GModelFactory;
 import org.eclipse.glsp.server.operations.OperationHandler;
+
+import de.kinematics.ipa.kinematics.glsp.handler.CreateJointEdgeHandler;
+import de.kinematics.ipa.kinematics.glsp.handler.CreateLinkNodeHandler;
+import de.kinematics.ipa.kinematics.glsp.model.KinematicsGModelFactory;
+import de.kinematics.ipa.kinematics.glsp.model.KinematicsSourceModelStorage;
 
 public class KinematicsDiagramModule extends EMFNotationDiagramModule {
 

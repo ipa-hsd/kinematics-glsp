@@ -1,3 +1,4 @@
+package de.kinematics.ipa.kinematics.glsp.handler;
 // /********************************************************************************
 // * Copyright (c) 2022 EclipseSource and others.
 // *

@@ -13,7 +13,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-package org.eclipse.glsp.example.javaemf.handler;
+package de.kinematics.ipa.kinematics.glsp.handler;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -23,7 +23,6 @@ import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
 import org.eclipse.emf.edit.command.AddCommand;
 import org.eclipse.emf.edit.domain.EditingDomain;
-import org.eclipse.glsp.example.javaemf.KinematicsModelTypes;
 import org.eclipse.glsp.graph.GModelElement;
 import org.eclipse.glsp.graph.GPoint;
 import org.eclipse.glsp.graph.GraphPackage;
@@ -40,6 +39,7 @@ import org.eclipse.glsp.server.operations.CreateNodeOperation;
 
 import com.google.inject.Inject;
 
+import de.kinematics.ipa.kinematics.glsp.KinematicsModelTypes;
 import kinematics.KinematicsFactory;
 import kinematics.KinematicsPackage;
 import kinematics.Link;
