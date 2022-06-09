@@ -13,14 +13,17 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-package org.eclipse.glsp.example.javaemf;
+package org.eclipse.glsp.example.javaemf.model;
 
-import org.eclipse.glsp.graph.DefaultTypes;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.glsp.server.emf.notation.EMFNotationSourceModelStorage;
 
-public final class TaskListModelTypes {
-   private TaskListModelTypes() {}
+import kinematics.KinematicsPackage;
 
-   public static final String TASK = DefaultTypes.NODE;
-   public static final String TRANSITION = DefaultTypes.EDGE;
-
+public class KinematicsSourceModelStorage extends EMFNotationSourceModelStorage {
+   @Override
+   protected ResourceSet setupResourceSet(final ResourceSet resourceSet) {
+      resourceSet.getPackageRegistry().put(KinematicsPackage.eINSTANCE.getNsURI(), KinematicsPackage.eINSTANCE);
+      return super.setupResourceSet(resourceSet);
+   }
 }

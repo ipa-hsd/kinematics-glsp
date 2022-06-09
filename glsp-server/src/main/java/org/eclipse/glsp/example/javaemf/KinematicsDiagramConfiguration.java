@@ -22,26 +22,26 @@ import org.eclipse.glsp.server.diagram.BaseDiagramConfiguration;
 import org.eclipse.glsp.server.types.EdgeTypeHint;
 import org.eclipse.glsp.server.types.ShapeTypeHint;
 
-public class TaskListDiagramConfiguration extends BaseDiagramConfiguration {
+public class KinematicsDiagramConfiguration extends BaseDiagramConfiguration {
 
    @Override
    public List<ShapeTypeHint> getShapeTypeHints() {
       // tasks can be moved, deleted and resized
-      return List.of(new ShapeTypeHint(TaskListModelTypes.TASK, true, true, true, false));
+      return List.of(new ShapeTypeHint(KinematicsModelTypes.TASK, true, true, true, false));
    }
 
    @Override
    public List<EdgeTypeHint> getEdgeTypeHints() {
-      return List.of(createDefaultEdgeTypeHint(TaskListModelTypes.TRANSITION));
+      return List.of(createDefaultEdgeTypeHint(KinematicsModelTypes.TRANSITION));
    }
 
    @Override
    public EdgeTypeHint createDefaultEdgeTypeHint(final String elementId) {
       EdgeTypeHint hint = super.createDefaultEdgeTypeHint(elementId);
       hint.setSourceElementTypeIds(
-         Arrays.asList(TaskListModelTypes.TASK));
+         Arrays.asList(KinematicsModelTypes.TASK));
       hint.setTargetElementTypeIds(
-         Arrays.asList(TaskListModelTypes.TASK));
+         Arrays.asList(KinematicsModelTypes.TASK));
       return hint;
    }
 

@@ -15,10 +15,10 @@
  ********************************************************************************/
 package org.eclipse.glsp.example.javaemf;
 
-import org.eclipse.glsp.example.javaemf.handler.CreateTaskNodeHandler;
-import org.eclipse.glsp.example.javaemf.handler.CreateTransitionEdgeHandler;
-import org.eclipse.glsp.example.javaemf.model.TaskListGModelFactory;
-import org.eclipse.glsp.example.javaemf.model.TaskListSourceModelStorage;
+import org.eclipse.glsp.example.javaemf.handler.CreateLinkNodeHandler;
+import org.eclipse.glsp.example.javaemf.handler.CreateJointEdgeHandler;
+import org.eclipse.glsp.example.javaemf.model.KinematicsGModelFactory;
+import org.eclipse.glsp.example.javaemf.model.KinematicsSourceModelStorage;
 import org.eclipse.glsp.server.di.MultiBinding;
 import org.eclipse.glsp.server.diagram.DiagramConfiguration;
 import org.eclipse.glsp.server.emf.EMFIdGenerator;
@@ -28,24 +28,24 @@ import org.eclipse.glsp.server.emf.notation.EMFNotationDiagramModule;
 import org.eclipse.glsp.server.features.core.model.GModelFactory;
 import org.eclipse.glsp.server.operations.OperationHandler;
 
-public class TaskListDiagramModule extends EMFNotationDiagramModule {
+public class KinematicsDiagramModule extends EMFNotationDiagramModule {
 
    @Override
    protected Class<? extends DiagramConfiguration> bindDiagramConfiguration() {
       // define what operations are allowed with our elements
-      return TaskListDiagramConfiguration.class;
+      return KinematicsDiagramConfiguration.class;
    }
 
    @Override
    protected Class<? extends EMFSourceModelStorage> bindSourceModelStorage() {
       // ensure our custom package is registered when loading our models
-      return TaskListSourceModelStorage.class;
+      return KinematicsSourceModelStorage.class;
    }
 
    @Override
    public Class<? extends GModelFactory> bindGModelFactory() {
       // custom factory to convert tasks into nodes
-      return TaskListGModelFactory.class;
+      return KinematicsGModelFactory.class;
    }
 
    @Override
@@ -62,9 +62,9 @@ public class TaskListDiagramModule extends EMFNotationDiagramModule {
    @Override
    protected void configureOperationHandlers(final MultiBinding<OperationHandler> binding) {
       super.configureOperationHandlers(binding);
-      binding.add(CreateTaskNodeHandler.class);
+      binding.add(CreateLinkNodeHandler.class);
       // binding.add(DeleteTaskNodeHandler.class);
-      binding.add(CreateTransitionEdgeHandler.class);
+      binding.add(CreateJointEdgeHandler.class);
    }
 
    @Override

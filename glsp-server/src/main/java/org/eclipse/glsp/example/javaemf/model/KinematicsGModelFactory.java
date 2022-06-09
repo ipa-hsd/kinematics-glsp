@@ -19,7 +19,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.glsp.example.javaemf.TaskListModelTypes;
+import org.eclipse.glsp.example.javaemf.KinematicsModelTypes;
 import org.eclipse.glsp.graph.DefaultTypes;
 import org.eclipse.glsp.graph.GEdge;
 import org.eclipse.glsp.graph.GGraph;
@@ -38,7 +38,7 @@ import kinematics.Joint;
 import kinematics.Link;
 import kinematics.Robot;
 
-public class TaskListGModelFactory extends EMFNotationGModelFactory {
+public class KinematicsGModelFactory extends EMFNotationGModelFactory {
 
    @Override
    protected void fillRootElement(final EObject semanticModel, final Diagram notationModel, final GModelRoot newRoot) {
@@ -48,7 +48,7 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
       if (notationModel.getSemanticElement() != null
          && notationModel.getSemanticElement().getResolvedSemanticElement() != null) {
          robot.getLinks().stream()
-            .map(this::createTaskNode)
+            .map(this::createLinkNode)
             .forEachOrdered(graph.getChildren()::add);
 
          robot.getJoints().stream()
@@ -57,32 +57,32 @@ public class TaskListGModelFactory extends EMFNotationGModelFactory {
       }
    }
 
-   protected GNode createTaskNode(final Link link) {
-      GNodeBuilder taskNodeBuilder = new GNodeBuilder(TaskListModelTypes.TASK)
+   protected GNode createLinkNode(final Link link) {
+      GNodeBuilder linkNodeBuilder = new GNodeBuilder(KinematicsModelTypes.LINK)
          .id(idGenerator.getOrCreateId(link))
          .addCssClass("minimal-node")
          .add(new GLabelBuilder(DefaultTypes.LABEL).text(link.getName()).build())
          .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_LEFT, 5));
 
-      applyShapeData(link, taskNodeBuilder);
-      return taskNodeBuilder.build();
+      applyShapeData(link, linkNodeBuilder);
+      return linkNodeBuilder.build();
    }
 
-   protected GModelElement findGNodeById(EList<GModelElement> eList, String elementId) {
+   protected GModelElement findGNodeById(final EList<GModelElement> eList, final String elementId) {
       return eList.stream().filter(node -> elementId.equals(node.getId())).findFirst().orElse(null);
    }
 
    protected GEdge createTransitionEdge(final Joint joint, final GGraph graph) {
-      String sourceId = joint.getParent().getId();
-      String targetId = joint.getChild().getId();
+      String parentId = joint.getParent().getId();
+      String childId = joint.getChild().getId();
 
-      GModelElement sourceNode = findGNodeById(graph.getChildren(), sourceId);
-      GModelElement targetNode = findGNodeById(graph.getChildren(), targetId);
+      GModelElement parentNode = findGNodeById(graph.getChildren(), parentId);
+      GModelElement childNode = findGNodeById(graph.getChildren(), childId);
 
-      GEdgeBuilder transitionEdgeBuilder = new GEdgeBuilder(TaskListModelTypes.TRANSITION).source(sourceNode)
-         .target(targetNode)
+      GEdgeBuilder jointEdgeBuilder = new GEdgeBuilder(KinematicsModelTypes.JOINT).source(parentNode)
+         .target(childNode)
          .id(idGenerator.getOrCreateId(joint));
-      applyEdgeData(joint, transitionEdgeBuilder);
-      return transitionEdgeBuilder.build();
+      applyEdgeData(joint, jointEdgeBuilder);
+      return jointEdgeBuilder.build();
    }
 }

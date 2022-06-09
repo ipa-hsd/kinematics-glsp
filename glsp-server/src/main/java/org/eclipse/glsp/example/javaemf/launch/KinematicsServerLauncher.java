@@ -18,15 +18,15 @@ package org.eclipse.glsp.example.javaemf.launch;
 import java.io.IOException;
 
 import org.apache.commons.cli.ParseException;
-import org.eclipse.glsp.example.javaemf.TaskListDiagramModule;
+import org.eclipse.glsp.example.javaemf.KinematicsDiagramModule;
 import org.eclipse.glsp.server.di.ServerModule;
 import org.eclipse.glsp.server.launch.DefaultCLIParser;
 import org.eclipse.glsp.server.launch.GLSPServerLauncher;
 import org.eclipse.glsp.server.launch.SocketGLSPServerLauncher;
 import org.eclipse.glsp.server.utils.LaunchUtil;
 
-public final class TaskListServerLauncher {
-   private TaskListServerLauncher() {}
+public final class KinematicsServerLauncher {
+   private KinematicsServerLauncher() {}
 
    @SuppressWarnings("uncommentedmain")
    public static void main(final String[] args) {
@@ -37,7 +37,7 @@ public final class TaskListServerLauncher {
 
          int port = parser.parsePort();
          ServerModule tasklistServerModule = new ServerModule()
-            .configureDiagramModule(new TaskListDiagramModule());
+            .configureDiagramModule(new KinematicsDiagramModule());
 
          GLSPServerLauncher launcher = new SocketGLSPServerLauncher(tasklistServerModule);
          launcher.start("localhost", port);

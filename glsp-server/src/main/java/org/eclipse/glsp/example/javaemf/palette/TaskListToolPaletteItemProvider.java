@@ -20,7 +20,7 @@ import java.util.Map;
 
 import com.google.common.collect.Lists;
 
-import org.eclipse.glsp.example.javaemf.TaskListModelTypes;
+import org.eclipse.glsp.example.javaemf.KinematicsModelTypes;
 import org.eclipse.glsp.server.actions.TriggerNodeCreationAction;
 import org.eclipse.glsp.server.features.toolpalette.PaletteItem;
 import org.eclipse.glsp.server.features.toolpalette.ToolPaletteItemProvider;
@@ -33,7 +33,7 @@ public class TaskListToolPaletteItemProvider implements ToolPaletteItemProvider 
     }
 
     private PaletteItem nodes() {
-        PaletteItem createTask = node(TaskListModelTypes.TASK, "Task");
+        PaletteItem createTask = node(KinematicsModelTypes.TASK, "Task");
         List<PaletteItem> nodes = Lists.newArrayList(createTask);
         return PaletteItem.createPaletteGroup("nodes", "Nodes", nodes, "symbol-property");
     }
