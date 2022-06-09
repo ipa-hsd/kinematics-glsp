@@ -4368,7 +4368,7 @@ dot-prop@^6.0.1:
   dependencies:
     is-obj "^2.0.0"
 
-drivelist@^9.0.2:
+drivelist@^9.0.2, drivelist@^9.2.4:
   version "9.2.4"
   resolved "https://registry.yarnpkg.com/drivelist/-/drivelist-9.2.4.tgz#f89d2233d86c9fcdbc0daacae257d7b27a658d20"
   integrity sha512-F36yn+qXwiOGZM16FYPKcIRjC7qXDIA0SBZ0vvTEe01ai788Se8z78acYdgXC8NAsghiO+9c/GYXgU7E9hhUpg==
@@ -6682,12 +6682,7 @@ minimist-options@4.1.0:
     is-plain-obj "^1.1.0"
     kind-of "^6.0.3"
 
-minimist@^1.2.0, minimist@^1.2.3, minimist@^1.2.5:
-  version "1.2.6"
-  resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.6.tgz#8637a5b759ea0d6e98702cfb3a9283323c93af44"
-  integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
-
-minimist@^1.2.6:
+minimist@^1.2.0, minimist@^1.2.3, minimist@^1.2.5, minimist@^1.2.6:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.6.tgz#8637a5b759ea0d6e98702cfb3a9283323c93af44"
   integrity sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==
