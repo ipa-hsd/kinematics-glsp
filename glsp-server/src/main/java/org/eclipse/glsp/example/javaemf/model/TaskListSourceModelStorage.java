@@ -18,12 +18,12 @@ package org.eclipse.glsp.example.javaemf.model;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.glsp.server.emf.notation.EMFNotationSourceModelStorage;
 
-import xacro.XacroPackage;
+import kinematics.KinematicsPackage;
 
 public class TaskListSourceModelStorage extends EMFNotationSourceModelStorage {
    @Override
    protected ResourceSet setupResourceSet(final ResourceSet resourceSet) {
-      resourceSet.getPackageRegistry().put(XacroPackage.eNS_URI, XacroPackage.eINSTANCE);
+      resourceSet.getPackageRegistry().put(KinematicsPackage.eINSTANCE.getNsURI(), KinematicsPackage.eINSTANCE);
       return super.setupResourceSet(resourceSet);
    }
 }

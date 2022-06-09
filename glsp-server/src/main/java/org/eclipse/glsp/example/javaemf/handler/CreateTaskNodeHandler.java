@@ -16,9 +16,8 @@
 package org.eclipse.glsp.example.javaemf.handler;
 
 import java.util.Optional;
+import java.util.UUID;
 import java.util.function.Function;
-
-import com.google.inject.Inject;
 
 import org.eclipse.emf.common.command.Command;
 import org.eclipse.emf.common.command.CompoundCommand;
@@ -39,10 +38,12 @@ import org.eclipse.glsp.server.emf.model.notation.Shape;
 import org.eclipse.glsp.server.emf.notation.EMFNotationModelState;
 import org.eclipse.glsp.server.operations.CreateNodeOperation;
 
-import xacro.Link;
-import xacro.Robot;
-import xacro.XacroFactory;
-import xacro.XacroPackage;
+import com.google.inject.Inject;
+
+import kinematics.KinematicsFactory;
+import kinematics.KinematicsPackage;
+import kinematics.Link;
+import kinematics.Robot;
 
 public class CreateTaskNodeHandler extends AbstractEMFCreateNodeOperationHandler {
 
@@ -74,10 +75,11 @@ public class CreateTaskNodeHandler extends AbstractEMFCreateNodeOperationHandler
         EditingDomain editingDomain = modelState.getEditingDomain();
 
         Link newLink = createTask();
-        Command taskCommand = AddCommand.create(editingDomain, robot.getBody(),
-            XacroPackage.Literals.BODY__LINK, newLink);
+        Command taskCommand = AddCommand.create(editingDomain, robot,
+            KinematicsPackage.Literals.ROBOT__LINKS, newLink);
 
-        Shape shape = createShape(newLink.getResolved(), relativeLocation);
+        System.out.println("link id: " + idGenerator.getOrCreateId(newLink) + " " + newLink.getId());
+        Shape shape = createShape(idGenerator.getOrCreateId(newLink), relativeLocation);
         Command shapeCommand = AddCommand.create(editingDomain, diagram,
             NotationPackage.Literals.DIAGRAM__ELEMENTS, shape);
 
@@ -90,12 +92,13 @@ public class CreateTaskNodeHandler extends AbstractEMFCreateNodeOperationHandler
     protected void setInitialName(final Link link) {
         Function<Integer, String> nameProvider = i -> "New" + link.eClass().getName() + i;
         int nodeCounter = modelState.getIndex().getCounter(GraphPackage.Literals.GNODE, nameProvider);
-        link.setResolved(nameProvider.apply(nodeCounter));
+        link.setName(nameProvider.apply(nodeCounter));
     }
 
     protected Link createTask() {
-        Link newLink = XacroFactory.eINSTANCE.createLink();
+        Link newLink = KinematicsFactory.eINSTANCE.createLink();
         setInitialName(newLink);
+        newLink.setId(UUID.randomUUID().toString());
         return newLink;
     }
 
