@@ -16,8 +16,8 @@
 import { GLSPDiagramLanguage } from '@eclipse-glsp/theia-integration/lib/common';
 
 export const MinimalLanguage: GLSPDiagramLanguage = {
-    contributionId: 'TaskList',
-    label: 'Tasklist diagram',
-    diagramType: 'tasklist-diagram',
-    fileExtensions: ['.tasklist']
+    contributionId: 'Kinematics',
+    label: 'Kinematics diagram',
+    diagramType: 'kinematics-diagram',
+    fileExtensions: ['.kinematics']
 };

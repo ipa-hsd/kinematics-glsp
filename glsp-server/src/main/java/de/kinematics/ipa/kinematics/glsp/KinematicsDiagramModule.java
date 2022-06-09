@@ -69,6 +69,6 @@ public class KinematicsDiagramModule extends EMFNotationDiagramModule {
    }
 
    @Override
-   public String getDiagramType() { return "tasklist-diagram"; }
+   public String getDiagramType() { return "kinematics-diagram"; }
 
 }
