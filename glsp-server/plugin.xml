@@ -14,7 +14,7 @@
 
 <plugin
       name="%pluginName"
-      id="org.eclipse.glsp.example.tasklist"
+      id="org.eclipse.glsp.example.kinematics"
       version="1.0.0"
       provider-name="%providerName">
 
@@ -31,26 +31,11 @@
    </runtime>
 
    <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated model -->
+      <!-- @generated kinematics -->
       <package
-            uri="http://www.eclipse.org/glsp/examples/tasklist"
-            class="org.eclipse.glsp.example.tasklist.model.ModelPackage"
-            genModel="model/model.genmodel"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.extension_parser">
-      <!-- @generated model -->
-      <parser
-            type="model"
-            class="org.eclipse.glsp.example.tasklist.model.util.ModelResourceFactoryImpl"/>
-   </extension>
-
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated xacro -->
-      <package
-            uri="http://www.ipa.fraunhofer.de/xacro"
-            class="xacro.XacroPackage"
-            genModel="model/xacro.genmodel"/>
+            uri="http://www.eclipse.org/glsp/example/kinematics"
+            class="kinematics.KinematicsPackage"
+            genModel="model/kinematics.genmodel"/>
    </extension>
 
 </plugin>
