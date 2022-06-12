@@ -1,4 +1,4 @@
-package de.kinematics.ipa.kinematics.glsp.handler;
+package de.fraunhofer.ipa.kinematics.glsp.handler;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -23,7 +23,7 @@ import org.eclipse.glsp.server.operations.CreateEdgeOperation;
 
 import com.google.inject.Inject;
 
-import de.kinematics.ipa.kinematics.glsp.KinematicsModelTypes;
+import de.fraunhofer.ipa.kinematics.glsp.KinematicsModelTypes;
 import kinematics.Joint;
 import kinematics.KinematicsFactory;
 import kinematics.KinematicsPackage;

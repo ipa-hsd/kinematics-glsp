@@ -13,7 +13,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-package de.kinematics.ipa.kinematics.glsp.handler;
+package de.fraunhofer.ipa.kinematics.glsp.handler;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -39,7 +39,7 @@ import org.eclipse.glsp.server.operations.CreateNodeOperation;
 
 import com.google.inject.Inject;
 
-import de.kinematics.ipa.kinematics.glsp.KinematicsModelTypes;
+import de.fraunhofer.ipa.kinematics.glsp.KinematicsModelTypes;
 import kinematics.KinematicsFactory;
 import kinematics.KinematicsPackage;
 import kinematics.Link;
