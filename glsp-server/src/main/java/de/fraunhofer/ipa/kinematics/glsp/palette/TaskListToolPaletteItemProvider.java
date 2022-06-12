@@ -13,7 +13,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-package de.kinematics.ipa.kinematics.glsp.palette;
+package de.fraunhofer.ipa.kinematics.glsp.palette;
 
 import java.util.List;
 import java.util.Map;
@@ -24,7 +24,7 @@ import org.eclipse.glsp.server.features.toolpalette.ToolPaletteItemProvider;
 
 import com.google.common.collect.Lists;
 
-import de.kinematics.ipa.kinematics.glsp.KinematicsModelTypes;
+import de.fraunhofer.ipa.kinematics.glsp.KinematicsModelTypes;
 
 public class TaskListToolPaletteItemProvider implements ToolPaletteItemProvider {
 

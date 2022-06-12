@@ -13,7 +13,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-package de.kinematics.ipa.kinematics.glsp;
+package de.fraunhofer.ipa.kinematics.glsp;
 
 import org.eclipse.glsp.server.di.MultiBinding;
 import org.eclipse.glsp.server.diagram.DiagramConfiguration;
@@ -24,10 +24,10 @@ import org.eclipse.glsp.server.emf.notation.EMFNotationDiagramModule;
 import org.eclipse.glsp.server.features.core.model.GModelFactory;
 import org.eclipse.glsp.server.operations.OperationHandler;
 
-import de.kinematics.ipa.kinematics.glsp.handler.CreateJointEdgeHandler;
-import de.kinematics.ipa.kinematics.glsp.handler.CreateLinkNodeHandler;
-import de.kinematics.ipa.kinematics.glsp.model.KinematicsGModelFactory;
-import de.kinematics.ipa.kinematics.glsp.model.KinematicsSourceModelStorage;
+import de.fraunhofer.ipa.kinematics.glsp.handler.CreateJointEdgeHandler;
+import de.fraunhofer.ipa.kinematics.glsp.handler.CreateLinkNodeHandler;
+import de.fraunhofer.ipa.kinematics.glsp.model.KinematicsGModelFactory;
+import de.fraunhofer.ipa.kinematics.glsp.model.KinematicsSourceModelStorage;
 
 public class KinematicsDiagramModule extends EMFNotationDiagramModule {
 

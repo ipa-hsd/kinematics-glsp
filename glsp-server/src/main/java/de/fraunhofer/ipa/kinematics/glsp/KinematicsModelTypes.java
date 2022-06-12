@@ -13,7 +13,7 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-package de.kinematics.ipa.kinematics.glsp;
+package de.fraunhofer.ipa.kinematics.glsp;
 
 import org.eclipse.glsp.graph.DefaultTypes;
 
