@@ -38,7 +38,7 @@ public interface KinematicsPackage extends EPackage {
     * <!-- end-user-doc -->
     * @generated
     */
-   String eNS_URI = "http://www.eclipse.org/glsp/example/kinematics";
+   String eNS_URI = "http://de.fraunhofer.ipa/kinematics";
 
    /**
     * The package namespace name.

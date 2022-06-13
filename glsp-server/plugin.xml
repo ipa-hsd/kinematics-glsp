@@ -33,7 +33,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated kinematics -->
       <package
-            uri="http://www.eclipse.org/glsp/example/kinematics"
+            uri="http://de.fraunhofer.ipa/kinematics"
             class="kinematics.KinematicsPackage"
             genModel="model/kinematics.genmodel"/>
    </extension>
