@@ -61,7 +61,7 @@ public class KinematicsGModelFactory extends EMFNotationGModelFactory {
       GNodeBuilder linkNodeBuilder = new GNodeBuilder(KinematicsModelTypes.LINK)
          .id(idGenerator.getOrCreateId(link))
          .addCssClass("minimal-node")
-         .add(new GLabelBuilder(DefaultTypes.LABEL).text(link.getName()).build())
+         .add(new GLabelBuilder(DefaultTypes.LABEL).text(link.getName()).addCssClass("minimal-label").build())
          .layout(GConstants.Layout.HBOX, Map.of(GLayoutOptions.KEY_PADDING_LEFT, 5));
 
       applyShapeData(link, linkNodeBuilder);
