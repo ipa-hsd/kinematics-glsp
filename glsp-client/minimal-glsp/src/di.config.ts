@@ -15,20 +15,26 @@
  ********************************************************************************/
 import {
     configureDefaultModelElements,
+    configureModelElement,
     ConsoleLogger,
     createClientContainer,
     LogLevel,
     overrideViewerOptions,
+    SEdge,
     TYPES
 } from '@eclipse-glsp/client';
+import { DefaultTypes } from '@eclipse-glsp/protocol';
 import { Container, ContainerModule } from 'inversify';
 import '../css/diagram.css';
+import { JointEdgeView } from './kinematics-views';
 
 const minimalDiagramModule = new ContainerModule((bind, unbind, isBound, rebind) => {
     rebind(TYPES.ILogger).to(ConsoleLogger).inSingletonScope();
     rebind(TYPES.LogLevel).toConstantValue(LogLevel.warn);
     const context = { bind, unbind, isBound, rebind };
     configureDefaultModelElements(context);
+
+    configureModelElement(context, DefaultTypes.EDGE, SEdge, JointEdgeView);
 });
 
 export default function createContainer(widgetId: string): Container {

@@ -35,6 +35,14 @@ svg {
     fill: inherit;
 }
 
+.minimal-label {
+    stroke-width: 0;
+    fill: #000;
+    font-weight: inherit;
+    text-align: inherit;
+    font-size: 75%;
+}
+
 .minimal-node {
     fill: lightsalmon;
 }
@@ -58,4 +66,22 @@ svg {
     fill: #f00;
     font-size: 14pt;
     text-anchor: middle;
+}
+
+.sprotty-edge > .sprotty-routing-handle[data-kind='line'] {
+    fill: #66a;
+    opacity: 0.35;
+}
+
+.sprotty-edge > .sprotty-routing-handle.selected {
+    fill: #66a;
+}
+
+.sprotty-edge > .sprotty-routing-handle.mouseover {
+    stroke: #112;
+    stroke-width: 1;
+}
+
+.sprotty-edge .arrow {
+    stroke: lightblue;
 }
