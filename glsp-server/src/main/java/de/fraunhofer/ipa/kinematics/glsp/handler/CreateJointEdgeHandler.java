@@ -71,7 +71,7 @@ public class CreateJointEdgeHandler extends AbstractEMFCreateEdgeOperationHandle
    }
 
    @Override
-   public String getLabel() { return "Transition"; }
+   public String getLabel() { return "Joint"; }
 
    protected Link findLinkById(final EList<Link> links, final String elementId) {
       return links.stream().filter(link -> elementId.equals(link.getId())).findFirst().orElse(null);
