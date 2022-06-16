@@ -15,7 +15,8 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics-graph.ecore#//Pose/rpy"/>
     </genClasses>
   </genPackages>
-  <genPackages prefix="Graph" disposableProviderFactory="true" ecorePackage="glsp-graph.ecore#/">
+  <genPackages prefix="Graph" basePackage="org.eclipse.glsp" disposableProviderFactory="true"
+      ecorePackage="glsp-graph.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="glsp-graph.ecore#//GSeverity">
       <genEnumLiterals ecoreEnumLiteral="glsp-graph.ecore#//GSeverity/error"/>
       <genEnumLiterals ecoreEnumLiteral="glsp-graph.ecore#//GSeverity/warning"/>

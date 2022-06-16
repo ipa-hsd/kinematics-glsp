@@ -41,7 +41,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated kinematics-graph -->
       <package
-            uri="http://www.eclipse.org/glsp/graph/kinematics/graph"
+            uri="http://de.fraunhofer.ipa/kinematics/graph"
             class="kinematicsgraph.KinematicsgraphPackage"
             genModel="src/main/resources/kinematics-graph.genmodel"/>
    </extension>
@@ -50,7 +50,8 @@
       <!-- @generated kinematics-graph -->
       <package
             uri="http://www.eclipse.org/glsp/graph"
-            class="graph.GraphPackage"
+            class="org.eclipse.glsp.graph.GraphPackage"
             genModel="src/main/resources/kinematics-graph.genmodel"/>
    </extension>
+
 </plugin>

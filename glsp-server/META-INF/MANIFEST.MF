@@ -11,9 +11,6 @@ Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: kinematics,
  kinematics.impl,
  kinematics.util,
- graph,
- graph.impl,
- graph.util,
  kinematicsgraph,
  kinematicsgraph.impl,
  kinematicsgraph.util
