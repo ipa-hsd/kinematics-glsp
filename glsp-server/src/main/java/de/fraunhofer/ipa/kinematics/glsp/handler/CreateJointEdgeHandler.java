@@ -28,6 +28,7 @@ import kinematics.Joint;
 import kinematics.KinematicsFactory;
 import kinematics.KinematicsPackage;
 import kinematics.Link;
+import kinematics.Pose;
 import kinematics.Robot;
 
 public class CreateJointEdgeHandler extends AbstractEMFCreateEdgeOperationHandler {
@@ -94,6 +95,12 @@ public class CreateJointEdgeHandler extends AbstractEMFCreateEdgeOperationHandle
       setInitialName(newJoint);
       newJoint.setParent(sourceLink);
       newJoint.setChild(targetLink);
+
+      Pose origin = KinematicsFactory.eINSTANCE.createPose();
+      origin.setXyz("0 0 0");
+      origin.setRpy("0 0 0");
+      newJoint.setOrigin(origin);
+
       return newJoint;
    }
 

@@ -59,6 +59,7 @@ public class KinematicsFactoryImpl extends EFactoryImpl implements KinematicsFac
          case KinematicsPackage.LINK: return createLink();
          case KinematicsPackage.JOINT: return createJoint();
          case KinematicsPackage.ROBOT: return createRobot();
+         case KinematicsPackage.POSE: return createPose();
          default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
       }
@@ -92,6 +93,16 @@ public class KinematicsFactoryImpl extends EFactoryImpl implements KinematicsFac
    public Robot createRobot() {
       RobotImpl robot = new RobotImpl();
       return robot;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public Pose createPose() {
+      PoseImpl pose = new PoseImpl();
+      return pose;
    }
 
    /**

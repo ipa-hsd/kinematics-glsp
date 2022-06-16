@@ -149,13 +149,22 @@ public interface KinematicsPackage extends EPackage {
    int JOINT__CHILD = 3;
 
    /**
+    * The feature id for the '<em><b>Origin</b></em>' containment reference.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int JOINT__ORIGIN = 4;
+
+   /**
     * The number of structural features of the '<em>Joint</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-   int JOINT_FEATURE_COUNT = 4;
+   int JOINT_FEATURE_COUNT = 5;
 
    /**
     * The number of operations of the '<em>Joint</em>' class.
@@ -229,6 +238,53 @@ public interface KinematicsPackage extends EPackage {
     * @ordered
     */
    int ROBOT_OPERATION_COUNT = 0;
+
+
+   /**
+    * The meta object id for the '{@link kinematics.impl.PoseImpl <em>Pose</em>}' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see kinematics.impl.PoseImpl
+    * @see kinematics.impl.KinematicsPackageImpl#getPose()
+    * @generated
+    */
+   int POSE = 3;
+
+   /**
+    * The feature id for the '<em><b>Xyz</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int POSE__XYZ = 0;
+
+   /**
+    * The feature id for the '<em><b>Rpy</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int POSE__RPY = 1;
+
+   /**
+    * The number of structural features of the '<em>Pose</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int POSE_FEATURE_COUNT = 2;
+
+   /**
+    * The number of operations of the '<em>Pose</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int POSE_OPERATION_COUNT = 0;
 
 
    /**
@@ -318,6 +374,17 @@ public interface KinematicsPackage extends EPackage {
    EReference getJoint_Child();
 
    /**
+    * Returns the meta object for the containment reference '{@link kinematics.Joint#getOrigin <em>Origin</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the containment reference '<em>Origin</em>'.
+    * @see kinematics.Joint#getOrigin()
+    * @see #getJoint()
+    * @generated
+    */
+   EReference getJoint_Origin();
+
+   /**
     * Returns the meta object for class '{@link kinematics.Robot <em>Robot</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -370,6 +437,38 @@ public interface KinematicsPackage extends EPackage {
     * @generated
     */
    EReference getRobot_Joints();
+
+   /**
+    * Returns the meta object for class '{@link kinematics.Pose <em>Pose</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for class '<em>Pose</em>'.
+    * @see kinematics.Pose
+    * @generated
+    */
+   EClass getPose();
+
+   /**
+    * Returns the meta object for the attribute '{@link kinematics.Pose#getXyz <em>Xyz</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the attribute '<em>Xyz</em>'.
+    * @see kinematics.Pose#getXyz()
+    * @see #getPose()
+    * @generated
+    */
+   EAttribute getPose_Xyz();
+
+   /**
+    * Returns the meta object for the attribute '{@link kinematics.Pose#getRpy <em>Rpy</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the attribute '<em>Rpy</em>'.
+    * @see kinematics.Pose#getRpy()
+    * @see #getPose()
+    * @generated
+    */
+   EAttribute getPose_Rpy();
 
    /**
     * Returns the factory that creates the instances of the model.
@@ -463,6 +562,14 @@ public interface KinematicsPackage extends EPackage {
       EReference JOINT__CHILD = eINSTANCE.getJoint_Child();
 
       /**
+       * The meta object literal for the '<em><b>Origin</b></em>' containment reference feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EReference JOINT__ORIGIN = eINSTANCE.getJoint_Origin();
+
+      /**
        * The meta object literal for the '{@link kinematics.impl.RobotImpl <em>Robot</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
@@ -503,6 +610,32 @@ public interface KinematicsPackage extends EPackage {
        * @generated
        */
       EReference ROBOT__JOINTS = eINSTANCE.getRobot_Joints();
+
+      /**
+       * The meta object literal for the '{@link kinematics.impl.PoseImpl <em>Pose</em>}' class.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @see kinematics.impl.PoseImpl
+       * @see kinematics.impl.KinematicsPackageImpl#getPose()
+       * @generated
+       */
+      EClass POSE = eINSTANCE.getPose();
+
+      /**
+       * The meta object literal for the '<em><b>Xyz</b></em>' attribute feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EAttribute POSE__XYZ = eINSTANCE.getPose_Xyz();
+
+      /**
+       * The meta object literal for the '<em><b>Rpy</b></em>' attribute feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EAttribute POSE__RPY = eINSTANCE.getPose_Rpy();
 
    }
 

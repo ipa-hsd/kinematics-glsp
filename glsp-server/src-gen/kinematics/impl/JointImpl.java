@@ -6,8 +6,10 @@ import kinematics.Joint;
 import kinematics.KinematicsPackage;
 import kinematics.Link;
 
+import kinematics.Pose;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -26,6 +28,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link kinematics.impl.JointImpl#getId <em>Id</em>}</li>
  *   <li>{@link kinematics.impl.JointImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link kinematics.impl.JointImpl#getChild <em>Child</em>}</li>
+ *   <li>{@link kinematics.impl.JointImpl#getOrigin <em>Origin</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,6 +93,16 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
     * @ordered
     */
    protected Link child;
+
+   /**
+    * The cached value of the '{@link #getOrigin() <em>Origin</em>}' containment reference.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see #getOrigin()
+    * @generated
+    * @ordered
+    */
+   protected Pose origin;
 
    /**
     * <!-- begin-user-doc -->
@@ -233,6 +246,63 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
     * <!-- end-user-doc -->
     * @generated
     */
+   public Pose getOrigin() {
+      return origin;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public NotificationChain basicSetOrigin(Pose newOrigin, NotificationChain msgs) {
+      Pose oldOrigin = origin;
+      origin = newOrigin;
+      if (eNotificationRequired()) {
+         ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__ORIGIN, oldOrigin, newOrigin);
+         if (msgs == null) msgs = notification; else msgs.add(notification);
+      }
+      return msgs;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public void setOrigin(Pose newOrigin) {
+      if (newOrigin != origin) {
+         NotificationChain msgs = null;
+         if (origin != null)
+            msgs = ((InternalEObject)origin).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KinematicsPackage.JOINT__ORIGIN, null, msgs);
+         if (newOrigin != null)
+            msgs = ((InternalEObject)newOrigin).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KinematicsPackage.JOINT__ORIGIN, null, msgs);
+         msgs = basicSetOrigin(newOrigin, msgs);
+         if (msgs != null) msgs.dispatch();
+      }
+      else if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__ORIGIN, newOrigin, newOrigin));
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   @Override
+   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+      switch (featureID) {
+         case KinematicsPackage.JOINT__ORIGIN:
+            return basicSetOrigin(null, msgs);
+      }
+      return super.eInverseRemove(otherEnd, featureID, msgs);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
    @Override
    public Object eGet(int featureID, boolean resolve, boolean coreType) {
       switch (featureID) {
@@ -246,6 +316,8 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
          case KinematicsPackage.JOINT__CHILD:
             if (resolve) return getChild();
             return basicGetChild();
+         case KinematicsPackage.JOINT__ORIGIN:
+            return getOrigin();
       }
       return super.eGet(featureID, resolve, coreType);
    }
@@ -269,6 +341,9 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
             return;
          case KinematicsPackage.JOINT__CHILD:
             setChild((Link)newValue);
+            return;
+         case KinematicsPackage.JOINT__ORIGIN:
+            setOrigin((Pose)newValue);
             return;
       }
       super.eSet(featureID, newValue);
@@ -294,6 +369,9 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
          case KinematicsPackage.JOINT__CHILD:
             setChild((Link)null);
             return;
+         case KinematicsPackage.JOINT__ORIGIN:
+            setOrigin((Pose)null);
+            return;
       }
       super.eUnset(featureID);
    }
@@ -314,6 +392,8 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
             return parent != null;
          case KinematicsPackage.JOINT__CHILD:
             return child != null;
+         case KinematicsPackage.JOINT__ORIGIN:
+            return origin != null;
       }
       return super.eIsSet(featureID);
    }

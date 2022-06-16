@@ -15,12 +15,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Joint/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics.ecore#//Joint/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics.ecore#//Joint/child"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics.ecore#//Joint/origin"/>
     </genClasses>
     <genClasses ecoreClass="kinematics.ecore#//Robot">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Robot/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Robot/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics.ecore#//Robot/links"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics.ecore#//Robot/joints"/>
+    </genClasses>
+    <genClasses ecoreClass="kinematics.ecore#//Pose">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Pose/xyz"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Pose/rpy"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
