@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ASCII"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/glsp/notation">
+  <semanticElement elementId="root"/>
+  <elements xsi:type="notation:Shape">
+    <semanticElement elementId="90bccc9e-5238-47bf-8402-86d43cef7ac2"/>
+    <position x="173.0" y="183.0"/>
+    <size width="60.0" height="25.0"/>
+  </elements>
+  <elements xsi:type="notation:Shape">
+    <semanticElement elementId="cf8b88b5-bb59-43a7-a235-00e44c284cfe"/>
+    <position x="472.0" y="205.0"/>
+    <size width="60.0" height="25.0"/>
+  </elements>
+  <elements xsi:type="notation:Edge">
+    <semanticElement elementId="c64d1629-fd0f-4349-88d5-814561e5f8cd"/>
+  </elements>
+</notation:Diagram>
