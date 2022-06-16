@@ -2,12 +2,12 @@
  */
 package kinematicsgraph;
 
-import graph.GraphPackage;
-
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+
+import org.eclipse.glsp.graph.GraphPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,7 +40,7 @@ public interface KinematicsgraphPackage extends EPackage {
     * <!-- end-user-doc -->
     * @generated
     */
-   String eNS_URI = "http://www.eclipse.org/glsp/graph/kinematics/graph";
+   String eNS_URI = "http://de.fraunhofer.ipa/kinematics/graph";
 
    /**
     * The package namespace name.

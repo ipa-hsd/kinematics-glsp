@@ -2,10 +2,6 @@
  */
 package kinematicsgraph.util;
 
-import graph.GArgumentable;
-import graph.GEdge;
-import graph.GModelElement;
-
 import kinematicsgraph.*;
 
 import org.eclipse.emf.common.notify.Adapter;
@@ -14,6 +10,10 @@ import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
+
+import org.eclipse.glsp.graph.GArgumentable;
+import org.eclipse.glsp.graph.GEdge;
+import org.eclipse.glsp.graph.GModelElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -140,13 +140,13 @@ public class KinematicsgraphAdapterFactory extends AdapterFactoryImpl {
    }
 
    /**
-    * Creates a new adapter for an object of class '{@link graph.GArgumentable <em>GArgumentable</em>}'.
+    * Creates a new adapter for an object of class '{@link org.eclipse.glsp.graph.GArgumentable <em>GArgumentable</em>}'.
     * <!-- begin-user-doc -->
     * This default implementation returns null so that we can easily ignore cases;
     * it's useful to ignore a case when inheritance will catch all the cases anyway.
     * <!-- end-user-doc -->
     * @return the new adapter.
-    * @see graph.GArgumentable
+    * @see org.eclipse.glsp.graph.GArgumentable
     * @generated
     */
    public Adapter createGArgumentableAdapter() {
@@ -154,13 +154,13 @@ public class KinematicsgraphAdapterFactory extends AdapterFactoryImpl {
    }
 
    /**
-    * Creates a new adapter for an object of class '{@link graph.GModelElement <em>GModel Element</em>}'.
+    * Creates a new adapter for an object of class '{@link org.eclipse.glsp.graph.GModelElement <em>GModel Element</em>}'.
     * <!-- begin-user-doc -->
     * This default implementation returns null so that we can easily ignore cases;
     * it's useful to ignore a case when inheritance will catch all the cases anyway.
     * <!-- end-user-doc -->
     * @return the new adapter.
-    * @see graph.GModelElement
+    * @see org.eclipse.glsp.graph.GModelElement
     * @generated
     */
    public Adapter createGModelElementAdapter() {
@@ -168,13 +168,13 @@ public class KinematicsgraphAdapterFactory extends AdapterFactoryImpl {
    }
 
    /**
-    * Creates a new adapter for an object of class '{@link graph.GEdge <em>GEdge</em>}'.
+    * Creates a new adapter for an object of class '{@link org.eclipse.glsp.graph.GEdge <em>GEdge</em>}'.
     * <!-- begin-user-doc -->
     * This default implementation returns null so that we can easily ignore cases;
     * it's useful to ignore a case when inheritance will catch all the cases anyway.
     * <!-- end-user-doc -->
     * @return the new adapter.
-    * @see graph.GEdge
+    * @see org.eclipse.glsp.graph.GEdge
     * @generated
     */
    public Adapter createGEdgeAdapter() {

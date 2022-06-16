@@ -2,10 +2,6 @@
  */
 package kinematicsgraph.impl;
 
-import graph.GraphPackage;
-
-import graph.impl.GraphPackageImpl;
-
 import kinematicsgraph.JointEdge;
 import kinematicsgraph.KinematicsgraphFactory;
 import kinematicsgraph.KinematicsgraphPackage;
@@ -17,6 +13,10 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import org.eclipse.glsp.graph.GraphPackage;
+
+import org.eclipse.glsp.graph.impl.GraphPackageImpl;
 
 /**
  * <!-- begin-user-doc -->

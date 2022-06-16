@@ -2,7 +2,7 @@
  */
 package kinematicsgraph;
 
-import graph.GEdge;
+import org.eclipse.glsp.graph.GEdge;
 
 /**
  * <!-- begin-user-doc -->

@@ -2,16 +2,16 @@
  */
 package kinematicsgraph.util;
 
-import graph.GArgumentable;
-import graph.GEdge;
-import graph.GModelElement;
-
 import kinematicsgraph.*;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
+
+import org.eclipse.glsp.graph.GArgumentable;
+import org.eclipse.glsp.graph.GEdge;
+import org.eclipse.glsp.graph.GModelElement;
 
 /**
  * <!-- begin-user-doc -->

@@ -2,8 +2,6 @@
  */
 package kinematicsgraph.impl;
 
-import graph.impl.GEdgeImpl;
-
 import kinematicsgraph.JointEdge;
 import kinematicsgraph.KinematicsgraphPackage;
 import kinematicsgraph.Pose;
@@ -14,6 +12,8 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import org.eclipse.glsp.graph.impl.GEdgeImpl;
 
 /**
  * <!-- begin-user-doc -->
