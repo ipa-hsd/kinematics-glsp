@@ -1,8 +1,8 @@
 /**
  */
-package kinematics.impl;
+package kinematicsgraph.impl;
 
-import kinematics.*;
+import kinematicsgraph.*;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -18,24 +18,24 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  * <!-- end-user-doc -->
  * @generated
  */
-public class KinematicsFactoryImpl extends EFactoryImpl implements KinematicsFactory {
+public class KinematicsgraphFactoryImpl extends EFactoryImpl implements KinematicsgraphFactory {
    /**
     * Creates the default factory implementation.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     */
-   public static KinematicsFactory init() {
+   public static KinematicsgraphFactory init() {
       try {
-         KinematicsFactory theKinematicsFactory = (KinematicsFactory)EPackage.Registry.INSTANCE.getEFactory(KinematicsPackage.eNS_URI);
-         if (theKinematicsFactory != null) {
-            return theKinematicsFactory;
+         KinematicsgraphFactory theKinematicsgraphFactory = (KinematicsgraphFactory)EPackage.Registry.INSTANCE.getEFactory(KinematicsgraphPackage.eNS_URI);
+         if (theKinematicsgraphFactory != null) {
+            return theKinematicsgraphFactory;
          }
       }
       catch (Exception exception) {
          EcorePlugin.INSTANCE.log(exception);
       }
-      return new KinematicsFactoryImpl();
+      return new KinematicsgraphFactoryImpl();
    }
 
    /**
@@ -44,7 +44,7 @@ public class KinematicsFactoryImpl extends EFactoryImpl implements KinematicsFac
     * <!-- end-user-doc -->
     * @generated
     */
-   public KinematicsFactoryImpl() {
+   public KinematicsgraphFactoryImpl() {
       super();
    }
 
@@ -56,10 +56,8 @@ public class KinematicsFactoryImpl extends EFactoryImpl implements KinematicsFac
    @Override
    public EObject create(EClass eClass) {
       switch (eClass.getClassifierID()) {
-         case KinematicsPackage.LINK: return createLink();
-         case KinematicsPackage.JOINT: return createJoint();
-         case KinematicsPackage.ROBOT: return createRobot();
-         case KinematicsPackage.POSE: return createPose();
+         case KinematicsgraphPackage.JOINT_EDGE: return createJointEdge();
+         case KinematicsgraphPackage.POSE: return createPose();
          default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
       }
@@ -70,29 +68,9 @@ public class KinematicsFactoryImpl extends EFactoryImpl implements KinematicsFac
     * <!-- end-user-doc -->
     * @generated
     */
-   public Link createLink() {
-      LinkImpl link = new LinkImpl();
-      return link;
-   }
-
-   /**
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @generated
-    */
-   public Joint createJoint() {
-      JointImpl joint = new JointImpl();
-      return joint;
-   }
-
-   /**
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @generated
-    */
-   public Robot createRobot() {
-      RobotImpl robot = new RobotImpl();
-      return robot;
+   public JointEdge createJointEdge() {
+      JointEdgeImpl jointEdge = new JointEdgeImpl();
+      return jointEdge;
    }
 
    /**
@@ -110,8 +88,8 @@ public class KinematicsFactoryImpl extends EFactoryImpl implements KinematicsFac
     * <!-- end-user-doc -->
     * @generated
     */
-   public KinematicsPackage getKinematicsPackage() {
-      return (KinematicsPackage)getEPackage();
+   public KinematicsgraphPackage getKinematicsgraphPackage() {
+      return (KinematicsgraphPackage)getEPackage();
    }
 
    /**
@@ -121,8 +99,8 @@ public class KinematicsFactoryImpl extends EFactoryImpl implements KinematicsFac
     * @generated
     */
    @Deprecated
-   public static KinematicsPackage getPackage() {
-      return KinematicsPackage.eINSTANCE;
+   public static KinematicsgraphPackage getPackage() {
+      return KinematicsgraphPackage.eINSTANCE;
    }
 
-} //KinematicsFactoryImpl
+} //KinematicsgraphFactoryImpl

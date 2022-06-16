@@ -1,13 +1,17 @@
 /**
  */
-package kinematics.util;
+package kinematicsgraph.util;
 
-import kinematics.*;
+import kinematicsgraph.*;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
+
+import org.eclipse.glsp.graph.GArgumentable;
+import org.eclipse.glsp.graph.GEdge;
+import org.eclipse.glsp.graph.GModelElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,17 +23,17 @@ import org.eclipse.emf.ecore.util.Switch;
  * until a non-null result is returned,
  * which is the result of the switch.
  * <!-- end-user-doc -->
- * @see kinematics.KinematicsPackage
+ * @see kinematicsgraph.KinematicsgraphPackage
  * @generated
  */
-public class KinematicsSwitch<T> extends Switch<T> {
+public class KinematicsgraphSwitch<T> extends Switch<T> {
    /**
     * The cached model package
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     */
-   protected static KinematicsPackage modelPackage;
+   protected static KinematicsgraphPackage modelPackage;
 
    /**
     * Creates an instance of the switch.
@@ -37,9 +41,9 @@ public class KinematicsSwitch<T> extends Switch<T> {
     * <!-- end-user-doc -->
     * @generated
     */
-   public KinematicsSwitch() {
+   public KinematicsgraphSwitch() {
       if (modelPackage == null) {
-         modelPackage = KinematicsPackage.eINSTANCE;
+         modelPackage = KinematicsgraphPackage.eINSTANCE;
       }
    }
 
@@ -66,25 +70,16 @@ public class KinematicsSwitch<T> extends Switch<T> {
    @Override
    protected T doSwitch(int classifierID, EObject theEObject) {
       switch (classifierID) {
-         case KinematicsPackage.LINK: {
-            Link link = (Link)theEObject;
-            T result = caseLink(link);
+         case KinematicsgraphPackage.JOINT_EDGE: {
+            JointEdge jointEdge = (JointEdge)theEObject;
+            T result = caseJointEdge(jointEdge);
+            if (result == null) result = caseGEdge(jointEdge);
+            if (result == null) result = caseGModelElement(jointEdge);
+            if (result == null) result = caseGArgumentable(jointEdge);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
-         case KinematicsPackage.JOINT: {
-            Joint joint = (Joint)theEObject;
-            T result = caseJoint(joint);
-            if (result == null) result = defaultCase(theEObject);
-            return result;
-         }
-         case KinematicsPackage.ROBOT: {
-            Robot robot = (Robot)theEObject;
-            T result = caseRobot(robot);
-            if (result == null) result = defaultCase(theEObject);
-            return result;
-         }
-         case KinematicsPackage.POSE: {
+         case KinematicsgraphPackage.POSE: {
             Pose pose = (Pose)theEObject;
             T result = casePose(pose);
             if (result == null) result = defaultCase(theEObject);
@@ -95,47 +90,17 @@ public class KinematicsSwitch<T> extends Switch<T> {
    }
 
    /**
-    * Returns the result of interpreting the object as an instance of '<em>Link</em>'.
+    * Returns the result of interpreting the object as an instance of '<em>Joint Edge</em>'.
     * <!-- begin-user-doc -->
     * This implementation returns null;
     * returning a non-null result will terminate the switch.
     * <!-- end-user-doc -->
     * @param object the target of the switch.
-    * @return the result of interpreting the object as an instance of '<em>Link</em>'.
+    * @return the result of interpreting the object as an instance of '<em>Joint Edge</em>'.
     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
     * @generated
     */
-   public T caseLink(Link object) {
-      return null;
-   }
-
-   /**
-    * Returns the result of interpreting the object as an instance of '<em>Joint</em>'.
-    * <!-- begin-user-doc -->
-    * This implementation returns null;
-    * returning a non-null result will terminate the switch.
-    * <!-- end-user-doc -->
-    * @param object the target of the switch.
-    * @return the result of interpreting the object as an instance of '<em>Joint</em>'.
-    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-    * @generated
-    */
-   public T caseJoint(Joint object) {
-      return null;
-   }
-
-   /**
-    * Returns the result of interpreting the object as an instance of '<em>Robot</em>'.
-    * <!-- begin-user-doc -->
-    * This implementation returns null;
-    * returning a non-null result will terminate the switch.
-    * <!-- end-user-doc -->
-    * @param object the target of the switch.
-    * @return the result of interpreting the object as an instance of '<em>Robot</em>'.
-    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-    * @generated
-    */
-   public T caseRobot(Robot object) {
+   public T caseJointEdge(JointEdge object) {
       return null;
    }
 
@@ -155,6 +120,51 @@ public class KinematicsSwitch<T> extends Switch<T> {
    }
 
    /**
+    * Returns the result of interpreting the object as an instance of '<em>GArgumentable</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>GArgumentable</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T caseGArgumentable(GArgumentable object) {
+      return null;
+   }
+
+   /**
+    * Returns the result of interpreting the object as an instance of '<em>GModel Element</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>GModel Element</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T caseGModelElement(GModelElement object) {
+      return null;
+   }
+
+   /**
+    * Returns the result of interpreting the object as an instance of '<em>GEdge</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>GEdge</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T caseGEdge(GEdge object) {
+      return null;
+   }
+
+   /**
     * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
     * <!-- begin-user-doc -->
     * This implementation returns null;
@@ -170,4 +180,4 @@ public class KinematicsSwitch<T> extends Switch<T> {
       return null;
    }
 
-} //KinematicsSwitch
+} //KinematicsgraphSwitch

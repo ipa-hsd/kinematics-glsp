@@ -1,6 +1,6 @@
 /**
  */
-package kinematics;
+package kinematicsgraph;
 
 import org.eclipse.emf.ecore.EFactory;
 
@@ -9,44 +9,26 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see kinematics.KinematicsPackage
+ * @see kinematicsgraph.KinematicsgraphPackage
  * @generated
  */
-public interface KinematicsFactory extends EFactory {
+public interface KinematicsgraphFactory extends EFactory {
    /**
     * The singleton instance of the factory.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     */
-   KinematicsFactory eINSTANCE = kinematics.impl.KinematicsFactoryImpl.init();
+   KinematicsgraphFactory eINSTANCE = kinematicsgraph.impl.KinematicsgraphFactoryImpl.init();
 
    /**
-    * Returns a new object of class '<em>Link</em>'.
+    * Returns a new object of class '<em>Joint Edge</em>'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @return a new object of class '<em>Link</em>'.
+    * @return a new object of class '<em>Joint Edge</em>'.
     * @generated
     */
-   Link createLink();
-
-   /**
-    * Returns a new object of class '<em>Joint</em>'.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @return a new object of class '<em>Joint</em>'.
-    * @generated
-    */
-   Joint createJoint();
-
-   /**
-    * Returns a new object of class '<em>Robot</em>'.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @return a new object of class '<em>Robot</em>'.
-    * @generated
-    */
-   Robot createRobot();
+   JointEdge createJointEdge();
 
    /**
     * Returns a new object of class '<em>Pose</em>'.
@@ -64,6 +46,6 @@ public interface KinematicsFactory extends EFactory {
     * @return the package supported by this factory.
     * @generated
     */
-   KinematicsPackage getKinematicsPackage();
+   KinematicsgraphPackage getKinematicsgraphPackage();
 
-} //KinematicsFactory
+} //KinematicsgraphFactory

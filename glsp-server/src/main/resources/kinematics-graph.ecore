@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="kinematicsgraph" nsURI="http://de.fraunhofer.ipa/kinematics/graph"
+    nsPrefix="kinematicsgraph">
+  <eClassifiers xsi:type="ecore:EClass" name="JointEdge" eSuperTypes="glsp-graph.ecore#//GEdge">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="origin" lowerBound="1"
+        eType="#//Pose"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pose">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xyz" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rpy" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

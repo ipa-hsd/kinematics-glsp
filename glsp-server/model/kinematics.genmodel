@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.glsp.example.kinematics/src-gen" modelPluginID="org.eclipse.glsp.example.kinematics"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.eclipse.glsp.example.kinematics/src-gen" modelPluginID="de.fraunhofer.ipa.kinematics"
     modelName="Kinematics" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
     operationReflection="true" importOrganizing="true">
@@ -15,12 +15,17 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Joint/id"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics.ecore#//Joint/parent"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics.ecore#//Joint/child"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics.ecore#//Joint/origin"/>
     </genClasses>
     <genClasses ecoreClass="kinematics.ecore#//Robot">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Robot/id"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Robot/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics.ecore#//Robot/links"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics.ecore#//Robot/joints"/>
+    </genClasses>
+    <genClasses ecoreClass="kinematics.ecore#//Pose">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Pose/xyz"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Pose/rpy"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

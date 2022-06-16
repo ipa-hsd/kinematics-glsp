@@ -151,6 +151,18 @@
 				<version>${maven.build.helper.plugin.version}</version>
 				<executions>
 					<execution>
+						<id>add-java</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>java-gen</source>
+							</sources>
+						</configuration>
+					</execution>
+					<execution>
 						<id>add-source</id>
 						<phase>generate-sources</phase>
 						<goals>

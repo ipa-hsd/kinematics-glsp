@@ -1,8 +1,8 @@
 /**
  */
-package kinematics.util;
+package kinematicsgraph.util;
 
-import kinematics.*;
+import kinematicsgraph.*;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -11,22 +11,26 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.eclipse.glsp.graph.GArgumentable;
+import org.eclipse.glsp.graph.GEdge;
+import org.eclipse.glsp.graph.GModelElement;
+
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see kinematics.KinematicsPackage
+ * @see kinematicsgraph.KinematicsgraphPackage
  * @generated
  */
-public class KinematicsAdapterFactory extends AdapterFactoryImpl {
+public class KinematicsgraphAdapterFactory extends AdapterFactoryImpl {
    /**
     * The cached model package.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     */
-   protected static KinematicsPackage modelPackage;
+   protected static KinematicsgraphPackage modelPackage;
 
    /**
     * Creates an instance of the adapter factory.
@@ -34,9 +38,9 @@ public class KinematicsAdapterFactory extends AdapterFactoryImpl {
     * <!-- end-user-doc -->
     * @generated
     */
-   public KinematicsAdapterFactory() {
+   public KinematicsgraphAdapterFactory() {
       if (modelPackage == null) {
-         modelPackage = KinematicsPackage.eINSTANCE;
+         modelPackage = KinematicsgraphPackage.eINSTANCE;
       }
    }
 
@@ -65,23 +69,27 @@ public class KinematicsAdapterFactory extends AdapterFactoryImpl {
     * <!-- end-user-doc -->
     * @generated
     */
-   protected KinematicsSwitch<Adapter> modelSwitch =
-      new KinematicsSwitch<Adapter>() {
+   protected KinematicsgraphSwitch<Adapter> modelSwitch =
+      new KinematicsgraphSwitch<Adapter>() {
          @Override
-         public Adapter caseLink(Link object) {
-            return createLinkAdapter();
-         }
-         @Override
-         public Adapter caseJoint(Joint object) {
-            return createJointAdapter();
-         }
-         @Override
-         public Adapter caseRobot(Robot object) {
-            return createRobotAdapter();
+         public Adapter caseJointEdge(JointEdge object) {
+            return createJointEdgeAdapter();
          }
          @Override
          public Adapter casePose(Pose object) {
             return createPoseAdapter();
+         }
+         @Override
+         public Adapter caseGArgumentable(GArgumentable object) {
+            return createGArgumentableAdapter();
+         }
+         @Override
+         public Adapter caseGModelElement(GModelElement object) {
+            return createGModelElementAdapter();
+         }
+         @Override
+         public Adapter caseGEdge(GEdge object) {
+            return createGEdgeAdapter();
          }
          @Override
          public Adapter defaultCase(EObject object) {
@@ -104,58 +112,72 @@ public class KinematicsAdapterFactory extends AdapterFactoryImpl {
 
 
    /**
-    * Creates a new adapter for an object of class '{@link kinematics.Link <em>Link</em>}'.
+    * Creates a new adapter for an object of class '{@link kinematicsgraph.JointEdge <em>Joint Edge</em>}'.
     * <!-- begin-user-doc -->
     * This default implementation returns null so that we can easily ignore cases;
     * it's useful to ignore a case when inheritance will catch all the cases anyway.
     * <!-- end-user-doc -->
     * @return the new adapter.
-    * @see kinematics.Link
+    * @see kinematicsgraph.JointEdge
     * @generated
     */
-   public Adapter createLinkAdapter() {
+   public Adapter createJointEdgeAdapter() {
       return null;
    }
 
    /**
-    * Creates a new adapter for an object of class '{@link kinematics.Joint <em>Joint</em>}'.
+    * Creates a new adapter for an object of class '{@link kinematicsgraph.Pose <em>Pose</em>}'.
     * <!-- begin-user-doc -->
     * This default implementation returns null so that we can easily ignore cases;
     * it's useful to ignore a case when inheritance will catch all the cases anyway.
     * <!-- end-user-doc -->
     * @return the new adapter.
-    * @see kinematics.Joint
-    * @generated
-    */
-   public Adapter createJointAdapter() {
-      return null;
-   }
-
-   /**
-    * Creates a new adapter for an object of class '{@link kinematics.Robot <em>Robot</em>}'.
-    * <!-- begin-user-doc -->
-    * This default implementation returns null so that we can easily ignore cases;
-    * it's useful to ignore a case when inheritance will catch all the cases anyway.
-    * <!-- end-user-doc -->
-    * @return the new adapter.
-    * @see kinematics.Robot
-    * @generated
-    */
-   public Adapter createRobotAdapter() {
-      return null;
-   }
-
-   /**
-    * Creates a new adapter for an object of class '{@link kinematics.Pose <em>Pose</em>}'.
-    * <!-- begin-user-doc -->
-    * This default implementation returns null so that we can easily ignore cases;
-    * it's useful to ignore a case when inheritance will catch all the cases anyway.
-    * <!-- end-user-doc -->
-    * @return the new adapter.
-    * @see kinematics.Pose
+    * @see kinematicsgraph.Pose
     * @generated
     */
    public Adapter createPoseAdapter() {
+      return null;
+   }
+
+   /**
+    * Creates a new adapter for an object of class '{@link org.eclipse.glsp.graph.GArgumentable <em>GArgumentable</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see org.eclipse.glsp.graph.GArgumentable
+    * @generated
+    */
+   public Adapter createGArgumentableAdapter() {
+      return null;
+   }
+
+   /**
+    * Creates a new adapter for an object of class '{@link org.eclipse.glsp.graph.GModelElement <em>GModel Element</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see org.eclipse.glsp.graph.GModelElement
+    * @generated
+    */
+   public Adapter createGModelElementAdapter() {
+      return null;
+   }
+
+   /**
+    * Creates a new adapter for an object of class '{@link org.eclipse.glsp.graph.GEdge <em>GEdge</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see org.eclipse.glsp.graph.GEdge
+    * @generated
+    */
+   public Adapter createGEdgeAdapter() {
       return null;
    }
 
@@ -171,4 +193,4 @@ public class KinematicsAdapterFactory extends AdapterFactoryImpl {
       return null;
    }
 
-} //KinematicsAdapterFactory
+} //KinematicsgraphAdapterFactory

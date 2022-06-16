@@ -15,6 +15,7 @@
  ********************************************************************************/
 package de.fraunhofer.ipa.kinematics.glsp;
 
+import org.eclipse.glsp.graph.GraphExtension;
 import org.eclipse.glsp.server.di.MultiBinding;
 import org.eclipse.glsp.server.diagram.DiagramConfiguration;
 import org.eclipse.glsp.server.emf.EMFIdGenerator;
@@ -27,9 +28,15 @@ import org.eclipse.glsp.server.operations.OperationHandler;
 import de.fraunhofer.ipa.kinematics.glsp.handler.CreateJointEdgeHandler;
 import de.fraunhofer.ipa.kinematics.glsp.handler.CreateLinkNodeHandler;
 import de.fraunhofer.ipa.kinematics.glsp.model.KinematicsGModelFactory;
+import de.fraunhofer.ipa.kinematics.glsp.model.KinematicsGraphExtension;
 import de.fraunhofer.ipa.kinematics.glsp.model.KinematicsSourceModelStorage;
 
 public class KinematicsDiagramModule extends EMFNotationDiagramModule {
+
+   @Override
+   protected Class<? extends GraphExtension> bindGraphExtension() {
+      return KinematicsGraphExtension.class;
+   }
 
    @Override
    protected Class<? extends DiagramConfiguration> bindDiagramConfiguration() {

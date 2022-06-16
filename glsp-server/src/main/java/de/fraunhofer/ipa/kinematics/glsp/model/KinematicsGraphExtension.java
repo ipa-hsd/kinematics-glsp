@@ -1,5 +1,5 @@
 /********************************************************************************
- * Copyright (c) 2022 EclipseSource and others.
+ * Copyright (c) 2020 EclipseSource and others.
  *
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v. 2.0 which is available at
@@ -13,15 +13,24 @@
  *
  * SPDX-License-Identifier: EPL-2.0 OR GPL-2.0 WITH Classpath-exception-2.0
  ********************************************************************************/
-package de.fraunhofer.ipa.kinematics.glsp;
+package de.fraunhofer.ipa.kinematics.glsp.model;
 
-import org.eclipse.glsp.graph.DefaultTypes;
+import org.eclipse.emf.ecore.EFactory;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.glsp.graph.GraphExtension;
 
-public final class KinematicsModelTypes {
-   private KinematicsModelTypes() {}
+import kinematicsgraph.KinematicsgraphFactory;
+import kinematicsgraph.KinematicsgraphPackage;
 
-   public static final String LINK = DefaultTypes.NODE;
-   public static final String JOINT = DefaultTypes.EDGE;
-   public static final String REVOLUTE_JOINT = "joint:revolute";
+public class KinematicsGraphExtension implements GraphExtension {
 
+   @Override
+   public EPackage getEPackage() { // TODO Auto-generated method stub
+      return KinematicsgraphPackage.eINSTANCE;
+   }
+
+   @Override
+   public EFactory getEFactory() { // TODO Auto-generated method stub
+      return KinematicsgraphFactory.eINSTANCE;
+   }
 }

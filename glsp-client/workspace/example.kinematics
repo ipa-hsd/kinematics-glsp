@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kinematics:Robot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:kinematics="http://de.fraunhofer.ipa/kinematics" id="root" name="Test Robot">
+  <links name="NewLink0" id="90bccc9e-5238-47bf-8402-86d43cef7ac2"/>
+  <links name="NewLink1" id="cf8b88b5-bb59-43a7-a235-00e44c284cfe"/>
+  <joints name="NewJoint0" id="c64d1629-fd0f-4349-88d5-814561e5f8cd" parent="90bccc9e-5238-47bf-8402-86d43cef7ac2" child="cf8b88b5-bb59-43a7-a235-00e44c284cfe">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joints>
+</kinematics:Robot>

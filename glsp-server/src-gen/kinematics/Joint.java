@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kinematics.Joint#getId <em>Id</em>}</li>
  *   <li>{@link kinematics.Joint#getParent <em>Parent</em>}</li>
  *   <li>{@link kinematics.Joint#getChild <em>Child</em>}</li>
+ *   <li>{@link kinematics.Joint#getOrigin <em>Origin</em>}</li>
  * </ul>
  *
  * @see kinematics.KinematicsPackage#getJoint()
@@ -111,5 +112,27 @@ public interface Joint extends EObject {
     * @generated
     */
    void setChild(Link value);
+
+   /**
+    * Returns the value of the '<em><b>Origin</b></em>' containment reference.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the value of the '<em>Origin</em>' containment reference.
+    * @see #setOrigin(Pose)
+    * @see kinematics.KinematicsPackage#getJoint_Origin()
+    * @model containment="true" required="true"
+    * @generated
+    */
+   Pose getOrigin();
+
+   /**
+    * Sets the value of the '{@link kinematics.Joint#getOrigin <em>Origin</em>}' containment reference.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @param value the new value of the '<em>Origin</em>' containment reference.
+    * @see #getOrigin()
+    * @generated
+    */
+   void setOrigin(Pose value);
 
 } // Joint
