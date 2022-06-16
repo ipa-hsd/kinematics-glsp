@@ -25,18 +25,22 @@ import org.eclipse.glsp.graph.GGraph;
 import org.eclipse.glsp.graph.GModelElement;
 import org.eclipse.glsp.graph.GModelRoot;
 import org.eclipse.glsp.graph.GNode;
-import org.eclipse.glsp.graph.builder.impl.GEdgeBuilder;
 import org.eclipse.glsp.graph.builder.impl.GLabelBuilder;
 import org.eclipse.glsp.graph.builder.impl.GLayoutOptions;
 import org.eclipse.glsp.graph.builder.impl.GNodeBuilder;
 import org.eclipse.glsp.graph.util.GConstants;
+import org.eclipse.glsp.graph.util.GraphUtil;
 import org.eclipse.glsp.server.emf.model.notation.Diagram;
+import org.eclipse.glsp.server.emf.model.notation.Edge;
 import org.eclipse.glsp.server.emf.notation.EMFNotationGModelFactory;
 
+import de.fraunhofer.ipa.kinematics.glsp.KinematicsBuilder.JointEdgeBuilder;
 import de.fraunhofer.ipa.kinematics.glsp.KinematicsModelTypes;
 import kinematics.Joint;
 import kinematics.Link;
 import kinematics.Robot;
+import kinematicsgraph.KinematicsgraphFactory;
+import kinematicsgraph.Pose;
 
 public class KinematicsGModelFactory extends EMFNotationGModelFactory {
 
@@ -79,10 +83,29 @@ public class KinematicsGModelFactory extends EMFNotationGModelFactory {
       GModelElement parentNode = findGNodeById(graph.getChildren(), parentId);
       GModelElement childNode = findGNodeById(graph.getChildren(), childId);
 
-      GEdgeBuilder jointEdgeBuilder = new GEdgeBuilder(KinematicsModelTypes.JOINT).source(parentNode)
+      Pose origin = KinematicsgraphFactory.eINSTANCE.createPose();
+      origin.setXyz(joint.getOrigin().getXyz());
+      origin.setRpy(joint.getOrigin().getRpy());
+
+      JointEdgeBuilder jointEdgeBuilder = new JointEdgeBuilder().source(parentNode)
          .target(childNode)
+         .setOrigin(origin)
          .id(idGenerator.getOrCreateId(joint));
       applyEdgeData(joint, jointEdgeBuilder);
       return jointEdgeBuilder.build();
+   }
+
+   private JointEdgeBuilder applyEdgeData(final EObject edgeElement, final JointEdgeBuilder builder) {
+      // TODO Auto-generated method stub
+      modelState.getIndex().getNotation(edgeElement, Edge.class)
+         .ifPresent(edge -> applyEdgeData(edge, builder));
+      return builder;
+   }
+
+   private static JointEdgeBuilder applyEdgeData(final Edge edge, final JointEdgeBuilder builder) {
+      if (edge.getBendPoints() != null) {
+         edge.getBendPoints().stream().map(GraphUtil::copy).forEachOrdered(builder::addRoutingPoint);
+      }
+      return builder;
    }
 }
