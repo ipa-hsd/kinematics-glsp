@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.emf.ecp.view.model:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.emf.ecp.view.model="http://org/eclipse/emf/ecp/view/model/1180" xmi:id="_ZpfnoBl2Ee2VBtEJHb4pMw" name="Joint">
+  <rootEClass href="http://de.fraunhofer.ipa/kinematics#//Joint"/>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_ZpoxkBl2Ee2VBtEJHb4pMw" name="Control name">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_ZpoxkRl2Ee2VBtEJHb4pMw">
+      <domainModelEFeature xsi:type="ecore:EAttribute" href="http://de.fraunhofer.ipa/kinematics#//Joint/name"/>
+    </domainModelReference>
+  </children>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_Zpoxkhl2Ee2VBtEJHb4pMw" name="Control id">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_Zpoxkxl2Ee2VBtEJHb4pMw">
+      <domainModelEFeature xsi:type="ecore:EAttribute" href="http://de.fraunhofer.ipa/kinematics#//Joint/id"/>
+    </domainModelReference>
+  </children>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_ZpoxlBl2Ee2VBtEJHb4pMw" name="Control parent">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_ZpoxlRl2Ee2VBtEJHb4pMw">
+      <domainModelEFeature xsi:type="ecore:EReference" href="http://de.fraunhofer.ipa/kinematics#//Joint/parent"/>
+    </domainModelReference>
+  </children>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_Zpoxlhl2Ee2VBtEJHb4pMw" name="Control child">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_Zpoxlxl2Ee2VBtEJHb4pMw">
+      <domainModelEFeature xsi:type="ecore:EReference" href="http://de.fraunhofer.ipa/kinematics#//Joint/child"/>
+    </domainModelReference>
+  </children>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_ZpoxmBl2Ee2VBtEJHb4pMw" name="Control origin">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_ZpoxmRl2Ee2VBtEJHb4pMw">
+      <domainModelEFeature xsi:type="ecore:EReference" href="http://de.fraunhofer.ipa/kinematics#//Joint/origin"/>
+    </domainModelReference>
+  </children>
+  <ecorePaths>/org.eclipse.glsp.example.kinematics/model/kinematics.ecore</ecorePaths>
+</org.eclipse.emf.ecp.view.model:View>

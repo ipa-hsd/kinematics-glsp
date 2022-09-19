@@ -16,6 +16,8 @@
 package de.fraunhofer.ipa.kinematics.glsp;
 
 import org.eclipse.glsp.graph.GraphExtension;
+import org.eclipse.glsp.server.actions.Action;
+import org.eclipse.glsp.server.actions.ActionHandler;
 import org.eclipse.glsp.server.di.MultiBinding;
 import org.eclipse.glsp.server.diagram.DiagramConfiguration;
 import org.eclipse.glsp.server.emf.EMFIdGenerator;
@@ -25,8 +27,16 @@ import org.eclipse.glsp.server.emf.notation.EMFNotationDiagramModule;
 import org.eclipse.glsp.server.features.core.model.GModelFactory;
 import org.eclipse.glsp.server.operations.OperationHandler;
 
+import de.fraunhofer.ipa.kinematics.glsp.actions.SetModelElementAction;
+import de.fraunhofer.ipa.kinematics.glsp.actions.SetSemanticUriAction;
+import de.fraunhofer.ipa.kinematics.glsp.actions.SetTypeSchemaAction;
+import de.fraunhofer.ipa.kinematics.glsp.actions.SetUISchemaAction;
 import de.fraunhofer.ipa.kinematics.glsp.handler.CreateJointEdgeHandler;
 import de.fraunhofer.ipa.kinematics.glsp.handler.CreateLinkNodeHandler;
+import de.fraunhofer.ipa.kinematics.glsp.handler.RequestModelElementActionHandler;
+import de.fraunhofer.ipa.kinematics.glsp.handler.RequestSemanticUriActionHandler;
+import de.fraunhofer.ipa.kinematics.glsp.handler.RequestTypeSchemaActionHandler;
+import de.fraunhofer.ipa.kinematics.glsp.handler.RequestUISchemaActionHandler;
 import de.fraunhofer.ipa.kinematics.glsp.model.KinematicsGModelFactory;
 import de.fraunhofer.ipa.kinematics.glsp.model.KinematicsGraphExtension;
 import de.fraunhofer.ipa.kinematics.glsp.model.KinematicsSourceModelStorage;
@@ -60,6 +70,24 @@ public class KinematicsDiagramModule extends EMFNotationDiagramModule {
    protected Class<? extends EMFIdGenerator> bindEMFIdGenerator() {
       // all our elements inherit from Identifiable and have an ID attribute set
       return AttributeIdGenerator.class;
+   }
+
+   @Override
+   protected void configureActionHandlers(final MultiBinding<ActionHandler> binding) {
+      super.configureActionHandlers(binding);
+      binding.add(RequestSemanticUriActionHandler.class);
+      binding.add(RequestModelElementActionHandler.class);
+      binding.add(RequestTypeSchemaActionHandler.class);
+      binding.add(RequestUISchemaActionHandler.class);
+   }
+
+   @Override
+   protected void configureClientActions(final MultiBinding<Action> binding) {
+      super.configureClientActions(binding);
+      binding.add(SetSemanticUriAction.class);
+      binding.add(SetModelElementAction.class);
+      binding.add(SetTypeSchemaAction.class);
+      binding.add(SetUISchemaAction.class);
    }
 
    // @Override

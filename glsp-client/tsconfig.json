@@ -3,5 +3,11 @@
   "compilerOptions": {
     "baseUrl": "."
   },
-  "include": ["minimal-glsp/src", "minimal-theia/src", "minimal-standalone"]
+  "include": [
+    "ecore-property-view/src",
+    "hello-world-extension/src",
+    "minimal-glsp/src",
+    "minimal-theia/src",
+    "minimal-standalone"
+  ]
 }

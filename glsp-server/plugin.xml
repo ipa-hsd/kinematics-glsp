@@ -54,4 +54,12 @@
             genModel="src/main/resources/kinematics-graph.genmodel"/>
    </extension>
 
+
+<extension  point="org.eclipse.emf.ecp.view.model.provider.xmi.file">
+<file filePath="model/Joint.view"/>
+
+<file filePath="model/Robot.view"/>
+
+<file filePath="model/Link.view"/>
+</extension>
 </plugin>

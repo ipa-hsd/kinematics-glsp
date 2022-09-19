@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kinematics:Robot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:kinematics="http://de.fraunhofer.ipa/kinematics" id="root" name="Test Robot">
-  <links name="NewLink0" id="90bccc9e-5238-47bf-8402-86d43cef7ac2"/>
-  <links name="NewLink1" id="cf8b88b5-bb59-43a7-a235-00e44c284cfe"/>
-  <joints name="NewJoint0" id="c64d1629-fd0f-4349-88d5-814561e5f8cd" parent="90bccc9e-5238-47bf-8402-86d43cef7ac2" child="cf8b88b5-bb59-43a7-a235-00e44c284cfe">
+  <links name="NewLink0" id="95e0cf3b-5e34-4f5d-9a4d-b6a21c6b9af0"/>
+  <links name="NewLink1" id="c9910f32-3cd0-484d-b18c-b2539551208f"/>
+  <links name="NewLink2" id="5946441d-5d99-4f69-8c4c-fd31b95c904f"/>
+  <links name="NewLink3" id="7bea19ea-3a1b-46b1-a808-6765c6052333"/>
+  <links name="NewLink4" id="b1d76cc0-9757-40b3-ab44-f0bfcf07c4ca"/>
+  <joints name="NewJoint0" id="64b3e2c8-2842-4f54-a8db-67cfa04479b3" parent="95e0cf3b-5e34-4f5d-9a4d-b6a21c6b9af0" child="c9910f32-3cd0-484d-b18c-b2539551208f">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joints>
+  <joints name="NewJoint0" id="e970b3cb-0c18-485a-a187-20475380815c" parent="95e0cf3b-5e34-4f5d-9a4d-b6a21c6b9af0" child="5946441d-5d99-4f69-8c4c-fd31b95c904f">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joints>
+  <joints name="NewJoint0" id="3f7a0a82-d89b-4df4-8e5b-d14de75065e4" parent="c9910f32-3cd0-484d-b18c-b2539551208f" child="b1d76cc0-9757-40b3-ab44-f0bfcf07c4ca">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joints>
+  <joints name="NewJoint0" id="464915a5-76af-4857-bad8-2e7d0c72a702" parent="c9910f32-3cd0-484d-b18c-b2539551208f" child="7bea19ea-3a1b-46b1-a808-6765c6052333">
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joints>
 </kinematics:Robot>
