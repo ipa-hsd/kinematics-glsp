@@ -16,8 +16,6 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.glsp.graph.GraphPackage;
 
-import org.eclipse.glsp.graph.impl.GraphPackageImpl;
-
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model <b>Package</b>.
@@ -86,17 +84,14 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
 
       isInited = true;
 
-      // Obtain or create and register interdependencies
-      Object registeredPackage = EPackage.Registry.INSTANCE.getEPackage(GraphPackage.eNS_URI);
-      GraphPackageImpl theGraphPackage = (GraphPackageImpl)(registeredPackage instanceof GraphPackageImpl ? registeredPackage : GraphPackage.eINSTANCE);
+      // Initialize simple dependencies
+      GraphPackage.eINSTANCE.eClass();
 
       // Create package meta-data objects
       theKinematicsgraphPackage.createPackageContents();
-      theGraphPackage.createPackageContents();
 
       // Initialize created meta-data
       theKinematicsgraphPackage.initializePackageContents();
-      theGraphPackage.initializePackageContents();
 
       // Mark meta-data to indicate it can't be changed
       theKinematicsgraphPackage.freeze();
