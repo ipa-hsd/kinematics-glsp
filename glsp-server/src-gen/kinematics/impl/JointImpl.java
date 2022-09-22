@@ -5,6 +5,7 @@ package kinematics.impl;
 import kinematics.Joint;
 import kinematics.JointType;
 import kinematics.KinematicsPackage;
+import kinematics.Limit;
 import kinematics.Link;
 
 import kinematics.Pose;
@@ -31,444 +32,510 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link kinematics.impl.JointImpl#getChild <em>Child</em>}</li>
  *   <li>{@link kinematics.impl.JointImpl#getOrigin <em>Origin</em>}</li>
  *   <li>{@link kinematics.impl.JointImpl#getType <em>Type</em>}</li>
+ *   <li>{@link kinematics.impl.JointImpl#getLimit <em>Limit</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
    /**
-	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #getName()
+    * @generated
+    * @ordered
+    */
    protected static final String NAME_EDEFAULT = null;
 
    /**
-	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
+    * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @see #getName()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #getName()
+    * @generated
+    * @ordered
+    */
    protected String name = NAME_EDEFAULT;
 
    /**
-	 * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
+    * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #getId()
+    * @generated
+    * @ordered
+    */
    protected static final String ID_EDEFAULT = null;
 
    /**
-	 * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
+    * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @see #getId()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #getId()
+    * @generated
+    * @ordered
+    */
    protected String id = ID_EDEFAULT;
 
    /**
-	 * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
-	 * <!-- begin-user-doc -->
+    * The cached value of the '{@link #getParent() <em>Parent</em>}' reference.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @see #getParent()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #getParent()
+    * @generated
+    * @ordered
+    */
    protected Link parent;
 
    /**
-	 * The cached value of the '{@link #getChild() <em>Child</em>}' reference.
-	 * <!-- begin-user-doc -->
+    * The cached value of the '{@link #getChild() <em>Child</em>}' reference.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @see #getChild()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #getChild()
+    * @generated
+    * @ordered
+    */
    protected Link child;
 
    /**
-	 * The cached value of the '{@link #getOrigin() <em>Origin</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+    * The cached value of the '{@link #getOrigin() <em>Origin</em>}' containment reference.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @see #getOrigin()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #getOrigin()
+    * @generated
+    * @ordered
+    */
    protected Pose origin;
 
    /**
-	 * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
+    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #getType()
+    * @generated
+    * @ordered
+    */
 	protected static final JointType TYPE_EDEFAULT = JointType.FIXED;
 
 			/**
-	 * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc -->
+    * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getType()
-	 * @generated
-	 * @ordered
-	 */
+    * @see #getType()
+    * @generated
+    * @ordered
+    */
 	protected JointType type = TYPE_EDEFAULT;
 
 			/**
-	 * <!-- begin-user-doc -->
+    * The cached value of the '{@link #getLimit() <em>Limit</em>}' containment reference.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @see #getLimit()
+    * @generated
+    * @ordered
+    */
+   protected Limit limit;
+
+         /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
    protected JointImpl() {
-		super();
-	}
+      super();
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    @Override
    protected EClass eStaticClass() {
-		return KinematicsPackage.Literals.JOINT;
-	}
+      return KinematicsPackage.Literals.JOINT;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public String getName() {
-		return name;
-	}
+      return name;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public void setName(String newName) {
-		String oldName = name;
-		name = newName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__NAME, oldName, name));
-	}
+      String oldName = name;
+      name = newName;
+      if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__NAME, oldName, name));
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public String getId() {
-		return id;
-	}
+      return id;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public void setId(String newId) {
-		String oldId = id;
-		id = newId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__ID, oldId, id));
-	}
+      String oldId = id;
+      id = newId;
+      if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__ID, oldId, id));
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public Link getParent() {
-		if (parent != null && parent.eIsProxy()) {
-			InternalEObject oldParent = (InternalEObject)parent;
-			parent = (Link)eResolveProxy(oldParent);
-			if (parent != oldParent) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, KinematicsPackage.JOINT__PARENT, oldParent, parent));
-			}
-		}
-		return parent;
-	}
+      if (parent != null && parent.eIsProxy()) {
+         InternalEObject oldParent = (InternalEObject)parent;
+         parent = (Link)eResolveProxy(oldParent);
+         if (parent != oldParent) {
+            if (eNotificationRequired())
+               eNotify(new ENotificationImpl(this, Notification.RESOLVE, KinematicsPackage.JOINT__PARENT, oldParent, parent));
+         }
+      }
+      return parent;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public Link basicGetParent() {
-		return parent;
-	}
+      return parent;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public void setParent(Link newParent) {
-		Link oldParent = parent;
-		parent = newParent;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__PARENT, oldParent, parent));
-	}
+      Link oldParent = parent;
+      parent = newParent;
+      if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__PARENT, oldParent, parent));
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public Link getChild() {
-		if (child != null && child.eIsProxy()) {
-			InternalEObject oldChild = (InternalEObject)child;
-			child = (Link)eResolveProxy(oldChild);
-			if (child != oldChild) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, KinematicsPackage.JOINT__CHILD, oldChild, child));
-			}
-		}
-		return child;
-	}
+      if (child != null && child.eIsProxy()) {
+         InternalEObject oldChild = (InternalEObject)child;
+         child = (Link)eResolveProxy(oldChild);
+         if (child != oldChild) {
+            if (eNotificationRequired())
+               eNotify(new ENotificationImpl(this, Notification.RESOLVE, KinematicsPackage.JOINT__CHILD, oldChild, child));
+         }
+      }
+      return child;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public Link basicGetChild() {
-		return child;
-	}
+      return child;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public void setChild(Link newChild) {
-		Link oldChild = child;
-		child = newChild;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__CHILD, oldChild, child));
-	}
+      Link oldChild = child;
+      child = newChild;
+      if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__CHILD, oldChild, child));
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public Pose getOrigin() {
-		return origin;
-	}
+      return origin;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public NotificationChain basicSetOrigin(Pose newOrigin, NotificationChain msgs) {
-		Pose oldOrigin = origin;
-		origin = newOrigin;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__ORIGIN, oldOrigin, newOrigin);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
+      Pose oldOrigin = origin;
+      origin = newOrigin;
+      if (eNotificationRequired()) {
+         ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__ORIGIN, oldOrigin, newOrigin);
+         if (msgs == null) msgs = notification; else msgs.add(notification);
+      }
+      return msgs;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public void setOrigin(Pose newOrigin) {
-		if (newOrigin != origin) {
-			NotificationChain msgs = null;
-			if (origin != null)
-				msgs = ((InternalEObject)origin).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KinematicsPackage.JOINT__ORIGIN, null, msgs);
-			if (newOrigin != null)
-				msgs = ((InternalEObject)newOrigin).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KinematicsPackage.JOINT__ORIGIN, null, msgs);
-			msgs = basicSetOrigin(newOrigin, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__ORIGIN, newOrigin, newOrigin));
-	}
+      if (newOrigin != origin) {
+         NotificationChain msgs = null;
+         if (origin != null)
+            msgs = ((InternalEObject)origin).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KinematicsPackage.JOINT__ORIGIN, null, msgs);
+         if (newOrigin != null)
+            msgs = ((InternalEObject)newOrigin).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KinematicsPackage.JOINT__ORIGIN, null, msgs);
+         msgs = basicSetOrigin(newOrigin, msgs);
+         if (msgs != null) msgs.dispatch();
+      }
+      else if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__ORIGIN, newOrigin, newOrigin));
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public JointType getType() {
-		return type;
-	}
+      return type;
+   }
 
 			/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public void setType(JointType newType) {
-		JointType oldType = type;
-		type = newType == null ? TYPE_EDEFAULT : newType;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__TYPE, oldType, type));
-	}
+      JointType oldType = type;
+      type = newType == null ? TYPE_EDEFAULT : newType;
+      if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__TYPE, oldType, type));
+   }
 
 			/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
+   public Limit getLimit() {
+      return limit;
+   }
+
+         /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public NotificationChain basicSetLimit(Limit newLimit, NotificationChain msgs) {
+      Limit oldLimit = limit;
+      limit = newLimit;
+      if (eNotificationRequired()) {
+         ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__LIMIT, oldLimit, newLimit);
+         if (msgs == null) msgs = notification; else msgs.add(notification);
+      }
+      return msgs;
+   }
+
+         /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public void setLimit(Limit newLimit) {
+      if (newLimit != limit) {
+         NotificationChain msgs = null;
+         if (limit != null)
+            msgs = ((InternalEObject)limit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KinematicsPackage.JOINT__LIMIT, null, msgs);
+         if (newLimit != null)
+            msgs = ((InternalEObject)newLimit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KinematicsPackage.JOINT__LIMIT, null, msgs);
+         msgs = basicSetLimit(newLimit, msgs);
+         if (msgs != null) msgs.dispatch();
+      }
+      else if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__LIMIT, newLimit, newLimit));
+   }
+
+         /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
    @Override
    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case KinematicsPackage.JOINT__ORIGIN:
-				return basicSetOrigin(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+      switch (featureID) {
+         case KinematicsPackage.JOINT__ORIGIN:
+            return basicSetOrigin(null, msgs);
+         case KinematicsPackage.JOINT__LIMIT:
+            return basicSetLimit(null, msgs);
+      }
+      return super.eInverseRemove(otherEnd, featureID, msgs);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    @Override
    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case KinematicsPackage.JOINT__NAME:
-				return getName();
-			case KinematicsPackage.JOINT__ID:
-				return getId();
-			case KinematicsPackage.JOINT__PARENT:
-				if (resolve) return getParent();
-				return basicGetParent();
-			case KinematicsPackage.JOINT__CHILD:
-				if (resolve) return getChild();
-				return basicGetChild();
-			case KinematicsPackage.JOINT__ORIGIN:
-				return getOrigin();
-			case KinematicsPackage.JOINT__TYPE:
-				return getType();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+      switch (featureID) {
+         case KinematicsPackage.JOINT__NAME:
+            return getName();
+         case KinematicsPackage.JOINT__ID:
+            return getId();
+         case KinematicsPackage.JOINT__PARENT:
+            if (resolve) return getParent();
+            return basicGetParent();
+         case KinematicsPackage.JOINT__CHILD:
+            if (resolve) return getChild();
+            return basicGetChild();
+         case KinematicsPackage.JOINT__ORIGIN:
+            return getOrigin();
+         case KinematicsPackage.JOINT__TYPE:
+            return getType();
+         case KinematicsPackage.JOINT__LIMIT:
+            return getLimit();
+      }
+      return super.eGet(featureID, resolve, coreType);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    @Override
    public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case KinematicsPackage.JOINT__NAME:
-				setName((String)newValue);
-				return;
-			case KinematicsPackage.JOINT__ID:
-				setId((String)newValue);
-				return;
-			case KinematicsPackage.JOINT__PARENT:
-				setParent((Link)newValue);
-				return;
-			case KinematicsPackage.JOINT__CHILD:
-				setChild((Link)newValue);
-				return;
-			case KinematicsPackage.JOINT__ORIGIN:
-				setOrigin((Pose)newValue);
-				return;
-			case KinematicsPackage.JOINT__TYPE:
-				setType((JointType)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+      switch (featureID) {
+         case KinematicsPackage.JOINT__NAME:
+            setName((String)newValue);
+            return;
+         case KinematicsPackage.JOINT__ID:
+            setId((String)newValue);
+            return;
+         case KinematicsPackage.JOINT__PARENT:
+            setParent((Link)newValue);
+            return;
+         case KinematicsPackage.JOINT__CHILD:
+            setChild((Link)newValue);
+            return;
+         case KinematicsPackage.JOINT__ORIGIN:
+            setOrigin((Pose)newValue);
+            return;
+         case KinematicsPackage.JOINT__TYPE:
+            setType((JointType)newValue);
+            return;
+         case KinematicsPackage.JOINT__LIMIT:
+            setLimit((Limit)newValue);
+            return;
+      }
+      super.eSet(featureID, newValue);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    @Override
    public void eUnset(int featureID) {
-		switch (featureID) {
-			case KinematicsPackage.JOINT__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case KinematicsPackage.JOINT__ID:
-				setId(ID_EDEFAULT);
-				return;
-			case KinematicsPackage.JOINT__PARENT:
-				setParent((Link)null);
-				return;
-			case KinematicsPackage.JOINT__CHILD:
-				setChild((Link)null);
-				return;
-			case KinematicsPackage.JOINT__ORIGIN:
-				setOrigin((Pose)null);
-				return;
-			case KinematicsPackage.JOINT__TYPE:
-				setType(TYPE_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+      switch (featureID) {
+         case KinematicsPackage.JOINT__NAME:
+            setName(NAME_EDEFAULT);
+            return;
+         case KinematicsPackage.JOINT__ID:
+            setId(ID_EDEFAULT);
+            return;
+         case KinematicsPackage.JOINT__PARENT:
+            setParent((Link)null);
+            return;
+         case KinematicsPackage.JOINT__CHILD:
+            setChild((Link)null);
+            return;
+         case KinematicsPackage.JOINT__ORIGIN:
+            setOrigin((Pose)null);
+            return;
+         case KinematicsPackage.JOINT__TYPE:
+            setType(TYPE_EDEFAULT);
+            return;
+         case KinematicsPackage.JOINT__LIMIT:
+            setLimit((Limit)null);
+            return;
+      }
+      super.eUnset(featureID);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    @Override
    public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case KinematicsPackage.JOINT__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case KinematicsPackage.JOINT__ID:
-				return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-			case KinematicsPackage.JOINT__PARENT:
-				return parent != null;
-			case KinematicsPackage.JOINT__CHILD:
-				return child != null;
-			case KinematicsPackage.JOINT__ORIGIN:
-				return origin != null;
-			case KinematicsPackage.JOINT__TYPE:
-				return type != TYPE_EDEFAULT;
-		}
-		return super.eIsSet(featureID);
-	}
+      switch (featureID) {
+         case KinematicsPackage.JOINT__NAME:
+            return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+         case KinematicsPackage.JOINT__ID:
+            return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+         case KinematicsPackage.JOINT__PARENT:
+            return parent != null;
+         case KinematicsPackage.JOINT__CHILD:
+            return child != null;
+         case KinematicsPackage.JOINT__ORIGIN:
+            return origin != null;
+         case KinematicsPackage.JOINT__TYPE:
+            return type != TYPE_EDEFAULT;
+         case KinematicsPackage.JOINT__LIMIT:
+            return limit != null;
+      }
+      return super.eIsSet(featureID);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    @Override
    public String toString() {
-		if (eIsProxy()) return super.toString();
+      if (eIsProxy()) return super.toString();
 
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (name: ");
-		result.append(name);
-		result.append(", id: ");
-		result.append(id);
-		result.append(", type: ");
-		result.append(type);
-		result.append(')');
-		return result.toString();
-	}
+      StringBuilder result = new StringBuilder(super.toString());
+      result.append(" (name: ");
+      result.append(name);
+      result.append(", id: ");
+      result.append(id);
+      result.append(", type: ");
+      result.append(type);
+      result.append(')');
+      return result.toString();
+   }
 
 } //JointImpl

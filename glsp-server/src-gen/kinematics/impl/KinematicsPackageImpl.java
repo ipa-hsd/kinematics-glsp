@@ -6,6 +6,7 @@ import kinematics.Joint;
 import kinematics.JointType;
 import kinematics.KinematicsFactory;
 import kinematics.KinematicsPackage;
+import kinematics.Limit;
 import kinematics.Link;
 import kinematics.Pose;
 import kinematics.Robot;
@@ -26,386 +27,461 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  */
 public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPackage {
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    private EClass linkEClass = null;
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    private EClass jointEClass = null;
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    private EClass robotEClass = null;
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    private EClass poseEClass = null;
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   private EClass limitEClass = null;
+
+   /**
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	private EEnum jointTypeEEnum = null;
 
 			/**
-	 * Creates an instance of the model <b>Package</b>, registered with
-	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
-	 * package URI value.
-	 * <p>Note: the correct way to create the package is via the static
-	 * factory method {@link #init init()}, which also performs
-	 * initialization of the package, or returns the registered package,
-	 * if one already exists.
-	 * <!-- begin-user-doc -->
+    * Creates an instance of the model <b>Package</b>, registered with
+    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
+    * package URI value.
+    * <p>Note: the correct way to create the package is via the static
+    * factory method {@link #init init()}, which also performs
+    * initialization of the package, or returns the registered package,
+    * if one already exists.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @see org.eclipse.emf.ecore.EPackage.Registry
-	 * @see kinematics.KinematicsPackage#eNS_URI
-	 * @see #init()
-	 * @generated
-	 */
+    * @see org.eclipse.emf.ecore.EPackage.Registry
+    * @see kinematics.KinematicsPackage#eNS_URI
+    * @see #init()
+    * @generated
+    */
    private KinematicsPackageImpl() {
-		super(eNS_URI, KinematicsFactory.eINSTANCE);
-	}
+      super(eNS_URI, KinematicsFactory.eINSTANCE);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    private static boolean isInited = false;
 
    /**
-	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 *
-	 * <p>This method is used to initialize {@link KinematicsPackage#eINSTANCE} when that field is accessed.
-	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
-	 * <!-- begin-user-doc -->
+    * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
+    *
+    * <p>This method is used to initialize {@link KinematicsPackage#eINSTANCE} when that field is accessed.
+    * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @see #eNS_URI
-	 * @see #createPackageContents()
-	 * @see #initializePackageContents()
-	 * @generated
-	 */
+    * @see #eNS_URI
+    * @see #createPackageContents()
+    * @see #initializePackageContents()
+    * @generated
+    */
    public static KinematicsPackage init() {
-		if (isInited) return (KinematicsPackage)EPackage.Registry.INSTANCE.getEPackage(KinematicsPackage.eNS_URI);
+      if (isInited) return (KinematicsPackage)EPackage.Registry.INSTANCE.getEPackage(KinematicsPackage.eNS_URI);
 
-		// Obtain or create and register package
-		Object registeredKinematicsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
-		KinematicsPackageImpl theKinematicsPackage = registeredKinematicsPackage instanceof KinematicsPackageImpl ? (KinematicsPackageImpl)registeredKinematicsPackage : new KinematicsPackageImpl();
+      // Obtain or create and register package
+      Object registeredKinematicsPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+      KinematicsPackageImpl theKinematicsPackage = registeredKinematicsPackage instanceof KinematicsPackageImpl ? (KinematicsPackageImpl)registeredKinematicsPackage : new KinematicsPackageImpl();
 
-		isInited = true;
+      isInited = true;
 
-		// Create package meta-data objects
-		theKinematicsPackage.createPackageContents();
+      // Create package meta-data objects
+      theKinematicsPackage.createPackageContents();
 
-		// Initialize created meta-data
-		theKinematicsPackage.initializePackageContents();
+      // Initialize created meta-data
+      theKinematicsPackage.initializePackageContents();
 
-		// Mark meta-data to indicate it can't be changed
-		theKinematicsPackage.freeze();
+      // Mark meta-data to indicate it can't be changed
+      theKinematicsPackage.freeze();
 
-		// Update the registry and return the package
-		EPackage.Registry.INSTANCE.put(KinematicsPackage.eNS_URI, theKinematicsPackage);
-		return theKinematicsPackage;
-	}
+      // Update the registry and return the package
+      EPackage.Registry.INSTANCE.put(KinematicsPackage.eNS_URI, theKinematicsPackage);
+      return theKinematicsPackage;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public EClass getLink() {
-		return linkEClass;
-	}
+      return linkEClass;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public EAttribute getLink_Name() {
-		return (EAttribute)linkEClass.getEStructuralFeatures().get(0);
-	}
+      return (EAttribute)linkEClass.getEStructuralFeatures().get(0);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public EAttribute getLink_Id() {
-		return (EAttribute)linkEClass.getEStructuralFeatures().get(1);
-	}
+      return (EAttribute)linkEClass.getEStructuralFeatures().get(1);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public EClass getJoint() {
-		return jointEClass;
-	}
+      return jointEClass;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public EAttribute getJoint_Name() {
-		return (EAttribute)jointEClass.getEStructuralFeatures().get(0);
-	}
+      return (EAttribute)jointEClass.getEStructuralFeatures().get(0);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public EAttribute getJoint_Id() {
-		return (EAttribute)jointEClass.getEStructuralFeatures().get(1);
-	}
+      return (EAttribute)jointEClass.getEStructuralFeatures().get(1);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public EReference getJoint_Parent() {
-		return (EReference)jointEClass.getEStructuralFeatures().get(2);
-	}
+      return (EReference)jointEClass.getEStructuralFeatures().get(2);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public EReference getJoint_Child() {
-		return (EReference)jointEClass.getEStructuralFeatures().get(3);
-	}
+      return (EReference)jointEClass.getEStructuralFeatures().get(3);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public EReference getJoint_Origin() {
-		return (EReference)jointEClass.getEStructuralFeatures().get(4);
-	}
+      return (EReference)jointEClass.getEStructuralFeatures().get(4);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EAttribute getJoint_Type() {
-		return (EAttribute)jointEClass.getEStructuralFeatures().get(5);
-	}
+      return (EAttribute)jointEClass.getEStructuralFeatures().get(5);
+   }
 
 			/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
+   public EReference getJoint_Limit() {
+      return (EReference)jointEClass.getEStructuralFeatures().get(6);
+   }
+
+         /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
    public EClass getRobot() {
-		return robotEClass;
-	}
+      return robotEClass;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public EAttribute getRobot_Id() {
-		return (EAttribute)robotEClass.getEStructuralFeatures().get(0);
-	}
+      return (EAttribute)robotEClass.getEStructuralFeatures().get(0);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public EAttribute getRobot_Name() {
-		return (EAttribute)robotEClass.getEStructuralFeatures().get(1);
-	}
+      return (EAttribute)robotEClass.getEStructuralFeatures().get(1);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public EReference getRobot_Links() {
-		return (EReference)robotEClass.getEStructuralFeatures().get(2);
-	}
+      return (EReference)robotEClass.getEStructuralFeatures().get(2);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public EReference getRobot_Joints() {
-		return (EReference)robotEClass.getEStructuralFeatures().get(3);
-	}
+      return (EReference)robotEClass.getEStructuralFeatures().get(3);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public EClass getPose() {
-		return poseEClass;
-	}
+      return poseEClass;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public EAttribute getPose_Xyz() {
-		return (EAttribute)poseEClass.getEStructuralFeatures().get(0);
-	}
+      return (EAttribute)poseEClass.getEStructuralFeatures().get(0);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public EAttribute getPose_Rpy() {
-		return (EAttribute)poseEClass.getEStructuralFeatures().get(1);
-	}
+      return (EAttribute)poseEClass.getEStructuralFeatures().get(1);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EClass getLimit() {
+      return limitEClass;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getLimit_Effort() {
+      return (EAttribute)limitEClass.getEStructuralFeatures().get(0);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getLimit_Velocity() {
+      return (EAttribute)limitEClass.getEStructuralFeatures().get(1);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getLimit_Lower() {
+      return (EAttribute)limitEClass.getEStructuralFeatures().get(2);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getLimit_Upper() {
+      return (EAttribute)limitEClass.getEStructuralFeatures().get(3);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public EEnum getJointType() {
-		return jointTypeEEnum;
-	}
+      return jointTypeEEnum;
+   }
 
 			/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public KinematicsFactory getKinematicsFactory() {
-		return (KinematicsFactory)getEFactoryInstance();
-	}
+      return (KinematicsFactory)getEFactoryInstance();
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    private boolean isCreated = false;
 
    /**
-	 * Creates the meta-model objects for the package.  This method is
-	 * guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
+    * Creates the meta-model objects for the package.  This method is
+    * guarded to have no affect on any invocation but its first.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public void createPackageContents() {
-		if (isCreated) return;
-		isCreated = true;
+      if (isCreated) return;
+      isCreated = true;
 
-		// Create classes and their features
-		linkEClass = createEClass(LINK);
-		createEAttribute(linkEClass, LINK__NAME);
-		createEAttribute(linkEClass, LINK__ID);
+      // Create classes and their features
+      linkEClass = createEClass(LINK);
+      createEAttribute(linkEClass, LINK__NAME);
+      createEAttribute(linkEClass, LINK__ID);
 
-		jointEClass = createEClass(JOINT);
-		createEAttribute(jointEClass, JOINT__NAME);
-		createEAttribute(jointEClass, JOINT__ID);
-		createEReference(jointEClass, JOINT__PARENT);
-		createEReference(jointEClass, JOINT__CHILD);
-		createEReference(jointEClass, JOINT__ORIGIN);
-		createEAttribute(jointEClass, JOINT__TYPE);
+      jointEClass = createEClass(JOINT);
+      createEAttribute(jointEClass, JOINT__NAME);
+      createEAttribute(jointEClass, JOINT__ID);
+      createEReference(jointEClass, JOINT__PARENT);
+      createEReference(jointEClass, JOINT__CHILD);
+      createEReference(jointEClass, JOINT__ORIGIN);
+      createEAttribute(jointEClass, JOINT__TYPE);
+      createEReference(jointEClass, JOINT__LIMIT);
 
-		robotEClass = createEClass(ROBOT);
-		createEAttribute(robotEClass, ROBOT__ID);
-		createEAttribute(robotEClass, ROBOT__NAME);
-		createEReference(robotEClass, ROBOT__LINKS);
-		createEReference(robotEClass, ROBOT__JOINTS);
+      robotEClass = createEClass(ROBOT);
+      createEAttribute(robotEClass, ROBOT__ID);
+      createEAttribute(robotEClass, ROBOT__NAME);
+      createEReference(robotEClass, ROBOT__LINKS);
+      createEReference(robotEClass, ROBOT__JOINTS);
 
-		poseEClass = createEClass(POSE);
-		createEAttribute(poseEClass, POSE__XYZ);
-		createEAttribute(poseEClass, POSE__RPY);
+      poseEClass = createEClass(POSE);
+      createEAttribute(poseEClass, POSE__XYZ);
+      createEAttribute(poseEClass, POSE__RPY);
 
-		// Create enums
-		jointTypeEEnum = createEEnum(JOINT_TYPE);
-	}
+      limitEClass = createEClass(LIMIT);
+      createEAttribute(limitEClass, LIMIT__EFFORT);
+      createEAttribute(limitEClass, LIMIT__VELOCITY);
+      createEAttribute(limitEClass, LIMIT__LOWER);
+      createEAttribute(limitEClass, LIMIT__UPPER);
+
+      // Create enums
+      jointTypeEEnum = createEEnum(JOINT_TYPE);
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    private boolean isInitialized = false;
 
    /**
-	 * Complete the initialization of the package and its meta-model.  This
-	 * method is guarded to have no affect on any invocation but its first.
-	 * <!-- begin-user-doc -->
+    * Complete the initialization of the package and its meta-model.  This
+    * method is guarded to have no affect on any invocation but its first.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public void initializePackageContents() {
-		if (isInitialized) return;
-		isInitialized = true;
+      if (isInitialized) return;
+      isInitialized = true;
 
-		// Initialize package
-		setName(eNAME);
-		setNsPrefix(eNS_PREFIX);
-		setNsURI(eNS_URI);
+      // Initialize package
+      setName(eNAME);
+      setNsPrefix(eNS_PREFIX);
+      setNsURI(eNS_URI);
 
-		// Create type parameters
+      // Create type parameters
 
-		// Set bounds for type parameters
+      // Set bounds for type parameters
 
-		// Add supertypes to classes
+      // Add supertypes to classes
 
-		// Initialize classes, features, and operations; add parameters
-		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLink_Name(), ecorePackage.getEString(), "name", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLink_Id(), ecorePackage.getEString(), "id", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      // Initialize classes, features, and operations; add parameters
+      initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getLink_Name(), ecorePackage.getEString(), "name", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getLink_Id(), ecorePackage.getEString(), "id", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(jointEClass, Joint.class, "Joint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getJoint_Name(), ecorePackage.getEString(), "name", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJoint_Id(), ecorePackage.getEString(), "id", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJoint_Parent(), this.getLink(), null, "parent", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJoint_Child(), this.getLink(), null, "child", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getJoint_Origin(), this.getPose(), null, "origin", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getJoint_Type(), this.getJointType(), "type", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(jointEClass, Joint.class, "Joint", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getJoint_Name(), ecorePackage.getEString(), "name", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getJoint_Id(), ecorePackage.getEString(), "id", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getJoint_Parent(), this.getLink(), null, "parent", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getJoint_Child(), this.getLink(), null, "child", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getJoint_Origin(), this.getPose(), null, "origin", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getJoint_Type(), this.getJointType(), "type", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getJoint_Limit(), this.getLimit(), null, "limit", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getRobot_Id(), ecorePackage.getEString(), "id", null, 1, 1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getRobot_Name(), ecorePackage.getEString(), "name", null, 1, 1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRobot_Links(), this.getLink(), null, "links", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getRobot_Joints(), this.getJoint(), null, "joints", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getRobot_Id(), ecorePackage.getEString(), "id", null, 1, 1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getRobot_Name(), ecorePackage.getEString(), "name", null, 1, 1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getRobot_Links(), this.getLink(), null, "links", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getRobot_Joints(), this.getJoint(), null, "joints", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(poseEClass, Pose.class, "Pose", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPose_Xyz(), ecorePackage.getEString(), "xyz", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPose_Rpy(), ecorePackage.getEString(), "rpy", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEClass(poseEClass, Pose.class, "Pose", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getPose_Xyz(), ecorePackage.getEString(), "xyz", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getPose_Rpy(), ecorePackage.getEString(), "rpy", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		// Initialize enums and add enum literals
-		initEEnum(jointTypeEEnum, JointType.class, "JointType");
-		addEEnumLiteral(jointTypeEEnum, JointType.FIXED);
-		addEEnumLiteral(jointTypeEEnum, JointType.PRISMATIC);
-		addEEnumLiteral(jointTypeEEnum, JointType.REVOLUTE);
+      initEClass(limitEClass, Limit.class, "Limit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getLimit_Effort(), ecorePackage.getEDouble(), "effort", null, 1, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getLimit_Velocity(), ecorePackage.getEDouble(), "velocity", null, 1, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getLimit_Lower(), ecorePackage.getEDouble(), "lower", null, 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getLimit_Upper(), ecorePackage.getEDouble(), "upper", null, 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		// Create resource
-		createResource(eNS_URI);
-	}
+      // Initialize enums and add enum literals
+      initEEnum(jointTypeEEnum, JointType.class, "JointType");
+      addEEnumLiteral(jointTypeEEnum, JointType.FIXED);
+      addEEnumLiteral(jointTypeEEnum, JointType.PRISMATIC);
+      addEEnumLiteral(jointTypeEEnum, JointType.REVOLUTE);
+
+      // Create resource
+      createResource(eNS_URI);
+   }
 
 } //KinematicsPackageImpl

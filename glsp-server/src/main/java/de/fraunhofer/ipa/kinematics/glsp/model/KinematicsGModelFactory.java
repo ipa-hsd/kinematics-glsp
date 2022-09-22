@@ -41,6 +41,7 @@ import kinematics.Joint;
 import kinematics.Link;
 import kinematics.Robot;
 import kinematicsgraph.KinematicsgraphFactory;
+import kinematicsgraph.Limit;
 import kinematicsgraph.Pose;
 
 public class KinematicsGModelFactory extends EMFNotationGModelFactory {
@@ -77,6 +78,16 @@ public class KinematicsGModelFactory extends EMFNotationGModelFactory {
       return eList.stream().filter(node -> elementId.equals(node.getId())).findFirst().orElse(null);
    }
 
+   protected Limit getJointLimit(final Joint joint) {
+      Limit limit = KinematicsgraphFactory.eINSTANCE.createLimit();
+      limit.setEffort(joint.getLimit().getEffort());
+      limit.setVelocity(joint.getLimit().getVelocity());
+      limit.setLower(joint.getLimit().getLower());
+      limit.setUpper(joint.getLimit().getUpper());
+
+      return limit;
+   }
+
    protected GEdge createTransitionEdge(final Joint joint, final GGraph graph) {
       String parentId = joint.getParent().getId();
       String childId = joint.getChild().getId();
@@ -88,7 +99,7 @@ public class KinematicsGModelFactory extends EMFNotationGModelFactory {
       origin.setXyz(joint.getOrigin().getXyz());
       origin.setRpy(joint.getOrigin().getRpy());
 
-      System.out.println("joint: " + joint);
+      System.out.println("joint: " + joint + " " + joint.getLimit());
 
       switch (joint.getType()) {
          case FIXED:
@@ -99,9 +110,11 @@ public class KinematicsGModelFactory extends EMFNotationGModelFactory {
             applyEdgeData(joint, fixedJointEdgeBuilder);
             return fixedJointEdgeBuilder.build();
          case REVOLUTE:
+            Limit limit = getJointLimit(joint);
             RevoluteJointEdgeBuilder revoluteJointEdgeBuilder = new RevoluteJointEdgeBuilder().source(parentNode)
                .target(childNode)
                .setOrigin(origin)
+               .setLimit(limit)
                .id(idGenerator.getOrCreateId(joint));
             applyEdgeData(joint, revoluteJointEdgeBuilder);
             return revoluteJointEdgeBuilder.build();

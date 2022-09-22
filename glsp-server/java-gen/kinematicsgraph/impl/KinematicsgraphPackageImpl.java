@@ -6,6 +6,7 @@ import kinematicsgraph.FixedJointEdge;
 import kinematicsgraph.JointEdge;
 import kinematicsgraph.KinematicsgraphFactory;
 import kinematicsgraph.KinematicsgraphPackage;
+import kinematicsgraph.Limit;
 import kinematicsgraph.Pose;
 
 import kinematicsgraph.RevoluteJointEdge;
@@ -25,6 +26,13 @@ import org.eclipse.glsp.graph.GraphPackage;
  * @generated
  */
 public class KinematicsgraphPackageImpl extends EPackageImpl implements KinematicsgraphPackage {
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   private EClass limitEClass = null;
+
    /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -122,6 +130,51 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
     * <!-- end-user-doc -->
     * @generated
     */
+   public EClass getLimit() {
+      return limitEClass;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getLimit_Lower() {
+      return (EAttribute)limitEClass.getEStructuralFeatures().get(0);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getLimit_Upper() {
+      return (EAttribute)limitEClass.getEStructuralFeatures().get(1);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getLimit_Effort() {
+      return (EAttribute)limitEClass.getEStructuralFeatures().get(2);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getLimit_Velocity() {
+      return (EAttribute)limitEClass.getEStructuralFeatures().get(3);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
    public EClass getJointEdge() {
       return jointEdgeEClass;
    }
@@ -151,6 +204,15 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
     */
    public EClass getRevoluteJointEdge() {
       return revoluteJointEdgeEClass;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EReference getRevoluteJointEdge_Limit() {
+      return (EReference)revoluteJointEdgeEClass.getEStructuralFeatures().get(0);
    }
 
    /**
@@ -208,6 +270,12 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
       isCreated = true;
 
       // Create classes and their features
+      limitEClass = createEClass(LIMIT);
+      createEAttribute(limitEClass, LIMIT__LOWER);
+      createEAttribute(limitEClass, LIMIT__UPPER);
+      createEAttribute(limitEClass, LIMIT__EFFORT);
+      createEAttribute(limitEClass, LIMIT__VELOCITY);
+
       poseEClass = createEClass(POSE);
       createEAttribute(poseEClass, POSE__XYZ);
       createEAttribute(poseEClass, POSE__RPY);
@@ -218,6 +286,7 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
       fixedJointEdgeEClass = createEClass(FIXED_JOINT_EDGE);
 
       revoluteJointEdgeEClass = createEClass(REVOLUTE_JOINT_EDGE);
+      createEReference(revoluteJointEdgeEClass, REVOLUTE_JOINT_EDGE__LIMIT);
    }
 
    /**
@@ -256,6 +325,12 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
       revoluteJointEdgeEClass.getESuperTypes().add(this.getJointEdge());
 
       // Initialize classes, features, and operations; add parameters
+      initEClass(limitEClass, Limit.class, "Limit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getLimit_Lower(), ecorePackage.getEDouble(), "lower", null, 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getLimit_Upper(), ecorePackage.getEDouble(), "upper", null, 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getLimit_Effort(), ecorePackage.getEDouble(), "effort", null, 1, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getLimit_Velocity(), ecorePackage.getEDouble(), "velocity", null, 1, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
       initEClass(poseEClass, Pose.class, "Pose", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
       initEAttribute(getPose_Xyz(), ecorePackage.getEString(), "xyz", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEAttribute(getPose_Rpy(), ecorePackage.getEString(), "rpy", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -266,6 +341,7 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
       initEClass(fixedJointEdgeEClass, FixedJointEdge.class, "FixedJointEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
       initEClass(revoluteJointEdgeEClass, RevoluteJointEdge.class, "RevoluteJointEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEReference(getRevoluteJointEdge_Limit(), this.getLimit(), null, "limit", null, 1, 1, RevoluteJointEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       // Create resource
       createResource(eNS_URI);

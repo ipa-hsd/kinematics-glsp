@@ -28,6 +28,7 @@ import kinematics.Joint;
 import kinematics.JointType;
 import kinematics.KinematicsFactory;
 import kinematics.KinematicsPackage;
+import kinematics.Limit;
 import kinematics.Link;
 import kinematics.Pose;
 import kinematics.Robot;
@@ -103,6 +104,9 @@ public class CreateRevoluteJointEdgeHandler extends AbstractEMFCreateEdgeOperati
       newJoint.setOrigin(origin);
 
       newJoint.setType(JointType.REVOLUTE);
+
+      Limit limit = KinematicsFactory.eINSTANCE.createLimit();
+      newJoint.setLimit(limit);
 
       return newJoint;
    }

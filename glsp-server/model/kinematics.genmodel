@@ -22,6 +22,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics.ecore#//Joint/child"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics.ecore#//Joint/origin"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Joint/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kinematics.ecore#//Joint/limit"/>
     </genClasses>
     <genClasses ecoreClass="kinematics.ecore#//Robot">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Robot/id"/>
@@ -32,6 +33,12 @@
     <genClasses ecoreClass="kinematics.ecore#//Pose">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Pose/xyz"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Pose/rpy"/>
+    </genClasses>
+    <genClasses ecoreClass="kinematics.ecore#//Limit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Limit/effort"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Limit/velocity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Limit/lower"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics.ecore#//Limit/upper"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

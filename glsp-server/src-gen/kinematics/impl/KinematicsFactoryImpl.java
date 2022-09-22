@@ -21,159 +21,170 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
  */
 public class KinematicsFactoryImpl extends EFactoryImpl implements KinematicsFactory {
    /**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
+    * Creates the default factory implementation.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public static KinematicsFactory init() {
-		try {
-			KinematicsFactory theKinematicsFactory = (KinematicsFactory)EPackage.Registry.INSTANCE.getEFactory(KinematicsPackage.eNS_URI);
-			if (theKinematicsFactory != null) {
-				return theKinematicsFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new KinematicsFactoryImpl();
-	}
+      try {
+         KinematicsFactory theKinematicsFactory = (KinematicsFactory)EPackage.Registry.INSTANCE.getEFactory(KinematicsPackage.eNS_URI);
+         if (theKinematicsFactory != null) {
+            return theKinematicsFactory;
+         }
+      }
+      catch (Exception exception) {
+         EcorePlugin.INSTANCE.log(exception);
+      }
+      return new KinematicsFactoryImpl();
+   }
 
    /**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
+    * Creates an instance of the factory.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public KinematicsFactoryImpl() {
-		super();
-	}
+      super();
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    @Override
    public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case KinematicsPackage.LINK: return createLink();
-			case KinematicsPackage.JOINT: return createJoint();
-			case KinematicsPackage.ROBOT: return createRobot();
-			case KinematicsPackage.POSE: return createPose();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+      switch (eClass.getClassifierID()) {
+         case KinematicsPackage.LINK: return createLink();
+         case KinematicsPackage.JOINT: return createJoint();
+         case KinematicsPackage.ROBOT: return createRobot();
+         case KinematicsPackage.POSE: return createPose();
+         case KinematicsPackage.LIMIT: return createLimit();
+         default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+      }
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case KinematicsPackage.JOINT_TYPE:
-				return createJointTypeFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+      switch (eDataType.getClassifierID()) {
+         case KinematicsPackage.JOINT_TYPE:
+            return createJointTypeFromString(eDataType, initialValue);
+         default:
+            throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+      }
+   }
 
 			/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case KinematicsPackage.JOINT_TYPE:
-				return convertJointTypeToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+      switch (eDataType.getClassifierID()) {
+         case KinematicsPackage.JOINT_TYPE:
+            return convertJointTypeToString(eDataType, instanceValue);
+         default:
+            throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+      }
+   }
 
 			/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public Link createLink() {
-		LinkImpl link = new LinkImpl();
-		return link;
-	}
+      LinkImpl link = new LinkImpl();
+      return link;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public Joint createJoint() {
-		JointImpl joint = new JointImpl();
-		return joint;
-	}
+      JointImpl joint = new JointImpl();
+      return joint;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public Robot createRobot() {
-		RobotImpl robot = new RobotImpl();
-		return robot;
-	}
+      RobotImpl robot = new RobotImpl();
+      return robot;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public Pose createPose() {
-		PoseImpl pose = new PoseImpl();
-		return pose;
-	}
+      PoseImpl pose = new PoseImpl();
+      return pose;
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public Limit createLimit() {
+      LimitImpl limit = new LimitImpl();
+      return limit;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public JointType createJointTypeFromString(EDataType eDataType, String initialValue) {
-		JointType result = JointType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+      JointType result = JointType.get(initialValue);
+      if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+      return result;
+   }
 
 			/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
 	public String convertJointTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+      return instanceValue == null ? null : instanceValue.toString();
+   }
 
 			/**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public KinematicsPackage getKinematicsPackage() {
-		return (KinematicsPackage)getEPackage();
-	}
+      return (KinematicsPackage)getEPackage();
+   }
 
    /**
-	 * <!-- begin-user-doc -->
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
+    * @deprecated
+    * @generated
+    */
    @Deprecated
    public static KinematicsPackage getPackage() {
-		return KinematicsPackage.eINSTANCE;
-	}
+      return KinematicsPackage.eINSTANCE;
+   }
 
 } //KinematicsFactoryImpl

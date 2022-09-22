@@ -59,6 +59,70 @@ public interface KinematicsgraphPackage extends EPackage {
    KinematicsgraphPackage eINSTANCE = kinematicsgraph.impl.KinematicsgraphPackageImpl.init();
 
    /**
+    * The meta object id for the '{@link kinematicsgraph.impl.LimitImpl <em>Limit</em>}' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see kinematicsgraph.impl.LimitImpl
+    * @see kinematicsgraph.impl.KinematicsgraphPackageImpl#getLimit()
+    * @generated
+    */
+   int LIMIT = 0;
+
+   /**
+    * The feature id for the '<em><b>Lower</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int LIMIT__LOWER = 0;
+
+   /**
+    * The feature id for the '<em><b>Upper</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int LIMIT__UPPER = 1;
+
+   /**
+    * The feature id for the '<em><b>Effort</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int LIMIT__EFFORT = 2;
+
+   /**
+    * The feature id for the '<em><b>Velocity</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int LIMIT__VELOCITY = 3;
+
+   /**
+    * The number of structural features of the '<em>Limit</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int LIMIT_FEATURE_COUNT = 4;
+
+   /**
+    * The number of operations of the '<em>Limit</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int LIMIT_OPERATION_COUNT = 0;
+
+   /**
     * The meta object id for the '{@link kinematicsgraph.impl.JointEdgeImpl <em>Joint Edge</em>}' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -66,7 +130,7 @@ public interface KinematicsgraphPackage extends EPackage {
     * @see kinematicsgraph.impl.KinematicsgraphPackageImpl#getJointEdge()
     * @generated
     */
-   int JOINT_EDGE = 1;
+   int JOINT_EDGE = 2;
 
    /**
     * The meta object id for the '{@link kinematicsgraph.impl.FixedJointEdgeImpl <em>Fixed Joint Edge</em>}' class.
@@ -76,7 +140,7 @@ public interface KinematicsgraphPackage extends EPackage {
     * @see kinematicsgraph.impl.KinematicsgraphPackageImpl#getFixedJointEdge()
     * @generated
     */
-   int FIXED_JOINT_EDGE = 2;
+   int FIXED_JOINT_EDGE = 3;
 
    /**
     * Returns the meta object for class '{@link kinematicsgraph.JointEdge <em>Joint Edge</em>}'.
@@ -107,7 +171,7 @@ public interface KinematicsgraphPackage extends EPackage {
     * @see kinematicsgraph.impl.KinematicsgraphPackageImpl#getPose()
     * @generated
     */
-   int POSE = 0;
+   int POSE = 1;
 
    /**
     * The feature id for the '<em><b>Xyz</b></em>' attribute.
@@ -442,7 +506,7 @@ public interface KinematicsgraphPackage extends EPackage {
     * @see kinematicsgraph.impl.KinematicsgraphPackageImpl#getRevoluteJointEdge()
     * @generated
     */
-   int REVOLUTE_JOINT_EDGE = 3;
+   int REVOLUTE_JOINT_EDGE = 4;
 
    /**
     * The feature id for the '<em><b>Args</b></em>' map.
@@ -571,13 +635,22 @@ public interface KinematicsgraphPackage extends EPackage {
    int REVOLUTE_JOINT_EDGE__ORIGIN = JOINT_EDGE__ORIGIN;
 
    /**
+    * The feature id for the '<em><b>Limit</b></em>' reference.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int REVOLUTE_JOINT_EDGE__LIMIT = JOINT_EDGE_FEATURE_COUNT + 0;
+
+   /**
     * The number of structural features of the '<em>Revolute Joint Edge</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-   int REVOLUTE_JOINT_EDGE_FEATURE_COUNT = JOINT_EDGE_FEATURE_COUNT + 0;
+   int REVOLUTE_JOINT_EDGE_FEATURE_COUNT = JOINT_EDGE_FEATURE_COUNT + 1;
 
    /**
     * The number of operations of the '<em>Revolute Joint Edge</em>' class.
@@ -587,6 +660,60 @@ public interface KinematicsgraphPackage extends EPackage {
     * @ordered
     */
    int REVOLUTE_JOINT_EDGE_OPERATION_COUNT = JOINT_EDGE_OPERATION_COUNT + 0;
+
+   /**
+    * Returns the meta object for class '{@link kinematicsgraph.Limit <em>Limit</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for class '<em>Limit</em>'.
+    * @see kinematicsgraph.Limit
+    * @generated
+    */
+   EClass getLimit();
+
+   /**
+    * Returns the meta object for the attribute '{@link kinematicsgraph.Limit#getLower <em>Lower</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the attribute '<em>Lower</em>'.
+    * @see kinematicsgraph.Limit#getLower()
+    * @see #getLimit()
+    * @generated
+    */
+   EAttribute getLimit_Lower();
+
+   /**
+    * Returns the meta object for the attribute '{@link kinematicsgraph.Limit#getUpper <em>Upper</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the attribute '<em>Upper</em>'.
+    * @see kinematicsgraph.Limit#getUpper()
+    * @see #getLimit()
+    * @generated
+    */
+   EAttribute getLimit_Upper();
+
+   /**
+    * Returns the meta object for the attribute '{@link kinematicsgraph.Limit#getEffort <em>Effort</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the attribute '<em>Effort</em>'.
+    * @see kinematicsgraph.Limit#getEffort()
+    * @see #getLimit()
+    * @generated
+    */
+   EAttribute getLimit_Effort();
+
+   /**
+    * Returns the meta object for the attribute '{@link kinematicsgraph.Limit#getVelocity <em>Velocity</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the attribute '<em>Velocity</em>'.
+    * @see kinematicsgraph.Limit#getVelocity()
+    * @see #getLimit()
+    * @generated
+    */
+   EAttribute getLimit_Velocity();
 
    /**
     * Returns the meta object for class '{@link kinematicsgraph.FixedJointEdge <em>Fixed Joint Edge</em>}'.
@@ -607,6 +734,17 @@ public interface KinematicsgraphPackage extends EPackage {
     * @generated
     */
    EClass getRevoluteJointEdge();
+
+   /**
+    * Returns the meta object for the reference '{@link kinematicsgraph.RevoluteJointEdge#getLimit <em>Limit</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the reference '<em>Limit</em>'.
+    * @see kinematicsgraph.RevoluteJointEdge#getLimit()
+    * @see #getRevoluteJointEdge()
+    * @generated
+    */
+   EReference getRevoluteJointEdge_Limit();
 
    /**
     * Returns the meta object for class '{@link kinematicsgraph.Pose <em>Pose</em>}'.
@@ -664,6 +802,48 @@ public interface KinematicsgraphPackage extends EPackage {
     */
    interface Literals {
       /**
+       * The meta object literal for the '{@link kinematicsgraph.impl.LimitImpl <em>Limit</em>}' class.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @see kinematicsgraph.impl.LimitImpl
+       * @see kinematicsgraph.impl.KinematicsgraphPackageImpl#getLimit()
+       * @generated
+       */
+      EClass LIMIT = eINSTANCE.getLimit();
+
+      /**
+       * The meta object literal for the '<em><b>Lower</b></em>' attribute feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EAttribute LIMIT__LOWER = eINSTANCE.getLimit_Lower();
+
+      /**
+       * The meta object literal for the '<em><b>Upper</b></em>' attribute feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EAttribute LIMIT__UPPER = eINSTANCE.getLimit_Upper();
+
+      /**
+       * The meta object literal for the '<em><b>Effort</b></em>' attribute feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EAttribute LIMIT__EFFORT = eINSTANCE.getLimit_Effort();
+
+      /**
+       * The meta object literal for the '<em><b>Velocity</b></em>' attribute feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EAttribute LIMIT__VELOCITY = eINSTANCE.getLimit_Velocity();
+
+      /**
        * The meta object literal for the '{@link kinematicsgraph.impl.JointEdgeImpl <em>Joint Edge</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
@@ -700,6 +880,14 @@ public interface KinematicsgraphPackage extends EPackage {
        * @generated
        */
       EClass REVOLUTE_JOINT_EDGE = eINSTANCE.getRevoluteJointEdge();
+
+      /**
+       * The meta object literal for the '<em><b>Limit</b></em>' reference feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EReference REVOLUTE_JOINT_EDGE__LIMIT = eINSTANCE.getRevoluteJointEdge_Limit();
 
       /**
        * The meta object literal for the '{@link kinematicsgraph.impl.PoseImpl <em>Pose</em>}' class.

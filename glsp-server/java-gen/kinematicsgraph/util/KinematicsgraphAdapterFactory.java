@@ -72,6 +72,10 @@ public class KinematicsgraphAdapterFactory extends AdapterFactoryImpl {
    protected KinematicsgraphSwitch<Adapter> modelSwitch =
       new KinematicsgraphSwitch<Adapter>() {
          @Override
+         public Adapter caseLimit(Limit object) {
+            return createLimitAdapter();
+         }
+         @Override
          public Adapter casePose(Pose object) {
             return createPoseAdapter();
          }
@@ -118,6 +122,20 @@ public class KinematicsgraphAdapterFactory extends AdapterFactoryImpl {
       return modelSwitch.doSwitch((EObject)target);
    }
 
+
+   /**
+    * Creates a new adapter for an object of class '{@link kinematicsgraph.Limit <em>Limit</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see kinematicsgraph.Limit
+    * @generated
+    */
+   public Adapter createLimitAdapter() {
+      return null;
+   }
 
    /**
     * Creates a new adapter for an object of class '{@link kinematicsgraph.JointEdge <em>Joint Edge</em>}'.

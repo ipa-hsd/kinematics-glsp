@@ -16,6 +16,13 @@
 
 import { SEdge } from '@eclipse-glsp/client';
 
+export class Limit {
+    lower?: number;
+    upper?: number;
+    effort?: number;
+    velocity?: number;
+}
+
 export class Pose {
     xyz?: string;
     rpy?: string;
@@ -27,4 +34,5 @@ export class FixedJointEdge extends SEdge {
 
 export class RevoluteJointEdge extends SEdge {
     origin?: Pose;
+    limit?: Limit;
 }

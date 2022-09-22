@@ -24,150 +24,171 @@ import org.eclipse.emf.ecore.util.Switch;
  */
 public class KinematicsSwitch<T> extends Switch<T> {
    /**
-	 * The cached model package
-	 * <!-- begin-user-doc -->
+    * The cached model package
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    protected static KinematicsPackage modelPackage;
 
    /**
-	 * Creates an instance of the switch.
-	 * <!-- begin-user-doc -->
+    * Creates an instance of the switch.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @generated
-	 */
+    * @generated
+    */
    public KinematicsSwitch() {
-		if (modelPackage == null) {
-			modelPackage = KinematicsPackage.eINSTANCE;
-		}
-	}
+      if (modelPackage == null) {
+         modelPackage = KinematicsPackage.eINSTANCE;
+      }
+   }
 
    /**
-	 * Checks whether this is a switch for the given package.
-	 * <!-- begin-user-doc -->
+    * Checks whether this is a switch for the given package.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @param ePackage the package in question.
-	 * @return whether this is a switch for the given package.
-	 * @generated
-	 */
+    * @param ePackage the package in question.
+    * @return whether this is a switch for the given package.
+    * @generated
+    */
    @Override
    protected boolean isSwitchFor(EPackage ePackage) {
-		return ePackage == modelPackage;
-	}
+      return ePackage == modelPackage;
+   }
 
    /**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc -->
+    * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+    * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
+    * @return the first non-null result returned by a <code>caseXXX</code> call.
+    * @generated
+    */
    @Override
    protected T doSwitch(int classifierID, EObject theEObject) {
-		switch (classifierID) {
-			case KinematicsPackage.LINK: {
-				Link link = (Link)theEObject;
-				T result = caseLink(link);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case KinematicsPackage.JOINT: {
-				Joint joint = (Joint)theEObject;
-				T result = caseJoint(joint);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case KinematicsPackage.ROBOT: {
-				Robot robot = (Robot)theEObject;
-				T result = caseRobot(robot);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case KinematicsPackage.POSE: {
-				Pose pose = (Pose)theEObject;
-				T result = casePose(pose);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
-		}
-	}
+      switch (classifierID) {
+         case KinematicsPackage.LINK: {
+            Link link = (Link)theEObject;
+            T result = caseLink(link);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
+         case KinematicsPackage.JOINT: {
+            Joint joint = (Joint)theEObject;
+            T result = caseJoint(joint);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
+         case KinematicsPackage.ROBOT: {
+            Robot robot = (Robot)theEObject;
+            T result = caseRobot(robot);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
+         case KinematicsPackage.POSE: {
+            Pose pose = (Pose)theEObject;
+            T result = casePose(pose);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
+         case KinematicsPackage.LIMIT: {
+            Limit limit = (Limit)theEObject;
+            T result = caseLimit(limit);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
+         default: return defaultCase(theEObject);
+      }
+   }
 
    /**
-	 * Returns the result of interpreting the object as an instance of '<em>Link</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns the result of interpreting the object as an instance of '<em>Link</em>'.
+    * <!-- begin-user-doc -->
     * This implementation returns null;
     * returning a non-null result will terminate the switch.
     * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Link</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Link</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
    public T caseLink(Link object) {
-		return null;
-	}
+      return null;
+   }
 
    /**
-	 * Returns the result of interpreting the object as an instance of '<em>Joint</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns the result of interpreting the object as an instance of '<em>Joint</em>'.
+    * <!-- begin-user-doc -->
     * This implementation returns null;
     * returning a non-null result will terminate the switch.
     * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Joint</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Joint</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
    public T caseJoint(Joint object) {
-		return null;
-	}
+      return null;
+   }
 
    /**
-	 * Returns the result of interpreting the object as an instance of '<em>Robot</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns the result of interpreting the object as an instance of '<em>Robot</em>'.
+    * <!-- begin-user-doc -->
     * This implementation returns null;
     * returning a non-null result will terminate the switch.
     * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Robot</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Robot</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
    public T caseRobot(Robot object) {
-		return null;
-	}
+      return null;
+   }
 
    /**
-	 * Returns the result of interpreting the object as an instance of '<em>Pose</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns the result of interpreting the object as an instance of '<em>Pose</em>'.
+    * <!-- begin-user-doc -->
     * This implementation returns null;
     * returning a non-null result will terminate the switch.
     * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Pose</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Pose</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
    public T casePose(Pose object) {
-		return null;
-	}
+      return null;
+   }
 
    /**
-	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
-	 * <!-- begin-user-doc -->
+    * Returns the result of interpreting the object as an instance of '<em>Limit</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Limit</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T caseLimit(Limit object) {
+      return null;
+   }
+
+   /**
+    * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
+    * <!-- begin-user-doc -->
     * This implementation returns null;
     * returning a non-null result will terminate the switch, but this is the last case anyway.
     * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
-	 * @generated
-	 */
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>EObject</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject)
+    * @generated
+    */
    @Override
    public T defaultCase(EObject object) {
-		return null;
-	}
+      return null;
+   }
 
 } //KinematicsSwitch

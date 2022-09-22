@@ -22,6 +22,15 @@ public interface KinematicsgraphFactory extends EFactory {
    KinematicsgraphFactory eINSTANCE = kinematicsgraph.impl.KinematicsgraphFactoryImpl.init();
 
    /**
+    * Returns a new object of class '<em>Limit</em>'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return a new object of class '<em>Limit</em>'.
+    * @generated
+    */
+   Limit createLimit();
+
+   /**
     * Returns a new object of class '<em>Joint Edge</em>'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->

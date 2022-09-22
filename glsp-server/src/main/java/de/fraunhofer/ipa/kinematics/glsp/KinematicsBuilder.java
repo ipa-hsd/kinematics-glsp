@@ -19,6 +19,7 @@ import org.eclipse.glsp.graph.builder.AbstractGEdgeBuilder;
 
 import kinematicsgraph.FixedJointEdge;
 import kinematicsgraph.KinematicsgraphFactory;
+import kinematicsgraph.Limit;
 import kinematicsgraph.Pose;
 import kinematicsgraph.RevoluteJointEdge;
 
@@ -63,6 +64,7 @@ public final class KinematicsBuilder {
       extends AbstractGEdgeBuilder<RevoluteJointEdge, RevoluteJointEdgeBuilder> {
 
       private Pose origin;
+      private Limit limit;
 
       public RevoluteJointEdgeBuilder() {
          super(KinematicsModelTypes.REVOLUTE_JOINT);
@@ -74,11 +76,17 @@ public final class KinematicsBuilder {
          return self();
       }
 
+      public RevoluteJointEdgeBuilder setLimit(final Limit limit) {
+         this.limit = limit;
+         return self();
+      }
+
       @Override
       protected void setProperties(final RevoluteJointEdge edge) {
          // TODO Auto-generated method stub
          super.setProperties(edge);
          edge.setOrigin(origin);
+         edge.setLimit(limit);
       }
 
       @Override

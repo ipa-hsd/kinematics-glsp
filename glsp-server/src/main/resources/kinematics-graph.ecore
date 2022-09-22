@@ -2,6 +2,14 @@
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="kinematicsgraph" nsURI="http://de.fraunhofer.ipa/kinematics/graph"
     nsPrefix="kinematicsgraph">
+  <eClassifiers xsi:type="ecore:EClass" name="Limit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lower" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="upper" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="effort" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="velocity" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pose">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="xyz" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rpy" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -11,5 +19,7 @@
         eType="#//Pose"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FixedJointEdge" eSuperTypes="#//JointEdge"/>
-  <eClassifiers xsi:type="ecore:EClass" name="RevoluteJointEdge" eSuperTypes="#//JointEdge"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RevoluteJointEdge" eSuperTypes="#//JointEdge">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="limit" lowerBound="1" eType="#//Limit"/>
+  </eClassifiers>
 </ecore:EPackage>
