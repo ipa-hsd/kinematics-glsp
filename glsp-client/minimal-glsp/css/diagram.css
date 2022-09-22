@@ -68,6 +68,14 @@ svg {
     text-anchor: middle;
 }
 
+.minimal-edge-revolute {
+    stroke: rgb(121, 112, 199);
+}
+
+.minimal-edge-prismatic {
+    stroke: red;
+}
+
 .sprotty-edge > .sprotty-routing-handle[data-kind='line'] {
     fill: #66a;
     opacity: 0.35;

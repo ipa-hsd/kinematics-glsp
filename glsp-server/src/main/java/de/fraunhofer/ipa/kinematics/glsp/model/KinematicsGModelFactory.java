@@ -116,7 +116,8 @@ public class KinematicsGModelFactory extends EMFNotationGModelFactory {
                .target(childNode)
                .setOrigin(origin)
                .setLimit(limitRevolute)
-               .id(idGenerator.getOrCreateId(joint));
+               .id(idGenerator.getOrCreateId(joint))
+               .addCssClass("minimal-edge-revolute");
             applyEdgeData(joint, revoluteJointEdgeBuilder);
             return revoluteJointEdgeBuilder.build();
          case PRISMATIC:
@@ -125,7 +126,8 @@ public class KinematicsGModelFactory extends EMFNotationGModelFactory {
                .target(childNode)
                .setOrigin(origin)
                .setLimit(limitPrismatic)
-               .id(idGenerator.getOrCreateId(joint));
+               .id(idGenerator.getOrCreateId(joint))
+               .addCssClass("minimal-edge-prismatic");
             applyEdgeData(joint, prismaticJointEdgeBuilder);
             return prismaticJointEdgeBuilder.build();
          default:
