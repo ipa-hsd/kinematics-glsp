@@ -92,6 +92,10 @@ public class KinematicsgraphAdapterFactory extends AdapterFactoryImpl {
             return createRevoluteJointEdgeAdapter();
          }
          @Override
+         public Adapter casePrismaticJointEdge(PrismaticJointEdge object) {
+            return createPrismaticJointEdgeAdapter();
+         }
+         @Override
          public Adapter caseGArgumentable(GArgumentable object) {
             return createGArgumentableAdapter();
          }
@@ -176,6 +180,20 @@ public class KinematicsgraphAdapterFactory extends AdapterFactoryImpl {
     * @generated
     */
    public Adapter createRevoluteJointEdgeAdapter() {
+      return null;
+   }
+
+   /**
+    * Creates a new adapter for an object of class '{@link kinematicsgraph.PrismaticJointEdge <em>Prismatic Joint Edge</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see kinematicsgraph.PrismaticJointEdge
+    * @generated
+    */
+   public Adapter createPrismaticJointEdgeAdapter() {
       return null;
    }
 

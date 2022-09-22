@@ -9,6 +9,7 @@ import kinematicsgraph.KinematicsgraphPackage;
 import kinematicsgraph.Limit;
 import kinematicsgraph.Pose;
 
+import kinematicsgraph.PrismaticJointEdge;
 import kinematicsgraph.RevoluteJointEdge;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -53,6 +54,13 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
     * @generated
     */
    private EClass revoluteJointEdgeEClass = null;
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   private EClass prismaticJointEdgeEClass = null;
 
    /**
     * <!-- begin-user-doc -->
@@ -220,6 +228,24 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
     * <!-- end-user-doc -->
     * @generated
     */
+   public EClass getPrismaticJointEdge() {
+      return prismaticJointEdgeEClass;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EReference getPrismaticJointEdge_Limit() {
+      return (EReference)prismaticJointEdgeEClass.getEStructuralFeatures().get(0);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
    public EClass getPose() {
       return poseEClass;
    }
@@ -287,6 +313,9 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
 
       revoluteJointEdgeEClass = createEClass(REVOLUTE_JOINT_EDGE);
       createEReference(revoluteJointEdgeEClass, REVOLUTE_JOINT_EDGE__LIMIT);
+
+      prismaticJointEdgeEClass = createEClass(PRISMATIC_JOINT_EDGE);
+      createEReference(prismaticJointEdgeEClass, PRISMATIC_JOINT_EDGE__LIMIT);
    }
 
    /**
@@ -323,6 +352,7 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
       jointEdgeEClass.getESuperTypes().add(theGraphPackage.getGEdge());
       fixedJointEdgeEClass.getESuperTypes().add(this.getJointEdge());
       revoluteJointEdgeEClass.getESuperTypes().add(this.getJointEdge());
+      prismaticJointEdgeEClass.getESuperTypes().add(this.getJointEdge());
 
       // Initialize classes, features, and operations; add parameters
       initEClass(limitEClass, Limit.class, "Limit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -342,6 +372,9 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
 
       initEClass(revoluteJointEdgeEClass, RevoluteJointEdge.class, "RevoluteJointEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
       initEReference(getRevoluteJointEdge_Limit(), this.getLimit(), null, "limit", null, 1, 1, RevoluteJointEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+      initEClass(prismaticJointEdgeEClass, PrismaticJointEdge.class, "PrismaticJointEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEReference(getPrismaticJointEdge_Limit(), this.getLimit(), null, "limit", null, 1, 1, PrismaticJointEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       // Create resource
       createResource(eNS_URI);

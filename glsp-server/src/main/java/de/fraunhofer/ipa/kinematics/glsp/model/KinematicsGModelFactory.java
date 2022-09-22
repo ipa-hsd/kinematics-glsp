@@ -35,6 +35,7 @@ import org.eclipse.glsp.server.emf.model.notation.Edge;
 import org.eclipse.glsp.server.emf.notation.EMFNotationGModelFactory;
 
 import de.fraunhofer.ipa.kinematics.glsp.KinematicsBuilder.FixedJointEdgeBuilder;
+import de.fraunhofer.ipa.kinematics.glsp.KinematicsBuilder.PrismaticJointEdgeBuilder;
 import de.fraunhofer.ipa.kinematics.glsp.KinematicsBuilder.RevoluteJointEdgeBuilder;
 import de.fraunhofer.ipa.kinematics.glsp.KinematicsModelTypes;
 import kinematics.Joint;
@@ -110,14 +111,23 @@ public class KinematicsGModelFactory extends EMFNotationGModelFactory {
             applyEdgeData(joint, fixedJointEdgeBuilder);
             return fixedJointEdgeBuilder.build();
          case REVOLUTE:
-            Limit limit = getJointLimit(joint);
+            Limit limitRevolute = getJointLimit(joint);
             RevoluteJointEdgeBuilder revoluteJointEdgeBuilder = new RevoluteJointEdgeBuilder().source(parentNode)
                .target(childNode)
                .setOrigin(origin)
-               .setLimit(limit)
+               .setLimit(limitRevolute)
                .id(idGenerator.getOrCreateId(joint));
             applyEdgeData(joint, revoluteJointEdgeBuilder);
             return revoluteJointEdgeBuilder.build();
+         case PRISMATIC:
+            Limit limitPrismatic = getJointLimit(joint);
+            PrismaticJointEdgeBuilder prismaticJointEdgeBuilder = new PrismaticJointEdgeBuilder().source(parentNode)
+               .target(childNode)
+               .setOrigin(origin)
+               .setLimit(limitPrismatic)
+               .id(idGenerator.getOrCreateId(joint));
+            applyEdgeData(joint, prismaticJointEdgeBuilder);
+            return prismaticJointEdgeBuilder.build();
          default:
             break;
       }
@@ -147,6 +157,20 @@ public class KinematicsGModelFactory extends EMFNotationGModelFactory {
    }
 
    private static RevoluteJointEdgeBuilder applyEdgeData(final Edge edge, final RevoluteJointEdgeBuilder builder) {
+      if (edge.getBendPoints() != null) {
+         edge.getBendPoints().stream().map(GraphUtil::copy).forEachOrdered(builder::addRoutingPoint);
+      }
+      return builder;
+   }
+
+   private PrismaticJointEdgeBuilder applyEdgeData(final EObject edgeElement, final PrismaticJointEdgeBuilder builder) {
+      // TODO Auto-generated method stub
+      modelState.getIndex().getNotation(edgeElement, Edge.class)
+         .ifPresent(edge -> applyEdgeData(edge, builder));
+      return builder;
+   }
+
+   private static PrismaticJointEdgeBuilder applyEdgeData(final Edge edge, final PrismaticJointEdgeBuilder builder) {
       if (edge.getBendPoints() != null) {
          edge.getBendPoints().stream().map(GraphUtil::copy).forEachOrdered(builder::addRoutingPoint);
       }

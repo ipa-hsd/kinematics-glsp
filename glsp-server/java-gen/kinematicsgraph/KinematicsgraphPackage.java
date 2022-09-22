@@ -662,6 +662,169 @@ public interface KinematicsgraphPackage extends EPackage {
    int REVOLUTE_JOINT_EDGE_OPERATION_COUNT = JOINT_EDGE_OPERATION_COUNT + 0;
 
    /**
+    * The meta object id for the '{@link kinematicsgraph.impl.PrismaticJointEdgeImpl <em>Prismatic Joint Edge</em>}' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see kinematicsgraph.impl.PrismaticJointEdgeImpl
+    * @see kinematicsgraph.impl.KinematicsgraphPackageImpl#getPrismaticJointEdge()
+    * @generated
+    */
+   int PRISMATIC_JOINT_EDGE = 5;
+
+   /**
+    * The feature id for the '<em><b>Args</b></em>' map.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE__ARGS = JOINT_EDGE__ARGS;
+
+   /**
+    * The feature id for the '<em><b>Id</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE__ID = JOINT_EDGE__ID;
+
+   /**
+    * The feature id for the '<em><b>Css Classes</b></em>' attribute list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE__CSS_CLASSES = JOINT_EDGE__CSS_CLASSES;
+
+   /**
+    * The feature id for the '<em><b>Children</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE__CHILDREN = JOINT_EDGE__CHILDREN;
+
+   /**
+    * The feature id for the '<em><b>Parent</b></em>' container reference.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE__PARENT = JOINT_EDGE__PARENT;
+
+   /**
+    * The feature id for the '<em><b>Trace</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE__TRACE = JOINT_EDGE__TRACE;
+
+   /**
+    * The feature id for the '<em><b>Type</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE__TYPE = JOINT_EDGE__TYPE;
+
+   /**
+    * The feature id for the '<em><b>Routing Points</b></em>' containment reference list.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE__ROUTING_POINTS = JOINT_EDGE__ROUTING_POINTS;
+
+   /**
+    * The feature id for the '<em><b>Source Id</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE__SOURCE_ID = JOINT_EDGE__SOURCE_ID;
+
+   /**
+    * The feature id for the '<em><b>Target Id</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE__TARGET_ID = JOINT_EDGE__TARGET_ID;
+
+   /**
+    * The feature id for the '<em><b>Source</b></em>' reference.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE__SOURCE = JOINT_EDGE__SOURCE;
+
+   /**
+    * The feature id for the '<em><b>Target</b></em>' reference.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE__TARGET = JOINT_EDGE__TARGET;
+
+   /**
+    * The feature id for the '<em><b>Router Kind</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE__ROUTER_KIND = JOINT_EDGE__ROUTER_KIND;
+
+   /**
+    * The feature id for the '<em><b>Origin</b></em>' reference.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE__ORIGIN = JOINT_EDGE__ORIGIN;
+
+   /**
+    * The feature id for the '<em><b>Limit</b></em>' containment reference.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE__LIMIT = JOINT_EDGE_FEATURE_COUNT + 0;
+
+   /**
+    * The number of structural features of the '<em>Prismatic Joint Edge</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE_FEATURE_COUNT = JOINT_EDGE_FEATURE_COUNT + 1;
+
+   /**
+    * The number of operations of the '<em>Prismatic Joint Edge</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE_OPERATION_COUNT = JOINT_EDGE_OPERATION_COUNT + 0;
+
+   /**
     * Returns the meta object for class '{@link kinematicsgraph.Limit <em>Limit</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -745,6 +908,27 @@ public interface KinematicsgraphPackage extends EPackage {
     * @generated
     */
    EReference getRevoluteJointEdge_Limit();
+
+   /**
+    * Returns the meta object for class '{@link kinematicsgraph.PrismaticJointEdge <em>Prismatic Joint Edge</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for class '<em>Prismatic Joint Edge</em>'.
+    * @see kinematicsgraph.PrismaticJointEdge
+    * @generated
+    */
+   EClass getPrismaticJointEdge();
+
+   /**
+    * Returns the meta object for the containment reference '{@link kinematicsgraph.PrismaticJointEdge#getLimit <em>Limit</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the containment reference '<em>Limit</em>'.
+    * @see kinematicsgraph.PrismaticJointEdge#getLimit()
+    * @see #getPrismaticJointEdge()
+    * @generated
+    */
+   EReference getPrismaticJointEdge_Limit();
 
    /**
     * Returns the meta object for class '{@link kinematicsgraph.Pose <em>Pose</em>}'.
@@ -888,6 +1072,24 @@ public interface KinematicsgraphPackage extends EPackage {
        * @generated
        */
       EReference REVOLUTE_JOINT_EDGE__LIMIT = eINSTANCE.getRevoluteJointEdge_Limit();
+
+      /**
+       * The meta object literal for the '{@link kinematicsgraph.impl.PrismaticJointEdgeImpl <em>Prismatic Joint Edge</em>}' class.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @see kinematicsgraph.impl.PrismaticJointEdgeImpl
+       * @see kinematicsgraph.impl.KinematicsgraphPackageImpl#getPrismaticJointEdge()
+       * @generated
+       */
+      EClass PRISMATIC_JOINT_EDGE = eINSTANCE.getPrismaticJointEdge();
+
+      /**
+       * The meta object literal for the '<em><b>Limit</b></em>' containment reference feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EReference PRISMATIC_JOINT_EDGE__LIMIT = eINSTANCE.getPrismaticJointEdge_Limit();
 
       /**
        * The meta object literal for the '{@link kinematicsgraph.impl.PoseImpl <em>Pose</em>}' class.

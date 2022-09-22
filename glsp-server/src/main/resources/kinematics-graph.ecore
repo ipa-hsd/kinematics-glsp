@@ -22,4 +22,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="RevoluteJointEdge" eSuperTypes="#//JointEdge">
     <eStructuralFeatures xsi:type="ecore:EReference" name="limit" lowerBound="1" eType="#//Limit"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PrismaticJointEdge" eSuperTypes="#//JointEdge">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="limit" lowerBound="1" eType="#//Limit"
+        containment="true"/>
+  </eClassifiers>
 </ecore:EPackage>

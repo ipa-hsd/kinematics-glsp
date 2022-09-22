@@ -36,3 +36,8 @@ export class RevoluteJointEdge extends SEdge {
     origin?: Pose;
     limit?: Limit;
 }
+
+export class PrismaticJointEdge extends SEdge {
+    origin?: Pose;
+    limit?: Limit;
+}

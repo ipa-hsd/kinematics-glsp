@@ -24,5 +24,8 @@
     <genClasses ecoreClass="kinematics-graph.ecore#//RevoluteJointEdge">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kinematics-graph.ecore#//RevoluteJointEdge/limit"/>
     </genClasses>
+    <genClasses ecoreClass="kinematics-graph.ecore#//PrismaticJointEdge">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics-graph.ecore#//PrismaticJointEdge/limit"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

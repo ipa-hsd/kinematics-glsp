@@ -36,6 +36,7 @@ public class KinematicsDiagramConfiguration extends BaseDiagramConfiguration {
       List<EdgeTypeHint> edgeHints = new ArrayList<>();
       edgeHints.add(createDefaultEdgeTypeHint(KinematicsModelTypes.FIXED_JOINT));
       edgeHints.add(createDefaultEdgeTypeHint(KinematicsModelTypes.REVOLUTE_JOINT));
+      edgeHints.add(createDefaultEdgeTypeHint(KinematicsModelTypes.PRISMATIC_JOINT));
 
       return edgeHints;
    }

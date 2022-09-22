@@ -58,6 +58,15 @@ public interface KinematicsgraphFactory extends EFactory {
    RevoluteJointEdge createRevoluteJointEdge();
 
    /**
+    * Returns a new object of class '<em>Prismatic Joint Edge</em>'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return a new object of class '<em>Prismatic Joint Edge</em>'.
+    * @generated
+    */
+   PrismaticJointEdge createPrismaticJointEdge();
+
+   /**
     * Returns a new object of class '<em>Pose</em>'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->

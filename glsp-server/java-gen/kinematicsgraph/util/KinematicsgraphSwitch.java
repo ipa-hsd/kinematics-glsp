@@ -111,6 +111,16 @@ public class KinematicsgraphSwitch<T> extends Switch<T> {
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
+         case KinematicsgraphPackage.PRISMATIC_JOINT_EDGE: {
+            PrismaticJointEdge prismaticJointEdge = (PrismaticJointEdge)theEObject;
+            T result = casePrismaticJointEdge(prismaticJointEdge);
+            if (result == null) result = caseJointEdge(prismaticJointEdge);
+            if (result == null) result = caseGEdge(prismaticJointEdge);
+            if (result == null) result = caseGModelElement(prismaticJointEdge);
+            if (result == null) result = caseGArgumentable(prismaticJointEdge);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
          default: return defaultCase(theEObject);
       }
    }
@@ -172,6 +182,21 @@ public class KinematicsgraphSwitch<T> extends Switch<T> {
     * @generated
     */
    public T caseRevoluteJointEdge(RevoluteJointEdge object) {
+      return null;
+   }
+
+   /**
+    * Returns the result of interpreting the object as an instance of '<em>Prismatic Joint Edge</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Prismatic Joint Edge</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T casePrismaticJointEdge(PrismaticJointEdge object) {
       return null;
    }
 

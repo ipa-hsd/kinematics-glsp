@@ -21,6 +21,7 @@ import kinematicsgraph.FixedJointEdge;
 import kinematicsgraph.KinematicsgraphFactory;
 import kinematicsgraph.Limit;
 import kinematicsgraph.Pose;
+import kinematicsgraph.PrismaticJointEdge;
 import kinematicsgraph.RevoluteJointEdge;
 
 public final class KinematicsBuilder {
@@ -97,6 +98,49 @@ public final class KinematicsBuilder {
 
       @Override
       protected RevoluteJointEdgeBuilder self() {
+         // TODO Auto-generated method stub
+         return this;
+      }
+
+   }
+
+   public static class PrismaticJointEdgeBuilder
+      extends AbstractGEdgeBuilder<PrismaticJointEdge, PrismaticJointEdgeBuilder> {
+
+      private Pose origin;
+      private Limit limit;
+
+      public PrismaticJointEdgeBuilder() {
+         super(KinematicsModelTypes.REVOLUTE_JOINT);
+         // TODO Auto-generated constructor stub
+      }
+
+      public PrismaticJointEdgeBuilder setOrigin(final Pose origin) {
+         this.origin = origin;
+         return self();
+      }
+
+      public PrismaticJointEdgeBuilder setLimit(final Limit limit) {
+         this.limit = limit;
+         return self();
+      }
+
+      @Override
+      protected void setProperties(final PrismaticJointEdge edge) {
+         // TODO Auto-generated method stub
+         super.setProperties(edge);
+         edge.setOrigin(origin);
+         edge.setLimit(limit);
+      }
+
+      @Override
+      protected PrismaticJointEdge instantiate() {
+         // TODO Auto-generated method stub
+         return KinematicsgraphFactory.eINSTANCE.createPrismaticJointEdge();
+      }
+
+      @Override
+      protected PrismaticJointEdgeBuilder self() {
          // TODO Auto-generated method stub
          return this;
       }
