@@ -24,7 +24,7 @@ import {
 import { Container, ContainerModule } from 'inversify';
 import '../css/diagram.css';
 import { JointEdgeView } from './kinematics-views';
-import { JointEdge } from './model';
+import { RevoluteJointEdge } from './model';
 
 const minimalDiagramModule = new ContainerModule((bind, unbind, isBound, rebind) => {
     rebind(TYPES.ILogger).to(ConsoleLogger).inSingletonScope();
@@ -32,7 +32,7 @@ const minimalDiagramModule = new ContainerModule((bind, unbind, isBound, rebind)
     const context = { bind, unbind, isBound, rebind };
     configureDefaultModelElements(context);
 
-    configureModelElement(context, 'joint:revolute', JointEdge, JointEdgeView);
+    configureModelElement(context, 'joint:revolute', RevoluteJointEdge, JointEdgeView);
 });
 
 export default function createContainer(widgetId: string): Container {

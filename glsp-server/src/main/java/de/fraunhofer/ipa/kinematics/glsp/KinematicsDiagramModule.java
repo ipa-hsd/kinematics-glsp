@@ -33,6 +33,7 @@ import de.fraunhofer.ipa.kinematics.glsp.actions.SetTypeSchemaAction;
 import de.fraunhofer.ipa.kinematics.glsp.actions.SetUISchemaAction;
 import de.fraunhofer.ipa.kinematics.glsp.handler.CreateJointEdgeHandler;
 import de.fraunhofer.ipa.kinematics.glsp.handler.CreateLinkNodeHandler;
+import de.fraunhofer.ipa.kinematics.glsp.handler.CreateRevoluteJointEdgeHandler;
 import de.fraunhofer.ipa.kinematics.glsp.handler.RequestModelElementActionHandler;
 import de.fraunhofer.ipa.kinematics.glsp.handler.RequestSemanticUriActionHandler;
 import de.fraunhofer.ipa.kinematics.glsp.handler.RequestTypeSchemaActionHandler;
@@ -100,7 +101,7 @@ public class KinematicsDiagramModule extends EMFNotationDiagramModule {
       super.configureOperationHandlers(binding);
       binding.add(CreateLinkNodeHandler.class);
       // binding.add(DeleteTaskNodeHandler.class);
-      binding.add(CreateJointEdgeHandler.class);
+      binding.add(CreateRevoluteJointEdgeHandler.class);
    }
 
    @Override

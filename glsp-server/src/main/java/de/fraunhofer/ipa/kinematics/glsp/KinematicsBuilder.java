@@ -23,16 +23,16 @@ import kinematicsgraph.Pose;
 
 public final class KinematicsBuilder {
 
-   public static class JointEdgeBuilder extends AbstractGEdgeBuilder<JointEdge, JointEdgeBuilder> {
+   public static class RevoluteJointEdgeBuilder extends AbstractGEdgeBuilder<JointEdge, RevoluteJointEdgeBuilder> {
 
       private Pose origin;
 
-      public JointEdgeBuilder() {
+      public RevoluteJointEdgeBuilder() {
          super(KinematicsModelTypes.REVOLUTE_JOINT);
          // TODO Auto-generated constructor stub
       }
 
-      public JointEdgeBuilder setOrigin(final Pose origin) {
+      public RevoluteJointEdgeBuilder setOrigin(final Pose origin) {
          this.origin = origin;
          return self();
       }
@@ -51,7 +51,7 @@ public final class KinematicsBuilder {
       }
 
       @Override
-      protected JointEdgeBuilder self() {
+      protected RevoluteJointEdgeBuilder self() {
          // TODO Auto-generated method stub
          return this;
       }

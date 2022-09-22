@@ -31,7 +31,7 @@ import kinematics.Link;
 import kinematics.Pose;
 import kinematics.Robot;
 
-public class CreateJointEdgeHandler extends AbstractEMFCreateEdgeOperationHandler {
+public class CreateRevoluteJointEdgeHandler extends AbstractEMFCreateEdgeOperationHandler {
 
    @Inject
    protected EMFNotationModelState modelState;
@@ -39,8 +39,8 @@ public class CreateJointEdgeHandler extends AbstractEMFCreateEdgeOperationHandle
    @Inject
    protected EMFIdGenerator idGenerator;
 
-   public CreateJointEdgeHandler() {
-      super(KinematicsModelTypes.JOINT);
+   public CreateRevoluteJointEdgeHandler() {
+      super(KinematicsModelTypes.REVOLUTE_JOINT);
    }
 
    @Override
@@ -72,7 +72,7 @@ public class CreateJointEdgeHandler extends AbstractEMFCreateEdgeOperationHandle
    }
 
    @Override
-   public String getLabel() { return "Joint"; }
+   public String getLabel() { return "Revolute Joint"; }
 
    protected Link findLinkById(final EList<Link> links, final String elementId) {
       return links.stream().filter(link -> elementId.equals(link.getId())).findFirst().orElse(null);

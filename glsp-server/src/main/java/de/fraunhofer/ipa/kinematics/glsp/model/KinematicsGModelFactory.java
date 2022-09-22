@@ -34,7 +34,7 @@ import org.eclipse.glsp.server.emf.model.notation.Diagram;
 import org.eclipse.glsp.server.emf.model.notation.Edge;
 import org.eclipse.glsp.server.emf.notation.EMFNotationGModelFactory;
 
-import de.fraunhofer.ipa.kinematics.glsp.KinematicsBuilder.JointEdgeBuilder;
+import de.fraunhofer.ipa.kinematics.glsp.KinematicsBuilder.RevoluteJointEdgeBuilder;
 import de.fraunhofer.ipa.kinematics.glsp.KinematicsModelTypes;
 import kinematics.Joint;
 import kinematics.Link;
@@ -87,7 +87,7 @@ public class KinematicsGModelFactory extends EMFNotationGModelFactory {
       origin.setXyz(joint.getOrigin().getXyz());
       origin.setRpy(joint.getOrigin().getRpy());
 
-      JointEdgeBuilder jointEdgeBuilder = new JointEdgeBuilder().source(parentNode)
+      RevoluteJointEdgeBuilder jointEdgeBuilder = new RevoluteJointEdgeBuilder().source(parentNode)
          .target(childNode)
          .setOrigin(origin)
          .id(idGenerator.getOrCreateId(joint));
@@ -95,14 +95,14 @@ public class KinematicsGModelFactory extends EMFNotationGModelFactory {
       return jointEdgeBuilder.build();
    }
 
-   private JointEdgeBuilder applyEdgeData(final EObject edgeElement, final JointEdgeBuilder builder) {
+   private RevoluteJointEdgeBuilder applyEdgeData(final EObject edgeElement, final RevoluteJointEdgeBuilder builder) {
       // TODO Auto-generated method stub
       modelState.getIndex().getNotation(edgeElement, Edge.class)
          .ifPresent(edge -> applyEdgeData(edge, builder));
       return builder;
    }
 
-   private static JointEdgeBuilder applyEdgeData(final Edge edge, final JointEdgeBuilder builder) {
+   private static RevoluteJointEdgeBuilder applyEdgeData(final Edge edge, final RevoluteJointEdgeBuilder builder) {
       if (edge.getBendPoints() != null) {
          edge.getBendPoints().stream().map(GraphUtil::copy).forEachOrdered(builder::addRoutingPoint);
       }

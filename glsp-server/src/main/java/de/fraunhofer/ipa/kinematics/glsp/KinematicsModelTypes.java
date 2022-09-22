@@ -21,7 +21,6 @@ public final class KinematicsModelTypes {
    private KinematicsModelTypes() {}
 
    public static final String LINK = DefaultTypes.NODE;
-   public static final String JOINT = DefaultTypes.EDGE;
    public static final String REVOLUTE_JOINT = "joint:revolute";
 
 }
