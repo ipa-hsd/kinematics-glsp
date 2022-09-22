@@ -15,6 +15,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="child" eType="#//Link"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="origin" lowerBound="1"
         eType="#//Pose" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//JointType"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Robot">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -28,5 +29,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="Pose">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="xyz" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="rpy" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="JointType">
+    <eLiterals name="fixed"/>
+    <eLiterals name="prismatic" value="1"/>
+    <eLiterals name="revolute" value="2"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -22,5 +22,6 @@ public final class KinematicsModelTypes {
 
    public static final String LINK = DefaultTypes.NODE;
    public static final String REVOLUTE_JOINT = "joint:revolute";
+   public static final String FIXED_JOINT = "joint:fixed";
 
 }

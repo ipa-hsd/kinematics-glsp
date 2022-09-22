@@ -34,6 +34,7 @@ import org.eclipse.glsp.server.emf.model.notation.Diagram;
 import org.eclipse.glsp.server.emf.model.notation.Edge;
 import org.eclipse.glsp.server.emf.notation.EMFNotationGModelFactory;
 
+import de.fraunhofer.ipa.kinematics.glsp.KinematicsBuilder.FixedJointEdgeBuilder;
 import de.fraunhofer.ipa.kinematics.glsp.KinematicsBuilder.RevoluteJointEdgeBuilder;
 import de.fraunhofer.ipa.kinematics.glsp.KinematicsModelTypes;
 import kinematics.Joint;
@@ -87,12 +88,42 @@ public class KinematicsGModelFactory extends EMFNotationGModelFactory {
       origin.setXyz(joint.getOrigin().getXyz());
       origin.setRpy(joint.getOrigin().getRpy());
 
-      RevoluteJointEdgeBuilder jointEdgeBuilder = new RevoluteJointEdgeBuilder().source(parentNode)
-         .target(childNode)
-         .setOrigin(origin)
-         .id(idGenerator.getOrCreateId(joint));
-      applyEdgeData(joint, jointEdgeBuilder);
-      return jointEdgeBuilder.build();
+      System.out.println("joint: " + joint);
+
+      switch (joint.getType()) {
+         case FIXED:
+            FixedJointEdgeBuilder fixedJointEdgeBuilder = new FixedJointEdgeBuilder().source(parentNode)
+               .target(childNode)
+               .setOrigin(origin)
+               .id(idGenerator.getOrCreateId(joint));
+            applyEdgeData(joint, fixedJointEdgeBuilder);
+            return fixedJointEdgeBuilder.build();
+         case REVOLUTE:
+            RevoluteJointEdgeBuilder revoluteJointEdgeBuilder = new RevoluteJointEdgeBuilder().source(parentNode)
+               .target(childNode)
+               .setOrigin(origin)
+               .id(idGenerator.getOrCreateId(joint));
+            applyEdgeData(joint, revoluteJointEdgeBuilder);
+            return revoluteJointEdgeBuilder.build();
+         default:
+            break;
+      }
+
+      return null;
+   }
+
+   private FixedJointEdgeBuilder applyEdgeData(final EObject edgeElement, final FixedJointEdgeBuilder builder) {
+      // TODO Auto-generated method stub
+      modelState.getIndex().getNotation(edgeElement, Edge.class)
+         .ifPresent(edge -> applyEdgeData(edge, builder));
+      return builder;
+   }
+
+   private static FixedJointEdgeBuilder applyEdgeData(final Edge edge, final FixedJointEdgeBuilder builder) {
+      if (edge.getBendPoints() != null) {
+         edge.getBendPoints().stream().map(GraphUtil::copy).forEachOrdered(builder::addRoutingPoint);
+      }
+      return builder;
    }
 
    private RevoluteJointEdgeBuilder applyEdgeData(final EObject edgeElement, final RevoluteJointEdgeBuilder builder) {

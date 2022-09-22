@@ -23,6 +23,41 @@ import kinematicsgraph.Pose;
 
 public final class KinematicsBuilder {
 
+   public static class FixedJointEdgeBuilder extends AbstractGEdgeBuilder<JointEdge, FixedJointEdgeBuilder> {
+
+      private Pose origin;
+
+      public FixedJointEdgeBuilder() {
+         super(KinematicsModelTypes.FIXED_JOINT);
+         // TODO Auto-generated constructor stub
+      }
+
+      public FixedJointEdgeBuilder setOrigin(final Pose origin) {
+         this.origin = origin;
+         return self();
+      }
+
+      @Override
+      protected void setProperties(final JointEdge edge) {
+         // TODO Auto-generated method stub
+         super.setProperties(edge);
+         edge.setOrigin(origin);
+      }
+
+      @Override
+      protected JointEdge instantiate() {
+         // TODO Auto-generated method stub
+         return KinematicsgraphFactory.eINSTANCE.createJointEdge();
+      }
+
+      @Override
+      protected FixedJointEdgeBuilder self() {
+         // TODO Auto-generated method stub
+         return this;
+      }
+
+   }
+
    public static class RevoluteJointEdgeBuilder extends AbstractGEdgeBuilder<JointEdge, RevoluteJointEdgeBuilder> {
 
       private Pose origin;

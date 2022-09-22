@@ -21,6 +21,10 @@ export class Pose {
     rpy?: string;
 }
 
+export class FixedJointEdge extends SEdge {
+    origin?: Pose;
+}
+
 export class RevoluteJointEdge extends SEdge {
     origin?: Pose;
 }

@@ -28,190 +28,190 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
    /**
-    * The default value of the '{@link #getXyz() <em>Xyz</em>}' attribute.
-    * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getXyz() <em>Xyz</em>}' attribute.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @see #getXyz()
-    * @generated
-    * @ordered
-    */
+	 * @see #getXyz()
+	 * @generated
+	 * @ordered
+	 */
    protected static final String XYZ_EDEFAULT = null;
 
    /**
-    * The cached value of the '{@link #getXyz() <em>Xyz</em>}' attribute.
-    * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getXyz() <em>Xyz</em>}' attribute.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @see #getXyz()
-    * @generated
-    * @ordered
-    */
+	 * @see #getXyz()
+	 * @generated
+	 * @ordered
+	 */
    protected String xyz = XYZ_EDEFAULT;
 
    /**
-    * The default value of the '{@link #getRpy() <em>Rpy</em>}' attribute.
-    * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getRpy() <em>Rpy</em>}' attribute.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @see #getRpy()
-    * @generated
-    * @ordered
-    */
+	 * @see #getRpy()
+	 * @generated
+	 * @ordered
+	 */
    protected static final String RPY_EDEFAULT = null;
 
    /**
-    * The cached value of the '{@link #getRpy() <em>Rpy</em>}' attribute.
-    * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getRpy() <em>Rpy</em>}' attribute.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @see #getRpy()
-    * @generated
-    * @ordered
-    */
+	 * @see #getRpy()
+	 * @generated
+	 * @ordered
+	 */
    protected String rpy = RPY_EDEFAULT;
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    protected PoseImpl() {
-      super();
-   }
+		super();
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    @Override
    protected EClass eStaticClass() {
-      return KinematicsPackage.Literals.POSE;
-   }
+		return KinematicsPackage.Literals.POSE;
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    public String getXyz() {
-      return xyz;
-   }
+		return xyz;
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    public void setXyz(String newXyz) {
-      String oldXyz = xyz;
-      xyz = newXyz;
-      if (eNotificationRequired())
-         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.POSE__XYZ, oldXyz, xyz));
-   }
+		String oldXyz = xyz;
+		xyz = newXyz;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.POSE__XYZ, oldXyz, xyz));
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    public String getRpy() {
-      return rpy;
-   }
+		return rpy;
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    public void setRpy(String newRpy) {
-      String oldRpy = rpy;
-      rpy = newRpy;
-      if (eNotificationRequired())
-         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.POSE__RPY, oldRpy, rpy));
-   }
+		String oldRpy = rpy;
+		rpy = newRpy;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.POSE__RPY, oldRpy, rpy));
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    @Override
    public Object eGet(int featureID, boolean resolve, boolean coreType) {
-      switch (featureID) {
-         case KinematicsPackage.POSE__XYZ:
-            return getXyz();
-         case KinematicsPackage.POSE__RPY:
-            return getRpy();
-      }
-      return super.eGet(featureID, resolve, coreType);
-   }
+		switch (featureID) {
+			case KinematicsPackage.POSE__XYZ:
+				return getXyz();
+			case KinematicsPackage.POSE__RPY:
+				return getRpy();
+		}
+		return super.eGet(featureID, resolve, coreType);
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    @Override
    public void eSet(int featureID, Object newValue) {
-      switch (featureID) {
-         case KinematicsPackage.POSE__XYZ:
-            setXyz((String)newValue);
-            return;
-         case KinematicsPackage.POSE__RPY:
-            setRpy((String)newValue);
-            return;
-      }
-      super.eSet(featureID, newValue);
-   }
+		switch (featureID) {
+			case KinematicsPackage.POSE__XYZ:
+				setXyz((String)newValue);
+				return;
+			case KinematicsPackage.POSE__RPY:
+				setRpy((String)newValue);
+				return;
+		}
+		super.eSet(featureID, newValue);
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    @Override
    public void eUnset(int featureID) {
-      switch (featureID) {
-         case KinematicsPackage.POSE__XYZ:
-            setXyz(XYZ_EDEFAULT);
-            return;
-         case KinematicsPackage.POSE__RPY:
-            setRpy(RPY_EDEFAULT);
-            return;
-      }
-      super.eUnset(featureID);
-   }
+		switch (featureID) {
+			case KinematicsPackage.POSE__XYZ:
+				setXyz(XYZ_EDEFAULT);
+				return;
+			case KinematicsPackage.POSE__RPY:
+				setRpy(RPY_EDEFAULT);
+				return;
+		}
+		super.eUnset(featureID);
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    @Override
    public boolean eIsSet(int featureID) {
-      switch (featureID) {
-         case KinematicsPackage.POSE__XYZ:
-            return XYZ_EDEFAULT == null ? xyz != null : !XYZ_EDEFAULT.equals(xyz);
-         case KinematicsPackage.POSE__RPY:
-            return RPY_EDEFAULT == null ? rpy != null : !RPY_EDEFAULT.equals(rpy);
-      }
-      return super.eIsSet(featureID);
-   }
+		switch (featureID) {
+			case KinematicsPackage.POSE__XYZ:
+				return XYZ_EDEFAULT == null ? xyz != null : !XYZ_EDEFAULT.equals(xyz);
+			case KinematicsPackage.POSE__RPY:
+				return RPY_EDEFAULT == null ? rpy != null : !RPY_EDEFAULT.equals(rpy);
+		}
+		return super.eIsSet(featureID);
+	}
 
    /**
-    * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @generated
-    */
+	 * @generated
+	 */
    @Override
    public String toString() {
-      if (eIsProxy()) return super.toString();
+		if (eIsProxy()) return super.toString();
 
-      StringBuilder result = new StringBuilder(super.toString());
-      result.append(" (xyz: ");
-      result.append(xyz);
-      result.append(", rpy: ");
-      result.append(rpy);
-      result.append(')');
-      return result.toString();
-   }
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (xyz: ");
+		result.append(xyz);
+		result.append(", rpy: ");
+		result.append(rpy);
+		result.append(')');
+		return result.toString();
+	}
 
 } //PoseImpl

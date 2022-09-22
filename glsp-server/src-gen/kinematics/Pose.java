@@ -23,47 +23,47 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Pose extends EObject {
    /**
-    * Returns the value of the '<em><b>Xyz</b></em>' attribute.
-    * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Xyz</b></em>' attribute.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @return the value of the '<em>Xyz</em>' attribute.
-    * @see #setXyz(String)
-    * @see kinematics.KinematicsPackage#getPose_Xyz()
-    * @model required="true"
-    * @generated
-    */
+	 * @return the value of the '<em>Xyz</em>' attribute.
+	 * @see #setXyz(String)
+	 * @see kinematics.KinematicsPackage#getPose_Xyz()
+	 * @model required="true"
+	 * @generated
+	 */
    String getXyz();
 
    /**
-    * Sets the value of the '{@link kinematics.Pose#getXyz <em>Xyz</em>}' attribute.
-    * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link kinematics.Pose#getXyz <em>Xyz</em>}' attribute.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @param value the new value of the '<em>Xyz</em>' attribute.
-    * @see #getXyz()
-    * @generated
-    */
+	 * @param value the new value of the '<em>Xyz</em>' attribute.
+	 * @see #getXyz()
+	 * @generated
+	 */
    void setXyz(String value);
 
    /**
-    * Returns the value of the '<em><b>Rpy</b></em>' attribute.
-    * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Rpy</b></em>' attribute.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @return the value of the '<em>Rpy</em>' attribute.
-    * @see #setRpy(String)
-    * @see kinematics.KinematicsPackage#getPose_Rpy()
-    * @model required="true"
-    * @generated
-    */
+	 * @return the value of the '<em>Rpy</em>' attribute.
+	 * @see #setRpy(String)
+	 * @see kinematics.KinematicsPackage#getPose_Rpy()
+	 * @model required="true"
+	 * @generated
+	 */
    String getRpy();
 
    /**
-    * Sets the value of the '{@link kinematics.Pose#getRpy <em>Rpy</em>}' attribute.
-    * <!-- begin-user-doc -->
+	 * Sets the value of the '{@link kinematics.Pose#getRpy <em>Rpy</em>}' attribute.
+	 * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @param value the new value of the '<em>Rpy</em>' attribute.
-    * @see #getRpy()
-    * @generated
-    */
+	 * @param value the new value of the '<em>Rpy</em>' attribute.
+	 * @see #getRpy()
+	 * @generated
+	 */
    void setRpy(String value);
 
 } // Pose

@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kinematics:Robot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:kinematics="http://de.fraunhofer.ipa/kinematics" id="root" name="Test Robot">
-  <links name="NewLink0" id="95e0cf3b-5e34-4f5d-9a4d-b6a21c6b9af0"/>
-  <links name="NewLink1" id="c9910f32-3cd0-484d-b18c-b2539551208f"/>
-  <links name="NewLink2" id="5946441d-5d99-4f69-8c4c-fd31b95c904f"/>
-  <links name="NewLink3" id="7bea19ea-3a1b-46b1-a808-6765c6052333"/>
-  <links name="NewLink4" id="b1d76cc0-9757-40b3-ab44-f0bfcf07c4ca"/>
-  <joints name="NewJoint0" id="64b3e2c8-2842-4f54-a8db-67cfa04479b3" parent="95e0cf3b-5e34-4f5d-9a4d-b6a21c6b9af0" child="c9910f32-3cd0-484d-b18c-b2539551208f">
+  <links name="NewLink0" id="0852f54b-62c8-4209-b5df-a1ee1adb7688"/>
+  <links name="NewLink1" id="0c290d33-2417-49cc-b08a-5e3fc614b10b"/>
+  <links name="NewLink2" id="5bb52824-44a3-44b5-9b67-fc89ae853953"/>
+  <links name="NewLink3" id="cdebb4ef-5982-40f1-87a9-1e14d59bdb0f"/>
+  <joints name="NewJoint0" id="332b4a9f-8890-4899-bf7f-577a13d2611f" parent="0852f54b-62c8-4209-b5df-a1ee1adb7688" child="0c290d33-2417-49cc-b08a-5e3fc614b10b">
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joints>
-  <joints name="NewJoint0" id="e970b3cb-0c18-485a-a187-20475380815c" parent="95e0cf3b-5e34-4f5d-9a4d-b6a21c6b9af0" child="5946441d-5d99-4f69-8c4c-fd31b95c904f">
+  <joints name="NewJoint0" id="535db2df-a9d5-4a00-afca-b1cf64864d76" parent="0852f54b-62c8-4209-b5df-a1ee1adb7688" child="0c290d33-2417-49cc-b08a-5e3fc614b10b" type="revolute">
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joints>
-  <joints name="NewJoint0" id="3f7a0a82-d89b-4df4-8e5b-d14de75065e4" parent="c9910f32-3cd0-484d-b18c-b2539551208f" child="b1d76cc0-9757-40b3-ab44-f0bfcf07c4ca">
+  <joints name="NewJoint0" id="4733cf55-4ce0-4285-9e32-e63e05b73e77" parent="0852f54b-62c8-4209-b5df-a1ee1adb7688" child="5bb52824-44a3-44b5-9b67-fc89ae853953">
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joints>
-  <joints name="NewJoint0" id="464915a5-76af-4857-bad8-2e7d0c72a702" parent="c9910f32-3cd0-484d-b18c-b2539551208f" child="7bea19ea-3a1b-46b1-a808-6765c6052333">
+  <joints name="NewJoint0" id="806bea24-3838-4242-8223-97b6b7805a74" parent="5bb52824-44a3-44b5-9b67-fc89ae853953" child="cdebb4ef-5982-40f1-87a9-1e14d59bdb0f">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joints>
+  <joints name="NewJoint0" id="7eeb8050-a6a1-4af0-8bed-4111a04e65d0" parent="0c290d33-2417-49cc-b08a-5e3fc614b10b" child="cdebb4ef-5982-40f1-87a9-1e14d59bdb0f" type="revolute">
     <origin xyz="0 0 0" rpy="0 0 0"/>
   </joints>
 </kinematics:Robot>
