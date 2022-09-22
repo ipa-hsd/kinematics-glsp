@@ -2,11 +2,13 @@
  */
 package kinematicsgraph.impl;
 
+import kinematicsgraph.FixedJointEdge;
 import kinematicsgraph.JointEdge;
 import kinematicsgraph.KinematicsgraphFactory;
 import kinematicsgraph.KinematicsgraphPackage;
 import kinematicsgraph.Pose;
 
+import kinematicsgraph.RevoluteJointEdge;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -29,6 +31,20 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
     * @generated
     */
    private EClass jointEdgeEClass = null;
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   private EClass fixedJointEdgeEClass = null;
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   private EClass revoluteJointEdgeEClass = null;
 
    /**
     * <!-- begin-user-doc -->
@@ -124,6 +140,24 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
     * <!-- end-user-doc -->
     * @generated
     */
+   public EClass getFixedJointEdge() {
+      return fixedJointEdgeEClass;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EClass getRevoluteJointEdge() {
+      return revoluteJointEdgeEClass;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
    public EClass getPose() {
       return poseEClass;
    }
@@ -174,12 +208,16 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
       isCreated = true;
 
       // Create classes and their features
-      jointEdgeEClass = createEClass(JOINT_EDGE);
-      createEReference(jointEdgeEClass, JOINT_EDGE__ORIGIN);
-
       poseEClass = createEClass(POSE);
       createEAttribute(poseEClass, POSE__XYZ);
       createEAttribute(poseEClass, POSE__RPY);
+
+      jointEdgeEClass = createEClass(JOINT_EDGE);
+      createEReference(jointEdgeEClass, JOINT_EDGE__ORIGIN);
+
+      fixedJointEdgeEClass = createEClass(FIXED_JOINT_EDGE);
+
+      revoluteJointEdgeEClass = createEClass(REVOLUTE_JOINT_EDGE);
    }
 
    /**
@@ -214,14 +252,20 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
 
       // Add supertypes to classes
       jointEdgeEClass.getESuperTypes().add(theGraphPackage.getGEdge());
+      fixedJointEdgeEClass.getESuperTypes().add(this.getJointEdge());
+      revoluteJointEdgeEClass.getESuperTypes().add(this.getJointEdge());
 
       // Initialize classes, features, and operations; add parameters
-      initEClass(jointEdgeEClass, JointEdge.class, "JointEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-      initEReference(getJointEdge_Origin(), this.getPose(), null, "origin", null, 1, 1, JointEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
       initEClass(poseEClass, Pose.class, "Pose", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
       initEAttribute(getPose_Xyz(), ecorePackage.getEString(), "xyz", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEAttribute(getPose_Rpy(), ecorePackage.getEString(), "rpy", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+      initEClass(jointEdgeEClass, JointEdge.class, "JointEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEReference(getJointEdge_Origin(), this.getPose(), null, "origin", null, 1, 1, JointEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+      initEClass(fixedJointEdgeEClass, FixedJointEdge.class, "FixedJointEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+      initEClass(revoluteJointEdgeEClass, RevoluteJointEdge.class, "RevoluteJointEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
       // Create resource
       createResource(eNS_URI);

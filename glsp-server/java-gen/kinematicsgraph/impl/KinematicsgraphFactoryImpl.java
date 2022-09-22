@@ -56,8 +56,10 @@ public class KinematicsgraphFactoryImpl extends EFactoryImpl implements Kinemati
    @Override
    public EObject create(EClass eClass) {
       switch (eClass.getClassifierID()) {
-         case KinematicsgraphPackage.JOINT_EDGE: return createJointEdge();
          case KinematicsgraphPackage.POSE: return createPose();
+         case KinematicsgraphPackage.JOINT_EDGE: return createJointEdge();
+         case KinematicsgraphPackage.FIXED_JOINT_EDGE: return createFixedJointEdge();
+         case KinematicsgraphPackage.REVOLUTE_JOINT_EDGE: return createRevoluteJointEdge();
          default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
       }
@@ -71,6 +73,26 @@ public class KinematicsgraphFactoryImpl extends EFactoryImpl implements Kinemati
    public JointEdge createJointEdge() {
       JointEdgeImpl jointEdge = new JointEdgeImpl();
       return jointEdge;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public FixedJointEdge createFixedJointEdge() {
+      FixedJointEdgeImpl fixedJointEdge = new FixedJointEdgeImpl();
+      return fixedJointEdge;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public RevoluteJointEdge createRevoluteJointEdge() {
+      RevoluteJointEdgeImpl revoluteJointEdge = new RevoluteJointEdgeImpl();
+      return revoluteJointEdge;
    }
 
    /**

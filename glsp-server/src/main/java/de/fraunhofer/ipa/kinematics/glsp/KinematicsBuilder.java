@@ -17,13 +17,14 @@ package de.fraunhofer.ipa.kinematics.glsp;
 
 import org.eclipse.glsp.graph.builder.AbstractGEdgeBuilder;
 
-import kinematicsgraph.JointEdge;
+import kinematicsgraph.FixedJointEdge;
 import kinematicsgraph.KinematicsgraphFactory;
 import kinematicsgraph.Pose;
+import kinematicsgraph.RevoluteJointEdge;
 
 public final class KinematicsBuilder {
 
-   public static class FixedJointEdgeBuilder extends AbstractGEdgeBuilder<JointEdge, FixedJointEdgeBuilder> {
+   public static class FixedJointEdgeBuilder extends AbstractGEdgeBuilder<FixedJointEdge, FixedJointEdgeBuilder> {
 
       private Pose origin;
 
@@ -38,16 +39,16 @@ public final class KinematicsBuilder {
       }
 
       @Override
-      protected void setProperties(final JointEdge edge) {
+      protected void setProperties(final FixedJointEdge edge) {
          // TODO Auto-generated method stub
          super.setProperties(edge);
          edge.setOrigin(origin);
       }
 
       @Override
-      protected JointEdge instantiate() {
+      protected FixedJointEdge instantiate() {
          // TODO Auto-generated method stub
-         return KinematicsgraphFactory.eINSTANCE.createJointEdge();
+         return KinematicsgraphFactory.eINSTANCE.createFixedJointEdge();
       }
 
       @Override
@@ -58,7 +59,8 @@ public final class KinematicsBuilder {
 
    }
 
-   public static class RevoluteJointEdgeBuilder extends AbstractGEdgeBuilder<JointEdge, RevoluteJointEdgeBuilder> {
+   public static class RevoluteJointEdgeBuilder
+      extends AbstractGEdgeBuilder<RevoluteJointEdge, RevoluteJointEdgeBuilder> {
 
       private Pose origin;
 
@@ -73,16 +75,16 @@ public final class KinematicsBuilder {
       }
 
       @Override
-      protected void setProperties(final JointEdge edge) {
+      protected void setProperties(final RevoluteJointEdge edge) {
          // TODO Auto-generated method stub
          super.setProperties(edge);
          edge.setOrigin(origin);
       }
 
       @Override
-      protected JointEdge instantiate() {
+      protected RevoluteJointEdge instantiate() {
          // TODO Auto-generated method stub
-         return KinematicsgraphFactory.eINSTANCE.createJointEdge();
+         return KinematicsgraphFactory.eINSTANCE.createRevoluteJointEdge();
       }
 
       @Override

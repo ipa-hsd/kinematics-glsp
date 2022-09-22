@@ -7,12 +7,14 @@
     operationReflection="true" importOrganizing="true">
   <foreignModel>kinematics-graph.ecore</foreignModel>
   <genPackages prefix="Kinematicsgraph" disposableProviderFactory="true" ecorePackage="kinematics-graph.ecore#/">
-    <genClasses ecoreClass="kinematics-graph.ecore#//JointEdge">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kinematics-graph.ecore#//JointEdge/origin"/>
-    </genClasses>
     <genClasses ecoreClass="kinematics-graph.ecore#//Pose">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics-graph.ecore#//Pose/xyz"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics-graph.ecore#//Pose/rpy"/>
     </genClasses>
+    <genClasses ecoreClass="kinematics-graph.ecore#//JointEdge">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kinematics-graph.ecore#//JointEdge/origin"/>
+    </genClasses>
+    <genClasses ecoreClass="kinematics-graph.ecore#//FixedJointEdge"/>
+    <genClasses ecoreClass="kinematics-graph.ecore#//RevoluteJointEdge"/>
   </genPackages>
 </genmodel:GenModel>
