@@ -103,6 +103,6 @@ export class SetUISchemaAction implements ResponseAction {
 }
 
 export function isSetUISchemaAction(action: Action): action is SetUISchemaAction {
-    return action !== undefined && (action.kind === SetSchemaAction.KIND)
+    return action !== undefined && (action.kind === SetUISchemaAction.KIND)
         && (action as SetUISchemaAction).uiSchema !== undefined;
 }

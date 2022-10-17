@@ -22,41 +22,42 @@ import de.fraunhofer.ipa.kinematics.glsp.actions.SetUISchemaAction;
 
 public class RequestUISchemaActionHandler extends AbstractActionHandler<RequestUISchemaAction> {
 
-    @Inject
-    protected EMFNotationModelState modelState;
+   @Inject
+   protected EMFNotationModelState modelState;
 
-    @Override
-    protected List<Action> executeAction(RequestUISchemaAction action) {
-        List<Action> actionList = new ArrayList<>();
+   @Override
+   protected List<Action> executeAction(final RequestUISchemaAction action) {
+      System.out.println("requesting ui schema");
 
-        // TODO: move this to a utils class
-        ObjectMapper mapper = new ObjectMapper();
-        EMFModule module = new EMFModule();
-        mapper.registerModule(module);
+      List<Action> actionList = new ArrayList<>();
 
-        // Registry registry = modelState.getSemanticModel().eResource().getResourceSet().getPackageRegistry();
-        // EPackage ePackage = registry.getEPackage(action.getModelUri());
-        // System.out.println(ePackage.eResource().getURI().devicePath());
+      // TODO: move this to a utils class
+      ObjectMapper mapper = new ObjectMapper();
+      EMFModule module = new EMFModule();
+      mapper.registerModule(module);
 
-        ResourceSet rset = modelState.getSemanticModel().eResource().getResourceSet();
-        rset.getResourceFactoryRegistry()
-            .getExtensionToFactoryMap()
-            .put("json", new JsonResourceFactory());
+      ResourceSet rset = modelState.getSemanticModel().eResource().getResourceSet();
+      rset.getResourceFactoryRegistry()
+         .getExtensionToFactoryMap()
+         .put("json", new JsonResourceFactory());
 
-        URI uri = URI.createFileURI(
-            "/home/ipa-hsd/projects/kogrob2/urdf/glsp_tests/my_glsp_test/kinematics-glsp/glsp-server/model/LinkView.json");
+      // TODO: use relative path
+      URI uri = URI.createFileURI(
+         "/home/ipa-hsd/projects/kogrob2/urdf/glsp_tests/my_glsp_test/kinematics-glsp/glsp-server/model/JointView.json");
 
-        JsonNode jsonNode;
-        try {
-            jsonNode = mapper.readValue(Paths.get(uri.toFileString()).toFile(), JsonNode.class);
-            actionList.add(
-                new SetUISchemaAction(jsonNode.toString()));
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+      JsonNode jsonNode;
+      try {
+         jsonNode = mapper.readValue(Paths.get(uri.toFileString()).toFile(), JsonNode.class);
+         actionList.add(
+            new SetUISchemaAction(jsonNode.toString()));
+         System.out.println(jsonNode);
 
-        return actionList.isEmpty() ? none() : actionList;
-    }
+      } catch (IOException e) {
+         // TODO Auto-generated catch block
+         e.printStackTrace();
+      }
+
+      return actionList.isEmpty() ? none() : actionList;
+   }
 
 }

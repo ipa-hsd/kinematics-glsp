@@ -3,28 +3,24 @@
   "elements": [
     {
       "type": "Control",
-      "label": "name",
       "scope": "#/properties/name"
     },
     {
       "type": "Control",
-      "label": "id",
       "scope": "#/properties/id"
     },
     {
       "type": "Control",
-      "label": "parent",
-      "scope": "#/properties/parent"
+      "scope": "#/properties/type"
     },
     {
       "type": "Control",
-      "label": "child",
-      "scope": "#/properties/child"
+      "scope": "#/properties/origin/properties/xyz"
     },
     {
       "type": "Control",
-      "label": "origin",
-      "scope": "#/properties/origin"
+      "scope": "#/properties/origin/properties/rpy"
     }
   ]
 }
+

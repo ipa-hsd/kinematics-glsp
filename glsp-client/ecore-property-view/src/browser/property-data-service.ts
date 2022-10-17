@@ -18,8 +18,9 @@ import { DiagramWidget } from '@eclipse-glsp/theia-integration';
 import { GlspSelection, isGlspSelection } from '@eclipse-glsp/theia-integration/lib/browser/diagram';
 import { JsonSchema, UISchemaElement } from '@jsonforms/core';
 import { ApplicationShell } from '@theia/core/lib/browser';
+import URI from "@theia/core/lib/common/uri";
 import { inject, injectable } from 'inversify';
-import { isSetModelElementAction, RequestModelElementAction, SetModelElementAction } from './action-definitions';
+import { isSetModelElementAction, isSetUISchemaAction, RequestModelElementAction, RequestUISchemaAction, SetModelElementAction } from './action-definitions';
 
 @injectable()
 export class EcoreGlspPropertyDataService implements JsonFormsPropertyDataService {
@@ -78,19 +79,18 @@ export class EcoreGlspPropertyDataService implements JsonFormsPropertyDataServic
     }
 
     getUiSchema(selection: any, properties?: any): Promise<UISchemaElement | undefined> {
-        // if (properties && properties.eClass) {
-        //     const eClassName = this.getSelectionData(selection).eClass || new URI(properties.eClass).fragment.substring(2);         
-
-        //     return new Promise(resolve => {
-        //         const widget = this.shell.currentWidget as DiagramWidget;
-        //         widget.actionDispatcher.request(new RequestUISchemaAction(eClassName.toLowerCase())).then(response => {
-        //             if (isSetUISchemaAction(response)) {
-        //                 const json = JSON.parse(response.uiSchema);
-        //                 resolve(json as UISchemaElement);
-        //             }
-        //         });
-        //     });
-        // }
+        if (properties) {
+            const eClassName = this.getSelectionData(selection).eClass || new URI(properties.eClass).fragment.substring(2);
+            return new Promise(resolve => {
+                const widget = this.shell.currentWidget as DiagramWidget;
+                widget.actionDispatcher.request(new RequestUISchemaAction(eClassName.toLowerCase())).then(response => {
+                    if (isSetUISchemaAction(response)) {
+                        const json = JSON.parse(response.uiSchema);
+                        resolve(json as UISchemaElement);
+                    }
+                });
+            });
+        }
         return Promise.resolve(undefined);
     }
 }

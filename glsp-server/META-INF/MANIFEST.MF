@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %pluginName
-Bundle-SymbolicName: de.fraunhofer.ipa.kinematics.glsp;singleton:=true
-Automatic-Module-Name: de.fraunhofer.ipa.kinematics.glsp
+Bundle-SymbolicName: de.fraunhofer.ipa.kinematics;singleton:=true
+Automatic-Module-Name: de.fraunhofer.ipa.kinematics
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
