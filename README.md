@@ -1,5 +1,5 @@
 # kinematics-glsp
-Graphical edittor for kinematics DSL defined in https://github.com/ipa320/kinematics-model (branch: `lsp_support`)  
+Graphical edittor for kinematics model defined in https://github.com/ipa320/kinematics-model (branch: `lsp_support`)  
 
 ![Screenshot from 2022-06-13 08-32-20](https://user-images.githubusercontent.com/31062848/173293584-f0bd2f7d-6b97-482b-a26b-58a4370f5bba.png)
 
