@@ -1,0 +1,50 @@
+{
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string"
+    },
+    "parent": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "id"
+      ]
+    },
+    "origin": {
+      "type": "object",
+      "properties": {
+        "xyz": {
+          "type": "string"
+        },
+        "rpy": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "xyz",
+        "rpy"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "id",
+    "parent",
+    "origin"
+  ]
+}

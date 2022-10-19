@@ -70,12 +70,9 @@ public class KinematicsgraphSwitch<T> extends Switch<T> {
    @Override
    protected T doSwitch(int classifierID, EObject theEObject) {
       switch (classifierID) {
-         case KinematicsgraphPackage.JOINT_EDGE: {
-            JointEdge jointEdge = (JointEdge)theEObject;
-            T result = caseJointEdge(jointEdge);
-            if (result == null) result = caseGEdge(jointEdge);
-            if (result == null) result = caseGModelElement(jointEdge);
-            if (result == null) result = caseGArgumentable(jointEdge);
+         case KinematicsgraphPackage.LIMIT: {
+            Limit limit = (Limit)theEObject;
+            T result = caseLimit(limit);
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
@@ -85,8 +82,83 @@ public class KinematicsgraphSwitch<T> extends Switch<T> {
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
+         case KinematicsgraphPackage.JOINT_EDGE: {
+            JointEdge jointEdge = (JointEdge)theEObject;
+            T result = caseJointEdge(jointEdge);
+            if (result == null) result = caseGEdge(jointEdge);
+            if (result == null) result = caseGModelElement(jointEdge);
+            if (result == null) result = caseGArgumentable(jointEdge);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
+         case KinematicsgraphPackage.FIXED_JOINT_EDGE: {
+            FixedJointEdge fixedJointEdge = (FixedJointEdge)theEObject;
+            T result = caseFixedJointEdge(fixedJointEdge);
+            if (result == null) result = caseJointEdge(fixedJointEdge);
+            if (result == null) result = caseGEdge(fixedJointEdge);
+            if (result == null) result = caseGModelElement(fixedJointEdge);
+            if (result == null) result = caseGArgumentable(fixedJointEdge);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
+         case KinematicsgraphPackage.REVOLUTE_JOINT_EDGE: {
+            RevoluteJointEdge revoluteJointEdge = (RevoluteJointEdge)theEObject;
+            T result = caseRevoluteJointEdge(revoluteJointEdge);
+            if (result == null) result = caseJointEdge(revoluteJointEdge);
+            if (result == null) result = caseGEdge(revoluteJointEdge);
+            if (result == null) result = caseGModelElement(revoluteJointEdge);
+            if (result == null) result = caseGArgumentable(revoluteJointEdge);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
+         case KinematicsgraphPackage.PRISMATIC_JOINT_EDGE: {
+            PrismaticJointEdge prismaticJointEdge = (PrismaticJointEdge)theEObject;
+            T result = casePrismaticJointEdge(prismaticJointEdge);
+            if (result == null) result = caseJointEdge(prismaticJointEdge);
+            if (result == null) result = caseGEdge(prismaticJointEdge);
+            if (result == null) result = caseGModelElement(prismaticJointEdge);
+            if (result == null) result = caseGArgumentable(prismaticJointEdge);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
+         case KinematicsgraphPackage.AXIS: {
+            Axis axis = (Axis)theEObject;
+            T result = caseAxis(axis);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
          default: return defaultCase(theEObject);
       }
+   }
+
+   /**
+    * Returns the result of interpreting the object as an instance of '<em>Limit</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Limit</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T caseLimit(Limit object) {
+      return null;
+   }
+
+   /**
+    * Returns the result of interpreting the object as an instance of '<em>Pose</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Pose</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T casePose(Pose object) {
+      return null;
    }
 
    /**
@@ -105,17 +177,62 @@ public class KinematicsgraphSwitch<T> extends Switch<T> {
    }
 
    /**
-    * Returns the result of interpreting the object as an instance of '<em>Pose</em>'.
+    * Returns the result of interpreting the object as an instance of '<em>Fixed Joint Edge</em>'.
     * <!-- begin-user-doc -->
     * This implementation returns null;
     * returning a non-null result will terminate the switch.
     * <!-- end-user-doc -->
     * @param object the target of the switch.
-    * @return the result of interpreting the object as an instance of '<em>Pose</em>'.
+    * @return the result of interpreting the object as an instance of '<em>Fixed Joint Edge</em>'.
     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
     * @generated
     */
-   public T casePose(Pose object) {
+   public T caseFixedJointEdge(FixedJointEdge object) {
+      return null;
+   }
+
+   /**
+    * Returns the result of interpreting the object as an instance of '<em>Revolute Joint Edge</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Revolute Joint Edge</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T caseRevoluteJointEdge(RevoluteJointEdge object) {
+      return null;
+   }
+
+   /**
+    * Returns the result of interpreting the object as an instance of '<em>Prismatic Joint Edge</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Prismatic Joint Edge</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T casePrismaticJointEdge(PrismaticJointEdge object) {
+      return null;
+   }
+
+   /**
+    * Returns the result of interpreting the object as an instance of '<em>Axis</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Axis</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T caseAxis(Axis object) {
       return null;
    }
 

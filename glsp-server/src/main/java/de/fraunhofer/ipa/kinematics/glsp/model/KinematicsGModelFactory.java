@@ -34,12 +34,16 @@ import org.eclipse.glsp.server.emf.model.notation.Diagram;
 import org.eclipse.glsp.server.emf.model.notation.Edge;
 import org.eclipse.glsp.server.emf.notation.EMFNotationGModelFactory;
 
-import de.fraunhofer.ipa.kinematics.glsp.KinematicsBuilder.JointEdgeBuilder;
+import de.fraunhofer.ipa.kinematics.glsp.KinematicsBuilder.FixedJointEdgeBuilder;
+import de.fraunhofer.ipa.kinematics.glsp.KinematicsBuilder.PrismaticJointEdgeBuilder;
+import de.fraunhofer.ipa.kinematics.glsp.KinematicsBuilder.RevoluteJointEdgeBuilder;
 import de.fraunhofer.ipa.kinematics.glsp.KinematicsModelTypes;
 import kinematics.Joint;
 import kinematics.Link;
 import kinematics.Robot;
+import kinematicsgraph.Axis;
 import kinematicsgraph.KinematicsgraphFactory;
+import kinematicsgraph.Limit;
 import kinematicsgraph.Pose;
 
 public class KinematicsGModelFactory extends EMFNotationGModelFactory {
@@ -76,6 +80,37 @@ public class KinematicsGModelFactory extends EMFNotationGModelFactory {
       return eList.stream().filter(node -> elementId.equals(node.getId())).findFirst().orElse(null);
    }
 
+   protected Limit getJointLimit(final Joint joint) {
+      Limit limit = KinematicsgraphFactory.eINSTANCE.createLimit();
+      limit.setEffort(joint.getLimit().getEffort());
+      limit.setVelocity(joint.getLimit().getVelocity());
+      limit.setLower(joint.getLimit().getLower());
+      limit.setUpper(joint.getLimit().getUpper());
+
+      return limit;
+   }
+
+   protected Axis getJointAxis(final Joint joint) {
+      Axis axis = KinematicsgraphFactory.eINSTANCE.createAxis();
+      axis.setX(joint.getAxis().getX());
+      axis.setY(joint.getAxis().getY());
+      axis.setZ(joint.getAxis().getZ());
+
+      return axis;
+   }
+
+   protected Pose getJointOrigin(final Joint joint) {
+      Pose origin = KinematicsgraphFactory.eINSTANCE.createPose();
+      origin.setX(joint.getOrigin().getX());
+      origin.setY(joint.getOrigin().getY());
+      origin.setZ(joint.getOrigin().getZ());
+      origin.setRoll(joint.getOrigin().getRoll());
+      origin.setPitch(joint.getOrigin().getPitch());
+      origin.setYaw(joint.getOrigin().getYaw());
+
+      return origin;
+   }
+
    protected GEdge createTransitionEdge(final Joint joint, final GGraph graph) {
       String parentId = joint.getParent().getId();
       String childId = joint.getChild().getId();
@@ -83,26 +118,84 @@ public class KinematicsGModelFactory extends EMFNotationGModelFactory {
       GModelElement parentNode = findGNodeById(graph.getChildren(), parentId);
       GModelElement childNode = findGNodeById(graph.getChildren(), childId);
 
-      Pose origin = KinematicsgraphFactory.eINSTANCE.createPose();
-      origin.setXyz(joint.getOrigin().getXyz());
-      origin.setRpy(joint.getOrigin().getRpy());
+      Pose origin = getJointOrigin(joint);
 
-      JointEdgeBuilder jointEdgeBuilder = new JointEdgeBuilder().source(parentNode)
-         .target(childNode)
-         .setOrigin(origin)
-         .id(idGenerator.getOrCreateId(joint));
-      applyEdgeData(joint, jointEdgeBuilder);
-      return jointEdgeBuilder.build();
+      switch (joint.getType()) {
+         case FIXED:
+            FixedJointEdgeBuilder fixedJointEdgeBuilder = new FixedJointEdgeBuilder().source(parentNode)
+               .target(childNode)
+               .setOrigin(origin)
+               .id(idGenerator.getOrCreateId(joint));
+            applyEdgeData(joint, fixedJointEdgeBuilder);
+            return fixedJointEdgeBuilder.build();
+         case REVOLUTE:
+            Limit limitRevolute = getJointLimit(joint);
+            Axis axisRevolute = getJointAxis(joint);
+            RevoluteJointEdgeBuilder revoluteJointEdgeBuilder = new RevoluteJointEdgeBuilder().source(parentNode)
+               .target(childNode)
+               .setOrigin(origin)
+               .setLimit(limitRevolute)
+               .setAxis(axisRevolute)
+               .id(idGenerator.getOrCreateId(joint))
+               .addCssClass("minimal-edge-revolute");
+            applyEdgeData(joint, revoluteJointEdgeBuilder);
+            return revoluteJointEdgeBuilder.build();
+         case PRISMATIC:
+            Limit limitPrismatic = getJointLimit(joint);
+            Axis axisPrismatic = getJointAxis(joint);
+            PrismaticJointEdgeBuilder prismaticJointEdgeBuilder = new PrismaticJointEdgeBuilder().source(parentNode)
+               .target(childNode)
+               .setOrigin(origin)
+               .setLimit(limitPrismatic)
+               .setAxis(axisPrismatic)
+               .id(idGenerator.getOrCreateId(joint))
+               .addCssClass("minimal-edge-prismatic");
+            applyEdgeData(joint, prismaticJointEdgeBuilder);
+            System.out.println(prismaticJointEdgeBuilder.build());
+            return prismaticJointEdgeBuilder.build();
+         default:
+            break;
+      }
+
+      return null;
    }
 
-   private JointEdgeBuilder applyEdgeData(final EObject edgeElement, final JointEdgeBuilder builder) {
+   private FixedJointEdgeBuilder applyEdgeData(final EObject edgeElement, final FixedJointEdgeBuilder builder) {
       // TODO Auto-generated method stub
       modelState.getIndex().getNotation(edgeElement, Edge.class)
          .ifPresent(edge -> applyEdgeData(edge, builder));
       return builder;
    }
 
-   private static JointEdgeBuilder applyEdgeData(final Edge edge, final JointEdgeBuilder builder) {
+   private static FixedJointEdgeBuilder applyEdgeData(final Edge edge, final FixedJointEdgeBuilder builder) {
+      if (edge.getBendPoints() != null) {
+         edge.getBendPoints().stream().map(GraphUtil::copy).forEachOrdered(builder::addRoutingPoint);
+      }
+      return builder;
+   }
+
+   private RevoluteJointEdgeBuilder applyEdgeData(final EObject edgeElement, final RevoluteJointEdgeBuilder builder) {
+      // TODO Auto-generated method stub
+      modelState.getIndex().getNotation(edgeElement, Edge.class)
+         .ifPresent(edge -> applyEdgeData(edge, builder));
+      return builder;
+   }
+
+   private static RevoluteJointEdgeBuilder applyEdgeData(final Edge edge, final RevoluteJointEdgeBuilder builder) {
+      if (edge.getBendPoints() != null) {
+         edge.getBendPoints().stream().map(GraphUtil::copy).forEachOrdered(builder::addRoutingPoint);
+      }
+      return builder;
+   }
+
+   private PrismaticJointEdgeBuilder applyEdgeData(final EObject edgeElement, final PrismaticJointEdgeBuilder builder) {
+      // TODO Auto-generated method stub
+      modelState.getIndex().getNotation(edgeElement, Edge.class)
+         .ifPresent(edge -> applyEdgeData(edge, builder));
+      return builder;
+   }
+
+   private static PrismaticJointEdgeBuilder applyEdgeData(final Edge edge, final PrismaticJointEdgeBuilder builder) {
       if (edge.getBendPoints() != null) {
          edge.getBendPoints().stream().map(GraphUtil::copy).forEachOrdered(builder::addRoutingPoint);
       }

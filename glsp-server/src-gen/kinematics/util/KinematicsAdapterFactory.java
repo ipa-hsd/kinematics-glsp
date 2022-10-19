@@ -84,6 +84,14 @@ public class KinematicsAdapterFactory extends AdapterFactoryImpl {
             return createPoseAdapter();
          }
          @Override
+         public Adapter caseLimit(Limit object) {
+            return createLimitAdapter();
+         }
+         @Override
+         public Adapter caseAxis(Axis object) {
+            return createAxisAdapter();
+         }
+         @Override
          public Adapter defaultCase(EObject object) {
             return createEObjectAdapter();
          }
@@ -156,6 +164,34 @@ public class KinematicsAdapterFactory extends AdapterFactoryImpl {
     * @generated
     */
    public Adapter createPoseAdapter() {
+      return null;
+   }
+
+   /**
+    * Creates a new adapter for an object of class '{@link kinematics.Limit <em>Limit</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see kinematics.Limit
+    * @generated
+    */
+   public Adapter createLimitAdapter() {
+      return null;
+   }
+
+   /**
+    * Creates a new adapter for an object of class '{@link kinematics.Axis <em>Axis</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see kinematics.Axis
+    * @generated
+    */
+   public Adapter createAxisAdapter() {
       return null;
    }
 

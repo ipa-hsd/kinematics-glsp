@@ -17,41 +17,145 @@ package de.fraunhofer.ipa.kinematics.glsp;
 
 import org.eclipse.glsp.graph.builder.AbstractGEdgeBuilder;
 
-import kinematicsgraph.JointEdge;
+import kinematicsgraph.Axis;
+import kinematicsgraph.FixedJointEdge;
 import kinematicsgraph.KinematicsgraphFactory;
+import kinematicsgraph.Limit;
 import kinematicsgraph.Pose;
+import kinematicsgraph.PrismaticJointEdge;
+import kinematicsgraph.RevoluteJointEdge;
 
 public final class KinematicsBuilder {
 
-   public static class JointEdgeBuilder extends AbstractGEdgeBuilder<JointEdge, JointEdgeBuilder> {
+   public static class FixedJointEdgeBuilder extends AbstractGEdgeBuilder<FixedJointEdge, FixedJointEdgeBuilder> {
 
       private Pose origin;
 
-      public JointEdgeBuilder() {
-         super(KinematicsModelTypes.REVOLUTE_JOINT);
+      public FixedJointEdgeBuilder() {
+         super(KinematicsModelTypes.FIXED_JOINT);
          // TODO Auto-generated constructor stub
       }
 
-      public JointEdgeBuilder setOrigin(final Pose origin) {
+      public FixedJointEdgeBuilder setOrigin(final Pose origin) {
          this.origin = origin;
          return self();
       }
 
       @Override
-      protected void setProperties(final JointEdge edge) {
+      protected void setProperties(final FixedJointEdge edge) {
          // TODO Auto-generated method stub
          super.setProperties(edge);
          edge.setOrigin(origin);
       }
 
       @Override
-      protected JointEdge instantiate() {
+      protected FixedJointEdge instantiate() {
          // TODO Auto-generated method stub
-         return KinematicsgraphFactory.eINSTANCE.createJointEdge();
+         return KinematicsgraphFactory.eINSTANCE.createFixedJointEdge();
       }
 
       @Override
-      protected JointEdgeBuilder self() {
+      protected FixedJointEdgeBuilder self() {
+         // TODO Auto-generated method stub
+         return this;
+      }
+
+   }
+
+   public static class RevoluteJointEdgeBuilder
+      extends AbstractGEdgeBuilder<RevoluteJointEdge, RevoluteJointEdgeBuilder> {
+
+      private Pose origin;
+      private Limit limit;
+      private Axis axis;
+
+      public RevoluteJointEdgeBuilder() {
+         super(KinematicsModelTypes.REVOLUTE_JOINT);
+         // TODO Auto-generated constructor stub
+      }
+
+      public RevoluteJointEdgeBuilder setOrigin(final Pose origin) {
+         this.origin = origin;
+         return self();
+      }
+
+      public RevoluteJointEdgeBuilder setLimit(final Limit limit) {
+         this.limit = limit;
+         return self();
+      }
+
+      public RevoluteJointEdgeBuilder setAxis(final Axis axis) {
+         this.axis = axis;
+         return self();
+      }
+
+      @Override
+      protected void setProperties(final RevoluteJointEdge edge) {
+         // TODO Auto-generated method stub
+         super.setProperties(edge);
+         edge.setOrigin(origin);
+         edge.setLimit(limit);
+         edge.setAxis(axis);
+      }
+
+      @Override
+      protected RevoluteJointEdge instantiate() {
+         // TODO Auto-generated method stub
+         return KinematicsgraphFactory.eINSTANCE.createRevoluteJointEdge();
+      }
+
+      @Override
+      protected RevoluteJointEdgeBuilder self() {
+         // TODO Auto-generated method stub
+         return this;
+      }
+
+   }
+
+   public static class PrismaticJointEdgeBuilder
+      extends AbstractGEdgeBuilder<PrismaticJointEdge, PrismaticJointEdgeBuilder> {
+
+      private Pose origin;
+      private Limit limit;
+      private Axis axis;
+
+      public PrismaticJointEdgeBuilder() {
+         super(KinematicsModelTypes.REVOLUTE_JOINT);
+         // TODO Auto-generated constructor stub
+      }
+
+      public PrismaticJointEdgeBuilder setOrigin(final Pose origin) {
+         this.origin = origin;
+         return self();
+      }
+
+      public PrismaticJointEdgeBuilder setLimit(final Limit limit) {
+         this.limit = limit;
+         return self();
+      }
+
+      public PrismaticJointEdgeBuilder setAxis(final Axis axis) {
+         this.axis = axis;
+         return self();
+      }
+
+      @Override
+      protected void setProperties(final PrismaticJointEdge edge) {
+         // TODO Auto-generated method stub
+         super.setProperties(edge);
+         edge.setOrigin(origin);
+         edge.setLimit(limit);
+         edge.setAxis(axis);
+      }
+
+      @Override
+      protected PrismaticJointEdge instantiate() {
+         // TODO Auto-generated method stub
+         return KinematicsgraphFactory.eINSTANCE.createPrismaticJointEdge();
+      }
+
+      @Override
+      protected PrismaticJointEdgeBuilder self() {
          // TODO Auto-generated method stub
          return this;
       }

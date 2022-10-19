@@ -22,13 +22,13 @@ public interface KinematicsgraphFactory extends EFactory {
    KinematicsgraphFactory eINSTANCE = kinematicsgraph.impl.KinematicsgraphFactoryImpl.init();
 
    /**
-    * Returns a new object of class '<em>Joint Edge</em>'.
+    * Returns a new object of class '<em>Limit</em>'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @return a new object of class '<em>Joint Edge</em>'.
+    * @return a new object of class '<em>Limit</em>'.
     * @generated
     */
-   JointEdge createJointEdge();
+   Limit createLimit();
 
    /**
     * Returns a new object of class '<em>Pose</em>'.
@@ -38,6 +38,51 @@ public interface KinematicsgraphFactory extends EFactory {
     * @generated
     */
    Pose createPose();
+
+   /**
+    * Returns a new object of class '<em>Joint Edge</em>'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return a new object of class '<em>Joint Edge</em>'.
+    * @generated
+    */
+   JointEdge createJointEdge();
+
+   /**
+    * Returns a new object of class '<em>Fixed Joint Edge</em>'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return a new object of class '<em>Fixed Joint Edge</em>'.
+    * @generated
+    */
+   FixedJointEdge createFixedJointEdge();
+
+   /**
+    * Returns a new object of class '<em>Revolute Joint Edge</em>'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return a new object of class '<em>Revolute Joint Edge</em>'.
+    * @generated
+    */
+   RevoluteJointEdge createRevoluteJointEdge();
+
+   /**
+    * Returns a new object of class '<em>Prismatic Joint Edge</em>'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return a new object of class '<em>Prismatic Joint Edge</em>'.
+    * @generated
+    */
+   PrismaticJointEdge createPrismaticJointEdge();
+
+   /**
+    * Returns a new object of class '<em>Axis</em>'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return a new object of class '<em>Axis</em>'.
+    * @generated
+    */
+   Axis createAxis();
 
    /**
     * Returns the package supported by this factory.

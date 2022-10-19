@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<org.eclipse.emf.ecp.view.model:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:org.eclipse.emf.ecp.view.model="http://org/eclipse/emf/ecp/view/model/1180" xmi:id="_fyOYIBjAEe2VBtEJHb4pMw" name="Robot">
+  <rootEClass href="http://de.fraunhofer.ipa/kinematics#//Robot"/>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_fygE8BjAEe2VBtEJHb4pMw" name="Control id">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_fygE8RjAEe2VBtEJHb4pMw">
+      <domainModelEFeature xsi:type="ecore:EAttribute" href="http://de.fraunhofer.ipa/kinematics#//Robot/id"/>
+    </domainModelReference>
+  </children>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_fygE8hjAEe2VBtEJHb4pMw" name="Control name">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_fygE8xjAEe2VBtEJHb4pMw">
+      <domainModelEFeature xsi:type="ecore:EAttribute" href="http://de.fraunhofer.ipa/kinematics#//Robot/name"/>
+    </domainModelReference>
+  </children>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_fygE9BjAEe2VBtEJHb4pMw" name="Control links">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_fygE9RjAEe2VBtEJHb4pMw">
+      <domainModelEFeature xsi:type="ecore:EReference" href="http://de.fraunhofer.ipa/kinematics#//Robot/links"/>
+    </domainModelReference>
+  </children>
+  <children xsi:type="org.eclipse.emf.ecp.view.model:Control" xmi:id="_fygE9hjAEe2VBtEJHb4pMw" name="Control joints">
+    <domainModelReference xsi:type="org.eclipse.emf.ecp.view.model:FeaturePathDomainModelReference" xmi:id="_fygE9xjAEe2VBtEJHb4pMw">
+      <domainModelEFeature xsi:type="ecore:EReference" href="http://de.fraunhofer.ipa/kinematics#//Robot/joints"/>
+    </domainModelReference>
+  </children>
+  <ecorePaths>/org.eclipse.glsp.example.kinematics/model/kinematics.ecore</ecorePaths>
+</org.eclipse.emf.ecp.view.model:View>

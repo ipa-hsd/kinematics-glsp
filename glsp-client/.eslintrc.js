@@ -3,6 +3,7 @@ module.exports = {
     extends: '@eclipse-glsp',
     parserOptions: {
         tsconfigRootDir: __dirname,
-        project: 'tsconfig.json'
+        project: 'tsconfig.json',
+        '@typescript-eslint/ban-types': 'off'
     }
 };

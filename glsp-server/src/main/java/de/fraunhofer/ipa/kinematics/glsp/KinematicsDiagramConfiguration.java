@@ -15,6 +15,7 @@
  ********************************************************************************/
 package de.fraunhofer.ipa.kinematics.glsp;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -32,7 +33,12 @@ public class KinematicsDiagramConfiguration extends BaseDiagramConfiguration {
 
    @Override
    public List<EdgeTypeHint> getEdgeTypeHints() {
-      return List.of(createDefaultEdgeTypeHint(KinematicsModelTypes.JOINT));
+      List<EdgeTypeHint> edgeHints = new ArrayList<>();
+      edgeHints.add(createDefaultEdgeTypeHint(KinematicsModelTypes.FIXED_JOINT));
+      edgeHints.add(createDefaultEdgeTypeHint(KinematicsModelTypes.REVOLUTE_JOINT));
+      edgeHints.add(createDefaultEdgeTypeHint(KinematicsModelTypes.PRISMATIC_JOINT));
+
+      return edgeHints;
    }
 
    @Override

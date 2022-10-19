@@ -24,14 +24,17 @@ import org.eclipse.glsp.server.operations.CreateEdgeOperation;
 import com.google.inject.Inject;
 
 import de.fraunhofer.ipa.kinematics.glsp.KinematicsModelTypes;
+import kinematics.Axis;
 import kinematics.Joint;
+import kinematics.JointType;
 import kinematics.KinematicsFactory;
 import kinematics.KinematicsPackage;
+import kinematics.Limit;
 import kinematics.Link;
 import kinematics.Pose;
 import kinematics.Robot;
 
-public class CreateJointEdgeHandler extends AbstractEMFCreateEdgeOperationHandler {
+public class CreatePrismaticJointEdgeHandler extends AbstractEMFCreateEdgeOperationHandler {
 
    @Inject
    protected EMFNotationModelState modelState;
@@ -39,8 +42,8 @@ public class CreateJointEdgeHandler extends AbstractEMFCreateEdgeOperationHandle
    @Inject
    protected EMFIdGenerator idGenerator;
 
-   public CreateJointEdgeHandler() {
-      super(KinematicsModelTypes.JOINT);
+   public CreatePrismaticJointEdgeHandler() {
+      super(KinematicsModelTypes.PRISMATIC_JOINT);
    }
 
    @Override
@@ -72,7 +75,7 @@ public class CreateJointEdgeHandler extends AbstractEMFCreateEdgeOperationHandle
    }
 
    @Override
-   public String getLabel() { return "Joint"; }
+   public String getLabel() { return "Prismatic Joint"; }
 
    protected Link findLinkById(final EList<Link> links, final String elementId) {
       return links.stream().filter(link -> elementId.equals(link.getId())).findFirst().orElse(null);
@@ -97,9 +100,21 @@ public class CreateJointEdgeHandler extends AbstractEMFCreateEdgeOperationHandle
       newJoint.setChild(targetLink);
 
       Pose origin = KinematicsFactory.eINSTANCE.createPose();
-      origin.setXyz("0 0 0");
-      origin.setRpy("0 0 0");
+      origin.setX(0);
+      origin.setY(0);
+      origin.setZ(0);
+      origin.setRoll(0);
+      origin.setPitch(0);
+      origin.setYaw(0);
       newJoint.setOrigin(origin);
+
+      newJoint.setType(JointType.PRISMATIC);
+
+      Limit limit = KinematicsFactory.eINSTANCE.createLimit();
+      newJoint.setLimit(limit);
+
+      Axis axis = KinematicsFactory.eINSTANCE.createAxis();
+      newJoint.setAxis(axis);
 
       return newJoint;
    }

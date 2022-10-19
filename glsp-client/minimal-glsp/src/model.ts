@@ -16,11 +16,40 @@
 
 import { SEdge } from '@eclipse-glsp/client';
 
-export class Pose {
-    xyz?: string;
-    rpy?: string;
+export class Axis {
+    x?: number;
+    y?: number;
+    z?: number;
 }
 
-export class JointEdge extends SEdge {
+export class Limit {
+    lower?: number;
+    upper?: number;
+    effort?: number;
+    velocity?: number;
+}
+
+export class Pose {
+    x?: number;
+    y?: number;
+    z?: number;
+    roll?: number;
+    pitch?: number;
+    yaw?: number;
+}
+
+export class FixedJointEdge extends SEdge {
     origin?: Pose;
+}
+
+export class RevoluteJointEdge extends SEdge {
+    origin?: Pose;
+    limit?: Limit;
+    axis?: Axis;
+}
+
+export class PrismaticJointEdge extends SEdge {
+    origin?: Pose;
+    limit?: Limit;
+    axis?: Axis;
 }

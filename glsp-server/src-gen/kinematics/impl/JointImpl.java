@@ -2,14 +2,17 @@
  */
 package kinematics.impl;
 
+import kinematics.Axis;
 import kinematics.Joint;
+import kinematics.JointType;
 import kinematics.KinematicsPackage;
+import kinematics.Limit;
 import kinematics.Link;
-
 import kinematics.Pose;
-import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -29,6 +32,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link kinematics.impl.JointImpl#getParent <em>Parent</em>}</li>
  *   <li>{@link kinematics.impl.JointImpl#getChild <em>Child</em>}</li>
  *   <li>{@link kinematics.impl.JointImpl#getOrigin <em>Origin</em>}</li>
+ *   <li>{@link kinematics.impl.JointImpl#getType <em>Type</em>}</li>
+ *   <li>{@link kinematics.impl.JointImpl#getLimit <em>Limit</em>}</li>
+ *   <li>{@link kinematics.impl.JointImpl#getAxis <em>Axis</em>}</li>
  * </ul>
  *
  * @generated
@@ -103,6 +109,46 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
     * @ordered
     */
    protected Pose origin;
+
+   /**
+    * The default value of the '{@link #getType() <em>Type</em>}' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see #getType()
+    * @generated
+    * @ordered
+    */
+   protected static final JointType TYPE_EDEFAULT = JointType.FIXED;
+
+   /**
+    * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see #getType()
+    * @generated
+    * @ordered
+    */
+   protected JointType type = TYPE_EDEFAULT;
+
+   /**
+    * The cached value of the '{@link #getLimit() <em>Limit</em>}' containment reference.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see #getLimit()
+    * @generated
+    * @ordered
+    */
+   protected Limit limit;
+
+   /**
+    * The cached value of the '{@link #getAxis() <em>Axis</em>}' containment reference.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see #getAxis()
+    * @generated
+    * @ordered
+    */
+   protected Axis axis;
 
    /**
     * <!-- begin-user-doc -->
@@ -289,11 +335,122 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
     * <!-- end-user-doc -->
     * @generated
     */
+   public JointType getType() {
+      return type;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public void setType(JointType newType) {
+      JointType oldType = type;
+      type = newType == null ? TYPE_EDEFAULT : newType;
+      if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__TYPE, oldType, type));
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public Limit getLimit() {
+      return limit;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public NotificationChain basicSetLimit(Limit newLimit, NotificationChain msgs) {
+      Limit oldLimit = limit;
+      limit = newLimit;
+      if (eNotificationRequired()) {
+         ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__LIMIT, oldLimit, newLimit);
+         if (msgs == null) msgs = notification; else msgs.add(notification);
+      }
+      return msgs;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public void setLimit(Limit newLimit) {
+      if (newLimit != limit) {
+         NotificationChain msgs = null;
+         if (limit != null)
+            msgs = ((InternalEObject)limit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KinematicsPackage.JOINT__LIMIT, null, msgs);
+         if (newLimit != null)
+            msgs = ((InternalEObject)newLimit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KinematicsPackage.JOINT__LIMIT, null, msgs);
+         msgs = basicSetLimit(newLimit, msgs);
+         if (msgs != null) msgs.dispatch();
+      }
+      else if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__LIMIT, newLimit, newLimit));
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public Axis getAxis() {
+      return axis;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public NotificationChain basicSetAxis(Axis newAxis, NotificationChain msgs) {
+      Axis oldAxis = axis;
+      axis = newAxis;
+      if (eNotificationRequired()) {
+         ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__AXIS, oldAxis, newAxis);
+         if (msgs == null) msgs = notification; else msgs.add(notification);
+      }
+      return msgs;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public void setAxis(Axis newAxis) {
+      if (newAxis != axis) {
+         NotificationChain msgs = null;
+         if (axis != null)
+            msgs = ((InternalEObject)axis).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - KinematicsPackage.JOINT__AXIS, null, msgs);
+         if (newAxis != null)
+            msgs = ((InternalEObject)newAxis).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - KinematicsPackage.JOINT__AXIS, null, msgs);
+         msgs = basicSetAxis(newAxis, msgs);
+         if (msgs != null) msgs.dispatch();
+      }
+      else if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsPackage.JOINT__AXIS, newAxis, newAxis));
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
    @Override
    public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
       switch (featureID) {
          case KinematicsPackage.JOINT__ORIGIN:
             return basicSetOrigin(null, msgs);
+         case KinematicsPackage.JOINT__LIMIT:
+            return basicSetLimit(null, msgs);
+         case KinematicsPackage.JOINT__AXIS:
+            return basicSetAxis(null, msgs);
       }
       return super.eInverseRemove(otherEnd, featureID, msgs);
    }
@@ -318,6 +475,12 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
             return basicGetChild();
          case KinematicsPackage.JOINT__ORIGIN:
             return getOrigin();
+         case KinematicsPackage.JOINT__TYPE:
+            return getType();
+         case KinematicsPackage.JOINT__LIMIT:
+            return getLimit();
+         case KinematicsPackage.JOINT__AXIS:
+            return getAxis();
       }
       return super.eGet(featureID, resolve, coreType);
    }
@@ -344,6 +507,15 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
             return;
          case KinematicsPackage.JOINT__ORIGIN:
             setOrigin((Pose)newValue);
+            return;
+         case KinematicsPackage.JOINT__TYPE:
+            setType((JointType)newValue);
+            return;
+         case KinematicsPackage.JOINT__LIMIT:
+            setLimit((Limit)newValue);
+            return;
+         case KinematicsPackage.JOINT__AXIS:
+            setAxis((Axis)newValue);
             return;
       }
       super.eSet(featureID, newValue);
@@ -372,6 +544,15 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
          case KinematicsPackage.JOINT__ORIGIN:
             setOrigin((Pose)null);
             return;
+         case KinematicsPackage.JOINT__TYPE:
+            setType(TYPE_EDEFAULT);
+            return;
+         case KinematicsPackage.JOINT__LIMIT:
+            setLimit((Limit)null);
+            return;
+         case KinematicsPackage.JOINT__AXIS:
+            setAxis((Axis)null);
+            return;
       }
       super.eUnset(featureID);
    }
@@ -394,6 +575,12 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
             return child != null;
          case KinematicsPackage.JOINT__ORIGIN:
             return origin != null;
+         case KinematicsPackage.JOINT__TYPE:
+            return type != TYPE_EDEFAULT;
+         case KinematicsPackage.JOINT__LIMIT:
+            return limit != null;
+         case KinematicsPackage.JOINT__AXIS:
+            return axis != null;
       }
       return super.eIsSet(featureID);
    }
@@ -412,6 +599,8 @@ public class JointImpl extends MinimalEObjectImpl.Container implements Joint {
       result.append(name);
       result.append(", id: ");
       result.append(id);
+      result.append(", type: ");
+      result.append(type);
       result.append(')');
       return result.toString();
    }

@@ -72,12 +72,32 @@ public class KinematicsgraphAdapterFactory extends AdapterFactoryImpl {
    protected KinematicsgraphSwitch<Adapter> modelSwitch =
       new KinematicsgraphSwitch<Adapter>() {
          @Override
-         public Adapter caseJointEdge(JointEdge object) {
-            return createJointEdgeAdapter();
+         public Adapter caseLimit(Limit object) {
+            return createLimitAdapter();
          }
          @Override
          public Adapter casePose(Pose object) {
             return createPoseAdapter();
+         }
+         @Override
+         public Adapter caseJointEdge(JointEdge object) {
+            return createJointEdgeAdapter();
+         }
+         @Override
+         public Adapter caseFixedJointEdge(FixedJointEdge object) {
+            return createFixedJointEdgeAdapter();
+         }
+         @Override
+         public Adapter caseRevoluteJointEdge(RevoluteJointEdge object) {
+            return createRevoluteJointEdgeAdapter();
+         }
+         @Override
+         public Adapter casePrismaticJointEdge(PrismaticJointEdge object) {
+            return createPrismaticJointEdgeAdapter();
+         }
+         @Override
+         public Adapter caseAxis(Axis object) {
+            return createAxisAdapter();
          }
          @Override
          public Adapter caseGArgumentable(GArgumentable object) {
@@ -112,16 +132,16 @@ public class KinematicsgraphAdapterFactory extends AdapterFactoryImpl {
 
 
    /**
-    * Creates a new adapter for an object of class '{@link kinematicsgraph.JointEdge <em>Joint Edge</em>}'.
+    * Creates a new adapter for an object of class '{@link kinematicsgraph.Limit <em>Limit</em>}'.
     * <!-- begin-user-doc -->
     * This default implementation returns null so that we can easily ignore cases;
     * it's useful to ignore a case when inheritance will catch all the cases anyway.
     * <!-- end-user-doc -->
     * @return the new adapter.
-    * @see kinematicsgraph.JointEdge
+    * @see kinematicsgraph.Limit
     * @generated
     */
-   public Adapter createJointEdgeAdapter() {
+   public Adapter createLimitAdapter() {
       return null;
    }
 
@@ -136,6 +156,76 @@ public class KinematicsgraphAdapterFactory extends AdapterFactoryImpl {
     * @generated
     */
    public Adapter createPoseAdapter() {
+      return null;
+   }
+
+   /**
+    * Creates a new adapter for an object of class '{@link kinematicsgraph.JointEdge <em>Joint Edge</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see kinematicsgraph.JointEdge
+    * @generated
+    */
+   public Adapter createJointEdgeAdapter() {
+      return null;
+   }
+
+   /**
+    * Creates a new adapter for an object of class '{@link kinematicsgraph.FixedJointEdge <em>Fixed Joint Edge</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see kinematicsgraph.FixedJointEdge
+    * @generated
+    */
+   public Adapter createFixedJointEdgeAdapter() {
+      return null;
+   }
+
+   /**
+    * Creates a new adapter for an object of class '{@link kinematicsgraph.RevoluteJointEdge <em>Revolute Joint Edge</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see kinematicsgraph.RevoluteJointEdge
+    * @generated
+    */
+   public Adapter createRevoluteJointEdgeAdapter() {
+      return null;
+   }
+
+   /**
+    * Creates a new adapter for an object of class '{@link kinematicsgraph.PrismaticJointEdge <em>Prismatic Joint Edge</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see kinematicsgraph.PrismaticJointEdge
+    * @generated
+    */
+   public Adapter createPrismaticJointEdgeAdapter() {
+      return null;
+   }
+
+   /**
+    * Creates a new adapter for an object of class '{@link kinematicsgraph.Axis <em>Axis</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see kinematicsgraph.Axis
+    * @generated
+    */
+   public Adapter createAxisAdapter() {
       return null;
    }
 

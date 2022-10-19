@@ -56,11 +56,36 @@ public class KinematicsgraphFactoryImpl extends EFactoryImpl implements Kinemati
    @Override
    public EObject create(EClass eClass) {
       switch (eClass.getClassifierID()) {
-         case KinematicsgraphPackage.JOINT_EDGE: return createJointEdge();
+         case KinematicsgraphPackage.LIMIT: return createLimit();
          case KinematicsgraphPackage.POSE: return createPose();
+         case KinematicsgraphPackage.JOINT_EDGE: return createJointEdge();
+         case KinematicsgraphPackage.FIXED_JOINT_EDGE: return createFixedJointEdge();
+         case KinematicsgraphPackage.REVOLUTE_JOINT_EDGE: return createRevoluteJointEdge();
+         case KinematicsgraphPackage.PRISMATIC_JOINT_EDGE: return createPrismaticJointEdge();
+         case KinematicsgraphPackage.AXIS: return createAxis();
          default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
       }
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public Limit createLimit() {
+      LimitImpl limit = new LimitImpl();
+      return limit;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public Pose createPose() {
+      PoseImpl pose = new PoseImpl();
+      return pose;
    }
 
    /**
@@ -78,9 +103,39 @@ public class KinematicsgraphFactoryImpl extends EFactoryImpl implements Kinemati
     * <!-- end-user-doc -->
     * @generated
     */
-   public Pose createPose() {
-      PoseImpl pose = new PoseImpl();
-      return pose;
+   public FixedJointEdge createFixedJointEdge() {
+      FixedJointEdgeImpl fixedJointEdge = new FixedJointEdgeImpl();
+      return fixedJointEdge;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public RevoluteJointEdge createRevoluteJointEdge() {
+      RevoluteJointEdgeImpl revoluteJointEdge = new RevoluteJointEdgeImpl();
+      return revoluteJointEdge;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public PrismaticJointEdge createPrismaticJointEdge() {
+      PrismaticJointEdgeImpl prismaticJointEdge = new PrismaticJointEdgeImpl();
+      return prismaticJointEdge;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public Axis createAxis() {
+      AxisImpl axis = new AxisImpl();
+      return axis;
    }
 
    /**

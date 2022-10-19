@@ -17,12 +17,14 @@ import { createMinimalDiagramContainer } from '@eclipse-glsp-examples/minimal-gl
 import {
     configureDiagramServer,
     GLSPDiagramConfiguration,
+    GlspSelectionDataService,
     GLSPTheiaDiagramServer,
     TheiaDiagramServer
 } from '@eclipse-glsp/theia-integration/lib/browser';
 import { Container, injectable } from 'inversify';
 import 'sprotty-theia/css/theia-sprotty.css';
 import { MinimalLanguage } from '../../common/minimal-language';
+import { EcoreGlspSelectionDataService } from './theia-glsp-selection-forwarder';
 
 @injectable()
 export class MinimalDiagramConfiguration extends GLSPDiagramConfiguration {
@@ -32,6 +34,7 @@ export class MinimalDiagramConfiguration extends GLSPDiagramConfiguration {
         const container = createMinimalDiagramContainer(widgetId);
         configureDiagramServer(container, GLSPTheiaDiagramServer);
         container.bind(TheiaDiagramServer).toService(GLSPTheiaDiagramServer);
+        container.bind(GlspSelectionDataService).to(EcoreGlspSelectionDataService);
         return container;
     }
 }
