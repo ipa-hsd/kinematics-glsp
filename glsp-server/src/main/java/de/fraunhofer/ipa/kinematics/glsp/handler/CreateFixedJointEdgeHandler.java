@@ -98,8 +98,12 @@ public class CreateFixedJointEdgeHandler extends AbstractEMFCreateEdgeOperationH
       newJoint.setChild(targetLink);
 
       Pose origin = KinematicsFactory.eINSTANCE.createPose();
-      origin.setXyz("0 0 0");
-      origin.setRpy("0 0 0");
+      origin.setX(0);
+      origin.setY(0);
+      origin.setZ(0);
+      origin.setRoll(0);
+      origin.setPitch(0);
+      origin.setYaw(0);
       newJoint.setOrigin(origin);
 
       newJoint.setType(JointType.FIXED);

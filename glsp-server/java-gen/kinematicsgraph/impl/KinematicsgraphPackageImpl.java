@@ -2,15 +2,16 @@
  */
 package kinematicsgraph.impl;
 
+import kinematicsgraph.Axis;
 import kinematicsgraph.FixedJointEdge;
 import kinematicsgraph.JointEdge;
 import kinematicsgraph.KinematicsgraphFactory;
 import kinematicsgraph.KinematicsgraphPackage;
 import kinematicsgraph.Limit;
 import kinematicsgraph.Pose;
-
 import kinematicsgraph.PrismaticJointEdge;
 import kinematicsgraph.RevoluteJointEdge;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
@@ -33,6 +34,13 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
     * @generated
     */
    private EClass limitEClass = null;
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   private EClass poseEClass = null;
 
    /**
     * <!-- begin-user-doc -->
@@ -67,7 +75,7 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
     * <!-- end-user-doc -->
     * @generated
     */
-   private EClass poseEClass = null;
+   private EClass axisEClass = null;
 
    /**
     * Creates an instance of the model <b>Package</b>, registered with
@@ -183,6 +191,69 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
     * <!-- end-user-doc -->
     * @generated
     */
+   public EClass getPose() {
+      return poseEClass;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getPose_X() {
+      return (EAttribute)poseEClass.getEStructuralFeatures().get(0);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getPose_Y() {
+      return (EAttribute)poseEClass.getEStructuralFeatures().get(1);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getPose_Z() {
+      return (EAttribute)poseEClass.getEStructuralFeatures().get(2);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getPose_Roll() {
+      return (EAttribute)poseEClass.getEStructuralFeatures().get(3);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getPose_Pitch() {
+      return (EAttribute)poseEClass.getEStructuralFeatures().get(4);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getPose_Yaw() {
+      return (EAttribute)poseEClass.getEStructuralFeatures().get(5);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
    public EClass getJointEdge() {
       return jointEdgeEClass;
    }
@@ -228,6 +299,15 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
     * <!-- end-user-doc -->
     * @generated
     */
+   public EReference getRevoluteJointEdge_Axis() {
+      return (EReference)revoluteJointEdgeEClass.getEStructuralFeatures().get(1);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
    public EClass getPrismaticJointEdge() {
       return prismaticJointEdgeEClass;
    }
@@ -246,8 +326,8 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
     * <!-- end-user-doc -->
     * @generated
     */
-   public EClass getPose() {
-      return poseEClass;
+   public EReference getPrismaticJointEdge_Axis() {
+      return (EReference)prismaticJointEdgeEClass.getEStructuralFeatures().get(1);
    }
 
    /**
@@ -255,8 +335,8 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
     * <!-- end-user-doc -->
     * @generated
     */
-   public EAttribute getPose_Xyz() {
-      return (EAttribute)poseEClass.getEStructuralFeatures().get(0);
+   public EClass getAxis() {
+      return axisEClass;
    }
 
    /**
@@ -264,8 +344,26 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
     * <!-- end-user-doc -->
     * @generated
     */
-   public EAttribute getPose_Rpy() {
-      return (EAttribute)poseEClass.getEStructuralFeatures().get(1);
+   public EAttribute getAxis_X() {
+      return (EAttribute)axisEClass.getEStructuralFeatures().get(0);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getAxis_Y() {
+      return (EAttribute)axisEClass.getEStructuralFeatures().get(1);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getAxis_Z() {
+      return (EAttribute)axisEClass.getEStructuralFeatures().get(2);
    }
 
    /**
@@ -303,8 +401,12 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
       createEAttribute(limitEClass, LIMIT__VELOCITY);
 
       poseEClass = createEClass(POSE);
-      createEAttribute(poseEClass, POSE__XYZ);
-      createEAttribute(poseEClass, POSE__RPY);
+      createEAttribute(poseEClass, POSE__X);
+      createEAttribute(poseEClass, POSE__Y);
+      createEAttribute(poseEClass, POSE__Z);
+      createEAttribute(poseEClass, POSE__ROLL);
+      createEAttribute(poseEClass, POSE__PITCH);
+      createEAttribute(poseEClass, POSE__YAW);
 
       jointEdgeEClass = createEClass(JOINT_EDGE);
       createEReference(jointEdgeEClass, JOINT_EDGE__ORIGIN);
@@ -313,9 +415,16 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
 
       revoluteJointEdgeEClass = createEClass(REVOLUTE_JOINT_EDGE);
       createEReference(revoluteJointEdgeEClass, REVOLUTE_JOINT_EDGE__LIMIT);
+      createEReference(revoluteJointEdgeEClass, REVOLUTE_JOINT_EDGE__AXIS);
 
       prismaticJointEdgeEClass = createEClass(PRISMATIC_JOINT_EDGE);
       createEReference(prismaticJointEdgeEClass, PRISMATIC_JOINT_EDGE__LIMIT);
+      createEReference(prismaticJointEdgeEClass, PRISMATIC_JOINT_EDGE__AXIS);
+
+      axisEClass = createEClass(AXIS);
+      createEAttribute(axisEClass, AXIS__X);
+      createEAttribute(axisEClass, AXIS__Y);
+      createEAttribute(axisEClass, AXIS__Z);
    }
 
    /**
@@ -362,8 +471,12 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
       initEAttribute(getLimit_Velocity(), ecorePackage.getEDouble(), "velocity", null, 1, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       initEClass(poseEClass, Pose.class, "Pose", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-      initEAttribute(getPose_Xyz(), ecorePackage.getEString(), "xyz", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-      initEAttribute(getPose_Rpy(), ecorePackage.getEString(), "rpy", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getPose_X(), ecorePackage.getEDouble(), "x", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getPose_Y(), ecorePackage.getEDouble(), "y", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getPose_Z(), ecorePackage.getEDouble(), "z", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getPose_Roll(), ecorePackage.getEDouble(), "roll", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getPose_Pitch(), ecorePackage.getEDouble(), "pitch", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getPose_Yaw(), ecorePackage.getEDouble(), "yaw", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       initEClass(jointEdgeEClass, JointEdge.class, "JointEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
       initEReference(getJointEdge_Origin(), this.getPose(), null, "origin", null, 1, 1, JointEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -372,9 +485,16 @@ public class KinematicsgraphPackageImpl extends EPackageImpl implements Kinemati
 
       initEClass(revoluteJointEdgeEClass, RevoluteJointEdge.class, "RevoluteJointEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
       initEReference(getRevoluteJointEdge_Limit(), this.getLimit(), null, "limit", null, 1, 1, RevoluteJointEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getRevoluteJointEdge_Axis(), this.getAxis(), null, "axis", null, 1, 1, RevoluteJointEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       initEClass(prismaticJointEdgeEClass, PrismaticJointEdge.class, "PrismaticJointEdge", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
       initEReference(getPrismaticJointEdge_Limit(), this.getLimit(), null, "limit", null, 1, 1, PrismaticJointEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getPrismaticJointEdge_Axis(), this.getAxis(), null, "axis", null, 1, 1, PrismaticJointEdge.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+      initEClass(axisEClass, Axis.class, "Axis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getAxis_X(), ecorePackage.getEDouble(), "x", null, 1, 1, Axis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getAxis_Y(), ecorePackage.getEDouble(), "y", null, 1, 1, Axis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getAxis_Z(), ecorePackage.getEDouble(), "z", null, 1, 1, Axis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       // Create resource
       createResource(eNS_URI);

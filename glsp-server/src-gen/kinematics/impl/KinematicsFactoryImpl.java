@@ -62,6 +62,7 @@ public class KinematicsFactoryImpl extends EFactoryImpl implements KinematicsFac
          case KinematicsPackage.ROBOT: return createRobot();
          case KinematicsPackage.POSE: return createPose();
          case KinematicsPackage.LIMIT: return createLimit();
+         case KinematicsPackage.AXIS: return createAxis();
          default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
       }
@@ -69,11 +70,11 @@ public class KinematicsFactoryImpl extends EFactoryImpl implements KinematicsFac
 
    /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	@Override
-	public Object createFromString(EDataType eDataType, String initialValue) {
+   @Override
+   public Object createFromString(EDataType eDataType, String initialValue) {
       switch (eDataType.getClassifierID()) {
          case KinematicsPackage.JOINT_TYPE:
             return createJointTypeFromString(eDataType, initialValue);
@@ -82,13 +83,13 @@ public class KinematicsFactoryImpl extends EFactoryImpl implements KinematicsFac
       }
    }
 
-			/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	@Override
-	public String convertToString(EDataType eDataType, Object instanceValue) {
+   @Override
+   public String convertToString(EDataType eDataType, Object instanceValue) {
       switch (eDataType.getClassifierID()) {
          case KinematicsPackage.JOINT_TYPE:
             return convertJointTypeToString(eDataType, instanceValue);
@@ -97,7 +98,7 @@ public class KinematicsFactoryImpl extends EFactoryImpl implements KinematicsFac
       }
    }
 
-			/**
+   /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
@@ -149,25 +150,35 @@ public class KinematicsFactoryImpl extends EFactoryImpl implements KinematicsFac
 
    /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	public JointType createJointTypeFromString(EDataType eDataType, String initialValue) {
+   public Axis createAxis() {
+      AxisImpl axis = new AxisImpl();
+      return axis;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public JointType createJointTypeFromString(EDataType eDataType, String initialValue) {
       JointType result = JointType.get(initialValue);
       if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
       return result;
    }
 
-			/**
+   /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	public String convertJointTypeToString(EDataType eDataType, Object instanceValue) {
+   public String convertJointTypeToString(EDataType eDataType, Object instanceValue) {
       return instanceValue == null ? null : instanceValue.toString();
    }
 
-			/**
+   /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated

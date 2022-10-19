@@ -62,6 +62,7 @@ public class KinematicsgraphFactoryImpl extends EFactoryImpl implements Kinemati
          case KinematicsgraphPackage.FIXED_JOINT_EDGE: return createFixedJointEdge();
          case KinematicsgraphPackage.REVOLUTE_JOINT_EDGE: return createRevoluteJointEdge();
          case KinematicsgraphPackage.PRISMATIC_JOINT_EDGE: return createPrismaticJointEdge();
+         case KinematicsgraphPackage.AXIS: return createAxis();
          default:
             throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
       }
@@ -75,6 +76,16 @@ public class KinematicsgraphFactoryImpl extends EFactoryImpl implements Kinemati
    public Limit createLimit() {
       LimitImpl limit = new LimitImpl();
       return limit;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public Pose createPose() {
+      PoseImpl pose = new PoseImpl();
+      return pose;
    }
 
    /**
@@ -122,9 +133,9 @@ public class KinematicsgraphFactoryImpl extends EFactoryImpl implements Kinemati
     * <!-- end-user-doc -->
     * @generated
     */
-   public Pose createPose() {
-      PoseImpl pose = new PoseImpl();
-      return pose;
+   public Axis createAxis() {
+      AxisImpl axis = new AxisImpl();
+      return axis;
    }
 
    /**

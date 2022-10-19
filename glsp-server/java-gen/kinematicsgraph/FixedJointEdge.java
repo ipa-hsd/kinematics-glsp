@@ -2,6 +2,7 @@
  */
 package kinematicsgraph;
 
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Fixed Joint Edge</b></em>'.
@@ -13,5 +14,4 @@ package kinematicsgraph;
  * @generated
  */
 public interface FixedJointEdge extends JointEdge {
-
 } // FixedJointEdge

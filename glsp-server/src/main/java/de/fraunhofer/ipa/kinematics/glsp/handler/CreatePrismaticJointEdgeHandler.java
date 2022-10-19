@@ -24,6 +24,7 @@ import org.eclipse.glsp.server.operations.CreateEdgeOperation;
 import com.google.inject.Inject;
 
 import de.fraunhofer.ipa.kinematics.glsp.KinematicsModelTypes;
+import kinematics.Axis;
 import kinematics.Joint;
 import kinematics.JointType;
 import kinematics.KinematicsFactory;
@@ -99,14 +100,21 @@ public class CreatePrismaticJointEdgeHandler extends AbstractEMFCreateEdgeOperat
       newJoint.setChild(targetLink);
 
       Pose origin = KinematicsFactory.eINSTANCE.createPose();
-      origin.setXyz("0 0 0");
-      origin.setRpy("0 0 0");
+      origin.setX(0);
+      origin.setY(0);
+      origin.setZ(0);
+      origin.setRoll(0);
+      origin.setPitch(0);
+      origin.setYaw(0);
       newJoint.setOrigin(origin);
 
       newJoint.setType(JointType.PRISMATIC);
 
       Limit limit = KinematicsFactory.eINSTANCE.createLimit();
       newJoint.setLimit(limit);
+
+      Axis axis = KinematicsFactory.eINSTANCE.createAxis();
+      newJoint.setAxis(axis);
 
       return newJoint;
    }

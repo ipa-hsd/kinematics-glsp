@@ -123,47 +123,6 @@ public interface KinematicsgraphPackage extends EPackage {
    int LIMIT_OPERATION_COUNT = 0;
 
    /**
-    * The meta object id for the '{@link kinematicsgraph.impl.JointEdgeImpl <em>Joint Edge</em>}' class.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @see kinematicsgraph.impl.JointEdgeImpl
-    * @see kinematicsgraph.impl.KinematicsgraphPackageImpl#getJointEdge()
-    * @generated
-    */
-   int JOINT_EDGE = 2;
-
-   /**
-    * The meta object id for the '{@link kinematicsgraph.impl.FixedJointEdgeImpl <em>Fixed Joint Edge</em>}' class.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @see kinematicsgraph.impl.FixedJointEdgeImpl
-    * @see kinematicsgraph.impl.KinematicsgraphPackageImpl#getFixedJointEdge()
-    * @generated
-    */
-   int FIXED_JOINT_EDGE = 3;
-
-   /**
-    * Returns the meta object for class '{@link kinematicsgraph.JointEdge <em>Joint Edge</em>}'.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @return the meta object for class '<em>Joint Edge</em>'.
-    * @see kinematicsgraph.JointEdge
-    * @generated
-    */
-   EClass getJointEdge();
-
-   /**
-    * Returns the meta object for the reference '{@link kinematicsgraph.JointEdge#getOrigin <em>Origin</em>}'.
-    * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-    * @return the meta object for the reference '<em>Origin</em>'.
-    * @see kinematicsgraph.JointEdge#getOrigin()
-    * @see #getJointEdge()
-    * @generated
-    */
-   EReference getJointEdge_Origin();
-
-   /**
     * The meta object id for the '{@link kinematicsgraph.impl.PoseImpl <em>Pose</em>}' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -174,22 +133,58 @@ public interface KinematicsgraphPackage extends EPackage {
    int POSE = 1;
 
    /**
-    * The feature id for the '<em><b>Xyz</b></em>' attribute.
+    * The feature id for the '<em><b>X</b></em>' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-   int POSE__XYZ = 0;
+   int POSE__X = 0;
 
    /**
-    * The feature id for the '<em><b>Rpy</b></em>' attribute.
+    * The feature id for the '<em><b>Y</b></em>' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-   int POSE__RPY = 1;
+   int POSE__Y = 1;
+
+   /**
+    * The feature id for the '<em><b>Z</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int POSE__Z = 2;
+
+   /**
+    * The feature id for the '<em><b>Roll</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int POSE__ROLL = 3;
+
+   /**
+    * The feature id for the '<em><b>Pitch</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int POSE__PITCH = 4;
+
+   /**
+    * The feature id for the '<em><b>Yaw</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int POSE__YAW = 5;
 
    /**
     * The number of structural features of the '<em>Pose</em>' class.
@@ -198,7 +193,7 @@ public interface KinematicsgraphPackage extends EPackage {
     * @generated
     * @ordered
     */
-   int POSE_FEATURE_COUNT = 2;
+   int POSE_FEATURE_COUNT = 6;
 
    /**
     * The number of operations of the '<em>Pose</em>' class.
@@ -208,6 +203,16 @@ public interface KinematicsgraphPackage extends EPackage {
     * @ordered
     */
    int POSE_OPERATION_COUNT = 0;
+
+   /**
+    * The meta object id for the '{@link kinematicsgraph.impl.JointEdgeImpl <em>Joint Edge</em>}' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see kinematicsgraph.impl.JointEdgeImpl
+    * @see kinematicsgraph.impl.KinematicsgraphPackageImpl#getJointEdge()
+    * @generated
+    */
+   int JOINT_EDGE = 2;
 
    /**
     * The feature id for the '<em><b>Args</b></em>' map.
@@ -354,6 +359,16 @@ public interface KinematicsgraphPackage extends EPackage {
    int JOINT_EDGE_OPERATION_COUNT = GraphPackage.GEDGE_OPERATION_COUNT + 0;
 
    /**
+    * The meta object id for the '{@link kinematicsgraph.impl.FixedJointEdgeImpl <em>Fixed Joint Edge</em>}' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see kinematicsgraph.impl.FixedJointEdgeImpl
+    * @see kinematicsgraph.impl.KinematicsgraphPackageImpl#getFixedJointEdge()
+    * @generated
+    */
+   int FIXED_JOINT_EDGE = 3;
+
+   /**
     * The feature id for the '<em><b>Args</b></em>' map.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -496,7 +511,6 @@ public interface KinematicsgraphPackage extends EPackage {
     * @ordered
     */
    int FIXED_JOINT_EDGE_OPERATION_COUNT = JOINT_EDGE_OPERATION_COUNT + 0;
-
 
    /**
     * The meta object id for the '{@link kinematicsgraph.impl.RevoluteJointEdgeImpl <em>Revolute Joint Edge</em>}' class.
@@ -644,13 +658,22 @@ public interface KinematicsgraphPackage extends EPackage {
    int REVOLUTE_JOINT_EDGE__LIMIT = JOINT_EDGE_FEATURE_COUNT + 0;
 
    /**
+    * The feature id for the '<em><b>Axis</b></em>' reference.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int REVOLUTE_JOINT_EDGE__AXIS = JOINT_EDGE_FEATURE_COUNT + 1;
+
+   /**
     * The number of structural features of the '<em>Revolute Joint Edge</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-   int REVOLUTE_JOINT_EDGE_FEATURE_COUNT = JOINT_EDGE_FEATURE_COUNT + 1;
+   int REVOLUTE_JOINT_EDGE_FEATURE_COUNT = JOINT_EDGE_FEATURE_COUNT + 2;
 
    /**
     * The number of operations of the '<em>Revolute Joint Edge</em>' class.
@@ -807,13 +830,22 @@ public interface KinematicsgraphPackage extends EPackage {
    int PRISMATIC_JOINT_EDGE__LIMIT = JOINT_EDGE_FEATURE_COUNT + 0;
 
    /**
+    * The feature id for the '<em><b>Axis</b></em>' containment reference.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int PRISMATIC_JOINT_EDGE__AXIS = JOINT_EDGE_FEATURE_COUNT + 1;
+
+   /**
     * The number of structural features of the '<em>Prismatic Joint Edge</em>' class.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
     * @ordered
     */
-   int PRISMATIC_JOINT_EDGE_FEATURE_COUNT = JOINT_EDGE_FEATURE_COUNT + 1;
+   int PRISMATIC_JOINT_EDGE_FEATURE_COUNT = JOINT_EDGE_FEATURE_COUNT + 2;
 
    /**
     * The number of operations of the '<em>Prismatic Joint Edge</em>' class.
@@ -823,6 +855,62 @@ public interface KinematicsgraphPackage extends EPackage {
     * @ordered
     */
    int PRISMATIC_JOINT_EDGE_OPERATION_COUNT = JOINT_EDGE_OPERATION_COUNT + 0;
+
+   /**
+    * The meta object id for the '{@link kinematicsgraph.impl.AxisImpl <em>Axis</em>}' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see kinematicsgraph.impl.AxisImpl
+    * @see kinematicsgraph.impl.KinematicsgraphPackageImpl#getAxis()
+    * @generated
+    */
+   int AXIS = 6;
+
+   /**
+    * The feature id for the '<em><b>X</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int AXIS__X = 0;
+
+   /**
+    * The feature id for the '<em><b>Y</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int AXIS__Y = 1;
+
+   /**
+    * The feature id for the '<em><b>Z</b></em>' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int AXIS__Z = 2;
+
+   /**
+    * The number of structural features of the '<em>Axis</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int AXIS_FEATURE_COUNT = 3;
+
+   /**
+    * The number of operations of the '<em>Axis</em>' class.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    * @ordered
+    */
+   int AXIS_OPERATION_COUNT = 0;
+
 
    /**
     * Returns the meta object for class '{@link kinematicsgraph.Limit <em>Limit</em>}'.
@@ -879,6 +967,103 @@ public interface KinematicsgraphPackage extends EPackage {
    EAttribute getLimit_Velocity();
 
    /**
+    * Returns the meta object for class '{@link kinematicsgraph.Pose <em>Pose</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for class '<em>Pose</em>'.
+    * @see kinematicsgraph.Pose
+    * @generated
+    */
+   EClass getPose();
+
+   /**
+    * Returns the meta object for the attribute '{@link kinematicsgraph.Pose#getX <em>X</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the attribute '<em>X</em>'.
+    * @see kinematicsgraph.Pose#getX()
+    * @see #getPose()
+    * @generated
+    */
+   EAttribute getPose_X();
+
+   /**
+    * Returns the meta object for the attribute '{@link kinematicsgraph.Pose#getY <em>Y</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the attribute '<em>Y</em>'.
+    * @see kinematicsgraph.Pose#getY()
+    * @see #getPose()
+    * @generated
+    */
+   EAttribute getPose_Y();
+
+   /**
+    * Returns the meta object for the attribute '{@link kinematicsgraph.Pose#getZ <em>Z</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the attribute '<em>Z</em>'.
+    * @see kinematicsgraph.Pose#getZ()
+    * @see #getPose()
+    * @generated
+    */
+   EAttribute getPose_Z();
+
+   /**
+    * Returns the meta object for the attribute '{@link kinematicsgraph.Pose#getRoll <em>Roll</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the attribute '<em>Roll</em>'.
+    * @see kinematicsgraph.Pose#getRoll()
+    * @see #getPose()
+    * @generated
+    */
+   EAttribute getPose_Roll();
+
+   /**
+    * Returns the meta object for the attribute '{@link kinematicsgraph.Pose#getPitch <em>Pitch</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the attribute '<em>Pitch</em>'.
+    * @see kinematicsgraph.Pose#getPitch()
+    * @see #getPose()
+    * @generated
+    */
+   EAttribute getPose_Pitch();
+
+   /**
+    * Returns the meta object for the attribute '{@link kinematicsgraph.Pose#getYaw <em>Yaw</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the attribute '<em>Yaw</em>'.
+    * @see kinematicsgraph.Pose#getYaw()
+    * @see #getPose()
+    * @generated
+    */
+   EAttribute getPose_Yaw();
+
+   /**
+    * Returns the meta object for class '{@link kinematicsgraph.JointEdge <em>Joint Edge</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for class '<em>Joint Edge</em>'.
+    * @see kinematicsgraph.JointEdge
+    * @generated
+    */
+   EClass getJointEdge();
+
+   /**
+    * Returns the meta object for the reference '{@link kinematicsgraph.JointEdge#getOrigin <em>Origin</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the reference '<em>Origin</em>'.
+    * @see kinematicsgraph.JointEdge#getOrigin()
+    * @see #getJointEdge()
+    * @generated
+    */
+   EReference getJointEdge_Origin();
+
+   /**
     * Returns the meta object for class '{@link kinematicsgraph.FixedJointEdge <em>Fixed Joint Edge</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -910,6 +1095,17 @@ public interface KinematicsgraphPackage extends EPackage {
    EReference getRevoluteJointEdge_Limit();
 
    /**
+    * Returns the meta object for the reference '{@link kinematicsgraph.RevoluteJointEdge#getAxis <em>Axis</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the reference '<em>Axis</em>'.
+    * @see kinematicsgraph.RevoluteJointEdge#getAxis()
+    * @see #getRevoluteJointEdge()
+    * @generated
+    */
+   EReference getRevoluteJointEdge_Axis();
+
+   /**
     * Returns the meta object for class '{@link kinematicsgraph.PrismaticJointEdge <em>Prismatic Joint Edge</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -931,36 +1127,58 @@ public interface KinematicsgraphPackage extends EPackage {
    EReference getPrismaticJointEdge_Limit();
 
    /**
-    * Returns the meta object for class '{@link kinematicsgraph.Pose <em>Pose</em>}'.
+    * Returns the meta object for the containment reference '{@link kinematicsgraph.PrismaticJointEdge#getAxis <em>Axis</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @return the meta object for class '<em>Pose</em>'.
-    * @see kinematicsgraph.Pose
+    * @return the meta object for the containment reference '<em>Axis</em>'.
+    * @see kinematicsgraph.PrismaticJointEdge#getAxis()
+    * @see #getPrismaticJointEdge()
     * @generated
     */
-   EClass getPose();
+   EReference getPrismaticJointEdge_Axis();
 
    /**
-    * Returns the meta object for the attribute '{@link kinematicsgraph.Pose#getXyz <em>Xyz</em>}'.
+    * Returns the meta object for class '{@link kinematicsgraph.Axis <em>Axis</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @return the meta object for the attribute '<em>Xyz</em>'.
-    * @see kinematicsgraph.Pose#getXyz()
-    * @see #getPose()
+    * @return the meta object for class '<em>Axis</em>'.
+    * @see kinematicsgraph.Axis
     * @generated
     */
-   EAttribute getPose_Xyz();
+   EClass getAxis();
 
    /**
-    * Returns the meta object for the attribute '{@link kinematicsgraph.Pose#getRpy <em>Rpy</em>}'.
+    * Returns the meta object for the attribute '{@link kinematicsgraph.Axis#getX <em>X</em>}'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @return the meta object for the attribute '<em>Rpy</em>'.
-    * @see kinematicsgraph.Pose#getRpy()
-    * @see #getPose()
+    * @return the meta object for the attribute '<em>X</em>'.
+    * @see kinematicsgraph.Axis#getX()
+    * @see #getAxis()
     * @generated
     */
-   EAttribute getPose_Rpy();
+   EAttribute getAxis_X();
+
+   /**
+    * Returns the meta object for the attribute '{@link kinematicsgraph.Axis#getY <em>Y</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the attribute '<em>Y</em>'.
+    * @see kinematicsgraph.Axis#getY()
+    * @see #getAxis()
+    * @generated
+    */
+   EAttribute getAxis_Y();
+
+   /**
+    * Returns the meta object for the attribute '{@link kinematicsgraph.Axis#getZ <em>Z</em>}'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the meta object for the attribute '<em>Z</em>'.
+    * @see kinematicsgraph.Axis#getZ()
+    * @see #getAxis()
+    * @generated
+    */
+   EAttribute getAxis_Z();
 
    /**
     * Returns the factory that creates the instances of the model.
@@ -1028,6 +1246,64 @@ public interface KinematicsgraphPackage extends EPackage {
       EAttribute LIMIT__VELOCITY = eINSTANCE.getLimit_Velocity();
 
       /**
+       * The meta object literal for the '{@link kinematicsgraph.impl.PoseImpl <em>Pose</em>}' class.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @see kinematicsgraph.impl.PoseImpl
+       * @see kinematicsgraph.impl.KinematicsgraphPackageImpl#getPose()
+       * @generated
+       */
+      EClass POSE = eINSTANCE.getPose();
+
+      /**
+       * The meta object literal for the '<em><b>X</b></em>' attribute feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EAttribute POSE__X = eINSTANCE.getPose_X();
+
+      /**
+       * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EAttribute POSE__Y = eINSTANCE.getPose_Y();
+
+      /**
+       * The meta object literal for the '<em><b>Z</b></em>' attribute feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EAttribute POSE__Z = eINSTANCE.getPose_Z();
+
+      /**
+       * The meta object literal for the '<em><b>Roll</b></em>' attribute feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EAttribute POSE__ROLL = eINSTANCE.getPose_Roll();
+
+      /**
+       * The meta object literal for the '<em><b>Pitch</b></em>' attribute feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EAttribute POSE__PITCH = eINSTANCE.getPose_Pitch();
+
+      /**
+       * The meta object literal for the '<em><b>Yaw</b></em>' attribute feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EAttribute POSE__YAW = eINSTANCE.getPose_Yaw();
+
+      /**
        * The meta object literal for the '{@link kinematicsgraph.impl.JointEdgeImpl <em>Joint Edge</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
@@ -1074,6 +1350,14 @@ public interface KinematicsgraphPackage extends EPackage {
       EReference REVOLUTE_JOINT_EDGE__LIMIT = eINSTANCE.getRevoluteJointEdge_Limit();
 
       /**
+       * The meta object literal for the '<em><b>Axis</b></em>' reference feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EReference REVOLUTE_JOINT_EDGE__AXIS = eINSTANCE.getRevoluteJointEdge_Axis();
+
+      /**
        * The meta object literal for the '{@link kinematicsgraph.impl.PrismaticJointEdgeImpl <em>Prismatic Joint Edge</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
@@ -1092,30 +1376,46 @@ public interface KinematicsgraphPackage extends EPackage {
       EReference PRISMATIC_JOINT_EDGE__LIMIT = eINSTANCE.getPrismaticJointEdge_Limit();
 
       /**
-       * The meta object literal for the '{@link kinematicsgraph.impl.PoseImpl <em>Pose</em>}' class.
+       * The meta object literal for the '<em><b>Axis</b></em>' containment reference feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
-       * @see kinematicsgraph.impl.PoseImpl
-       * @see kinematicsgraph.impl.KinematicsgraphPackageImpl#getPose()
        * @generated
        */
-      EClass POSE = eINSTANCE.getPose();
+      EReference PRISMATIC_JOINT_EDGE__AXIS = eINSTANCE.getPrismaticJointEdge_Axis();
 
       /**
-       * The meta object literal for the '<em><b>Xyz</b></em>' attribute feature.
+       * The meta object literal for the '{@link kinematicsgraph.impl.AxisImpl <em>Axis</em>}' class.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
+       * @see kinematicsgraph.impl.AxisImpl
+       * @see kinematicsgraph.impl.KinematicsgraphPackageImpl#getAxis()
        * @generated
        */
-      EAttribute POSE__XYZ = eINSTANCE.getPose_Xyz();
+      EClass AXIS = eINSTANCE.getAxis();
 
       /**
-       * The meta object literal for the '<em><b>Rpy</b></em>' attribute feature.
+       * The meta object literal for the '<em><b>X</b></em>' attribute feature.
        * <!-- begin-user-doc -->
        * <!-- end-user-doc -->
        * @generated
        */
-      EAttribute POSE__RPY = eINSTANCE.getPose_Rpy();
+      EAttribute AXIS__X = eINSTANCE.getAxis_X();
+
+      /**
+       * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EAttribute AXIS__Y = eINSTANCE.getAxis_Y();
+
+      /**
+       * The meta object literal for the '<em><b>Z</b></em>' attribute feature.
+       * <!-- begin-user-doc -->
+       * <!-- end-user-doc -->
+       * @generated
+       */
+      EAttribute AXIS__Z = eINSTANCE.getAxis_Z();
 
    }
 

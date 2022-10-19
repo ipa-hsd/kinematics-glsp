@@ -20,52 +20,136 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link kinematicsgraph.impl.PoseImpl#getXyz <em>Xyz</em>}</li>
- *   <li>{@link kinematicsgraph.impl.PoseImpl#getRpy <em>Rpy</em>}</li>
+ *   <li>{@link kinematicsgraph.impl.PoseImpl#getX <em>X</em>}</li>
+ *   <li>{@link kinematicsgraph.impl.PoseImpl#getY <em>Y</em>}</li>
+ *   <li>{@link kinematicsgraph.impl.PoseImpl#getZ <em>Z</em>}</li>
+ *   <li>{@link kinematicsgraph.impl.PoseImpl#getRoll <em>Roll</em>}</li>
+ *   <li>{@link kinematicsgraph.impl.PoseImpl#getPitch <em>Pitch</em>}</li>
+ *   <li>{@link kinematicsgraph.impl.PoseImpl#getYaw <em>Yaw</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
    /**
-    * The default value of the '{@link #getXyz() <em>Xyz</em>}' attribute.
+    * The default value of the '{@link #getX() <em>X</em>}' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @see #getXyz()
+    * @see #getX()
     * @generated
     * @ordered
     */
-   protected static final String XYZ_EDEFAULT = null;
+   protected static final double X_EDEFAULT = 0.0;
 
    /**
-    * The cached value of the '{@link #getXyz() <em>Xyz</em>}' attribute.
+    * The cached value of the '{@link #getX() <em>X</em>}' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @see #getXyz()
+    * @see #getX()
     * @generated
     * @ordered
     */
-   protected String xyz = XYZ_EDEFAULT;
+   protected double x = X_EDEFAULT;
 
    /**
-    * The default value of the '{@link #getRpy() <em>Rpy</em>}' attribute.
+    * The default value of the '{@link #getY() <em>Y</em>}' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @see #getRpy()
+    * @see #getY()
     * @generated
     * @ordered
     */
-   protected static final String RPY_EDEFAULT = null;
+   protected static final double Y_EDEFAULT = 0.0;
 
    /**
-    * The cached value of the '{@link #getRpy() <em>Rpy</em>}' attribute.
+    * The cached value of the '{@link #getY() <em>Y</em>}' attribute.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @see #getRpy()
+    * @see #getY()
     * @generated
     * @ordered
     */
-   protected String rpy = RPY_EDEFAULT;
+   protected double y = Y_EDEFAULT;
+
+   /**
+    * The default value of the '{@link #getZ() <em>Z</em>}' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see #getZ()
+    * @generated
+    * @ordered
+    */
+   protected static final double Z_EDEFAULT = 0.0;
+
+   /**
+    * The cached value of the '{@link #getZ() <em>Z</em>}' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see #getZ()
+    * @generated
+    * @ordered
+    */
+   protected double z = Z_EDEFAULT;
+
+   /**
+    * The default value of the '{@link #getRoll() <em>Roll</em>}' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see #getRoll()
+    * @generated
+    * @ordered
+    */
+   protected static final double ROLL_EDEFAULT = 0.0;
+
+   /**
+    * The cached value of the '{@link #getRoll() <em>Roll</em>}' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see #getRoll()
+    * @generated
+    * @ordered
+    */
+   protected double roll = ROLL_EDEFAULT;
+
+   /**
+    * The default value of the '{@link #getPitch() <em>Pitch</em>}' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see #getPitch()
+    * @generated
+    * @ordered
+    */
+   protected static final double PITCH_EDEFAULT = 0.0;
+
+   /**
+    * The cached value of the '{@link #getPitch() <em>Pitch</em>}' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see #getPitch()
+    * @generated
+    * @ordered
+    */
+   protected double pitch = PITCH_EDEFAULT;
+
+   /**
+    * The default value of the '{@link #getYaw() <em>Yaw</em>}' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see #getYaw()
+    * @generated
+    * @ordered
+    */
+   protected static final double YAW_EDEFAULT = 0.0;
+
+   /**
+    * The cached value of the '{@link #getYaw() <em>Yaw</em>}' attribute.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see #getYaw()
+    * @generated
+    * @ordered
+    */
+   protected double yaw = YAW_EDEFAULT;
 
    /**
     * <!-- begin-user-doc -->
@@ -91,8 +175,8 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
     * <!-- end-user-doc -->
     * @generated
     */
-   public String getXyz() {
-      return xyz;
+   public double getX() {
+      return x;
    }
 
    /**
@@ -100,11 +184,11 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
     * <!-- end-user-doc -->
     * @generated
     */
-   public void setXyz(String newXyz) {
-      String oldXyz = xyz;
-      xyz = newXyz;
+   public void setX(double newX) {
+      double oldX = x;
+      x = newX;
       if (eNotificationRequired())
-         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsgraphPackage.POSE__XYZ, oldXyz, xyz));
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsgraphPackage.POSE__X, oldX, x));
    }
 
    /**
@@ -112,8 +196,8 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
     * <!-- end-user-doc -->
     * @generated
     */
-   public String getRpy() {
-      return rpy;
+   public double getY() {
+      return y;
    }
 
    /**
@@ -121,11 +205,95 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
     * <!-- end-user-doc -->
     * @generated
     */
-   public void setRpy(String newRpy) {
-      String oldRpy = rpy;
-      rpy = newRpy;
+   public void setY(double newY) {
+      double oldY = y;
+      y = newY;
       if (eNotificationRequired())
-         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsgraphPackage.POSE__RPY, oldRpy, rpy));
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsgraphPackage.POSE__Y, oldY, y));
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public double getZ() {
+      return z;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public void setZ(double newZ) {
+      double oldZ = z;
+      z = newZ;
+      if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsgraphPackage.POSE__Z, oldZ, z));
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public double getRoll() {
+      return roll;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public void setRoll(double newRoll) {
+      double oldRoll = roll;
+      roll = newRoll;
+      if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsgraphPackage.POSE__ROLL, oldRoll, roll));
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public double getPitch() {
+      return pitch;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public void setPitch(double newPitch) {
+      double oldPitch = pitch;
+      pitch = newPitch;
+      if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsgraphPackage.POSE__PITCH, oldPitch, pitch));
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public double getYaw() {
+      return yaw;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public void setYaw(double newYaw) {
+      double oldYaw = yaw;
+      yaw = newYaw;
+      if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsgraphPackage.POSE__YAW, oldYaw, yaw));
    }
 
    /**
@@ -136,10 +304,18 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
    @Override
    public Object eGet(int featureID, boolean resolve, boolean coreType) {
       switch (featureID) {
-         case KinematicsgraphPackage.POSE__XYZ:
-            return getXyz();
-         case KinematicsgraphPackage.POSE__RPY:
-            return getRpy();
+         case KinematicsgraphPackage.POSE__X:
+            return getX();
+         case KinematicsgraphPackage.POSE__Y:
+            return getY();
+         case KinematicsgraphPackage.POSE__Z:
+            return getZ();
+         case KinematicsgraphPackage.POSE__ROLL:
+            return getRoll();
+         case KinematicsgraphPackage.POSE__PITCH:
+            return getPitch();
+         case KinematicsgraphPackage.POSE__YAW:
+            return getYaw();
       }
       return super.eGet(featureID, resolve, coreType);
    }
@@ -152,11 +328,23 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
    @Override
    public void eSet(int featureID, Object newValue) {
       switch (featureID) {
-         case KinematicsgraphPackage.POSE__XYZ:
-            setXyz((String)newValue);
+         case KinematicsgraphPackage.POSE__X:
+            setX((Double)newValue);
             return;
-         case KinematicsgraphPackage.POSE__RPY:
-            setRpy((String)newValue);
+         case KinematicsgraphPackage.POSE__Y:
+            setY((Double)newValue);
+            return;
+         case KinematicsgraphPackage.POSE__Z:
+            setZ((Double)newValue);
+            return;
+         case KinematicsgraphPackage.POSE__ROLL:
+            setRoll((Double)newValue);
+            return;
+         case KinematicsgraphPackage.POSE__PITCH:
+            setPitch((Double)newValue);
+            return;
+         case KinematicsgraphPackage.POSE__YAW:
+            setYaw((Double)newValue);
             return;
       }
       super.eSet(featureID, newValue);
@@ -170,11 +358,23 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
    @Override
    public void eUnset(int featureID) {
       switch (featureID) {
-         case KinematicsgraphPackage.POSE__XYZ:
-            setXyz(XYZ_EDEFAULT);
+         case KinematicsgraphPackage.POSE__X:
+            setX(X_EDEFAULT);
             return;
-         case KinematicsgraphPackage.POSE__RPY:
-            setRpy(RPY_EDEFAULT);
+         case KinematicsgraphPackage.POSE__Y:
+            setY(Y_EDEFAULT);
+            return;
+         case KinematicsgraphPackage.POSE__Z:
+            setZ(Z_EDEFAULT);
+            return;
+         case KinematicsgraphPackage.POSE__ROLL:
+            setRoll(ROLL_EDEFAULT);
+            return;
+         case KinematicsgraphPackage.POSE__PITCH:
+            setPitch(PITCH_EDEFAULT);
+            return;
+         case KinematicsgraphPackage.POSE__YAW:
+            setYaw(YAW_EDEFAULT);
             return;
       }
       super.eUnset(featureID);
@@ -188,10 +388,18 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
    @Override
    public boolean eIsSet(int featureID) {
       switch (featureID) {
-         case KinematicsgraphPackage.POSE__XYZ:
-            return XYZ_EDEFAULT == null ? xyz != null : !XYZ_EDEFAULT.equals(xyz);
-         case KinematicsgraphPackage.POSE__RPY:
-            return RPY_EDEFAULT == null ? rpy != null : !RPY_EDEFAULT.equals(rpy);
+         case KinematicsgraphPackage.POSE__X:
+            return x != X_EDEFAULT;
+         case KinematicsgraphPackage.POSE__Y:
+            return y != Y_EDEFAULT;
+         case KinematicsgraphPackage.POSE__Z:
+            return z != Z_EDEFAULT;
+         case KinematicsgraphPackage.POSE__ROLL:
+            return roll != ROLL_EDEFAULT;
+         case KinematicsgraphPackage.POSE__PITCH:
+            return pitch != PITCH_EDEFAULT;
+         case KinematicsgraphPackage.POSE__YAW:
+            return yaw != YAW_EDEFAULT;
       }
       return super.eIsSet(featureID);
    }
@@ -206,10 +414,18 @@ public class PoseImpl extends MinimalEObjectImpl.Container implements Pose {
       if (eIsProxy()) return super.toString();
 
       StringBuilder result = new StringBuilder(super.toString());
-      result.append(" (xyz: ");
-      result.append(xyz);
-      result.append(", rpy: ");
-      result.append(rpy);
+      result.append(" (x: ");
+      result.append(x);
+      result.append(", y: ");
+      result.append(y);
+      result.append(", z: ");
+      result.append(z);
+      result.append(", roll: ");
+      result.append(roll);
+      result.append(", pitch: ");
+      result.append(pitch);
+      result.append(", yaw: ");
+      result.append(yaw);
       result.append(')');
       return result.toString();
    }

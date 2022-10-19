@@ -41,6 +41,7 @@ import de.fraunhofer.ipa.kinematics.glsp.KinematicsModelTypes;
 import kinematics.Joint;
 import kinematics.Link;
 import kinematics.Robot;
+import kinematicsgraph.Axis;
 import kinematicsgraph.KinematicsgraphFactory;
 import kinematicsgraph.Limit;
 import kinematicsgraph.Pose;
@@ -89,6 +90,27 @@ public class KinematicsGModelFactory extends EMFNotationGModelFactory {
       return limit;
    }
 
+   protected Axis getJointAxis(final Joint joint) {
+      Axis axis = KinematicsgraphFactory.eINSTANCE.createAxis();
+      axis.setX(joint.getAxis().getX());
+      axis.setY(joint.getAxis().getY());
+      axis.setZ(joint.getAxis().getZ());
+
+      return axis;
+   }
+
+   protected Pose getJointOrigin(final Joint joint) {
+      Pose origin = KinematicsgraphFactory.eINSTANCE.createPose();
+      origin.setX(joint.getOrigin().getX());
+      origin.setY(joint.getOrigin().getY());
+      origin.setZ(joint.getOrigin().getZ());
+      origin.setRoll(joint.getOrigin().getRoll());
+      origin.setPitch(joint.getOrigin().getPitch());
+      origin.setYaw(joint.getOrigin().getYaw());
+
+      return origin;
+   }
+
    protected GEdge createTransitionEdge(final Joint joint, final GGraph graph) {
       String parentId = joint.getParent().getId();
       String childId = joint.getChild().getId();
@@ -96,11 +118,7 @@ public class KinematicsGModelFactory extends EMFNotationGModelFactory {
       GModelElement parentNode = findGNodeById(graph.getChildren(), parentId);
       GModelElement childNode = findGNodeById(graph.getChildren(), childId);
 
-      Pose origin = KinematicsgraphFactory.eINSTANCE.createPose();
-      origin.setXyz(joint.getOrigin().getXyz());
-      origin.setRpy(joint.getOrigin().getRpy());
-
-      System.out.println("joint: " + joint + " " + joint.getLimit());
+      Pose origin = getJointOrigin(joint);
 
       switch (joint.getType()) {
          case FIXED:
@@ -112,23 +130,28 @@ public class KinematicsGModelFactory extends EMFNotationGModelFactory {
             return fixedJointEdgeBuilder.build();
          case REVOLUTE:
             Limit limitRevolute = getJointLimit(joint);
+            Axis axisRevolute = getJointAxis(joint);
             RevoluteJointEdgeBuilder revoluteJointEdgeBuilder = new RevoluteJointEdgeBuilder().source(parentNode)
                .target(childNode)
                .setOrigin(origin)
                .setLimit(limitRevolute)
+               .setAxis(axisRevolute)
                .id(idGenerator.getOrCreateId(joint))
                .addCssClass("minimal-edge-revolute");
             applyEdgeData(joint, revoluteJointEdgeBuilder);
             return revoluteJointEdgeBuilder.build();
          case PRISMATIC:
             Limit limitPrismatic = getJointLimit(joint);
+            Axis axisPrismatic = getJointAxis(joint);
             PrismaticJointEdgeBuilder prismaticJointEdgeBuilder = new PrismaticJointEdgeBuilder().source(parentNode)
                .target(childNode)
                .setOrigin(origin)
                .setLimit(limitPrismatic)
+               .setAxis(axisPrismatic)
                .id(idGenerator.getOrCreateId(joint))
                .addCssClass("minimal-edge-prismatic");
             applyEdgeData(joint, prismaticJointEdgeBuilder);
+            System.out.println(prismaticJointEdgeBuilder.build());
             return prismaticJointEdgeBuilder.build();
          default:
             break;

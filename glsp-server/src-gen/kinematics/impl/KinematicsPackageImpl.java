@@ -2,6 +2,7 @@
  */
 package kinematics.impl;
 
+import kinematics.Axis;
 import kinematics.Joint;
 import kinematics.JointType;
 import kinematics.KinematicsFactory;
@@ -63,12 +64,19 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
 
    /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	private EEnum jointTypeEEnum = null;
+   private EClass axisEClass = null;
 
-			/**
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   private EEnum jointTypeEEnum = null;
+
+   /**
     * Creates an instance of the model <b>Package</b>, registered with
     * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
     * package URI value.
@@ -212,14 +220,14 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
 
    /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	public EAttribute getJoint_Type() {
+   public EAttribute getJoint_Type() {
       return (EAttribute)jointEClass.getEStructuralFeatures().get(5);
    }
 
-			/**
+   /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
@@ -228,7 +236,16 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
       return (EReference)jointEClass.getEStructuralFeatures().get(6);
    }
 
-         /**
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EReference getJoint_Axis() {
+      return (EReference)jointEClass.getEStructuralFeatures().get(7);
+   }
+
+   /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
@@ -287,7 +304,7 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
     * <!-- end-user-doc -->
     * @generated
     */
-   public EAttribute getPose_Xyz() {
+   public EAttribute getPose_X() {
       return (EAttribute)poseEClass.getEStructuralFeatures().get(0);
    }
 
@@ -296,8 +313,44 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
     * <!-- end-user-doc -->
     * @generated
     */
-   public EAttribute getPose_Rpy() {
+   public EAttribute getPose_Y() {
       return (EAttribute)poseEClass.getEStructuralFeatures().get(1);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getPose_Z() {
+      return (EAttribute)poseEClass.getEStructuralFeatures().get(2);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getPose_Roll() {
+      return (EAttribute)poseEClass.getEStructuralFeatures().get(3);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getPose_Pitch() {
+      return (EAttribute)poseEClass.getEStructuralFeatures().get(4);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getPose_Yaw() {
+      return (EAttribute)poseEClass.getEStructuralFeatures().get(5);
    }
 
    /**
@@ -347,14 +400,50 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
 
    /**
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @generated
     */
-	public EEnum getJointType() {
+   public EClass getAxis() {
+      return axisEClass;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getAxis_X() {
+      return (EAttribute)axisEClass.getEStructuralFeatures().get(0);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getAxis_Y() {
+      return (EAttribute)axisEClass.getEStructuralFeatures().get(1);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EAttribute getAxis_Z() {
+      return (EAttribute)axisEClass.getEStructuralFeatures().get(2);
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public EEnum getJointType() {
       return jointTypeEEnum;
    }
 
-			/**
+   /**
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
     * @generated
@@ -394,6 +483,7 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
       createEReference(jointEClass, JOINT__ORIGIN);
       createEAttribute(jointEClass, JOINT__TYPE);
       createEReference(jointEClass, JOINT__LIMIT);
+      createEReference(jointEClass, JOINT__AXIS);
 
       robotEClass = createEClass(ROBOT);
       createEAttribute(robotEClass, ROBOT__ID);
@@ -402,14 +492,23 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
       createEReference(robotEClass, ROBOT__JOINTS);
 
       poseEClass = createEClass(POSE);
-      createEAttribute(poseEClass, POSE__XYZ);
-      createEAttribute(poseEClass, POSE__RPY);
+      createEAttribute(poseEClass, POSE__X);
+      createEAttribute(poseEClass, POSE__Y);
+      createEAttribute(poseEClass, POSE__Z);
+      createEAttribute(poseEClass, POSE__ROLL);
+      createEAttribute(poseEClass, POSE__PITCH);
+      createEAttribute(poseEClass, POSE__YAW);
 
       limitEClass = createEClass(LIMIT);
       createEAttribute(limitEClass, LIMIT__EFFORT);
       createEAttribute(limitEClass, LIMIT__VELOCITY);
       createEAttribute(limitEClass, LIMIT__LOWER);
       createEAttribute(limitEClass, LIMIT__UPPER);
+
+      axisEClass = createEClass(AXIS);
+      createEAttribute(axisEClass, AXIS__X);
+      createEAttribute(axisEClass, AXIS__Y);
+      createEAttribute(axisEClass, AXIS__Z);
 
       // Create enums
       jointTypeEEnum = createEEnum(JOINT_TYPE);
@@ -457,6 +556,7 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
       initEReference(getJoint_Origin(), this.getPose(), null, "origin", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEAttribute(getJoint_Type(), this.getJointType(), "type", null, 1, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEReference(getJoint_Limit(), this.getLimit(), null, "limit", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEReference(getJoint_Axis(), this.getAxis(), null, "axis", null, 0, 1, Joint.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       initEClass(robotEClass, Robot.class, "Robot", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
       initEAttribute(getRobot_Id(), ecorePackage.getEString(), "id", null, 1, 1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -465,14 +565,23 @@ public class KinematicsPackageImpl extends EPackageImpl implements KinematicsPac
       initEReference(getRobot_Joints(), this.getJoint(), null, "joints", null, 0, -1, Robot.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       initEClass(poseEClass, Pose.class, "Pose", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-      initEAttribute(getPose_Xyz(), ecorePackage.getEString(), "xyz", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-      initEAttribute(getPose_Rpy(), ecorePackage.getEString(), "rpy", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getPose_X(), ecorePackage.getEDouble(), "x", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getPose_Y(), ecorePackage.getEDouble(), "y", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getPose_Z(), ecorePackage.getEDouble(), "z", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getPose_Roll(), ecorePackage.getEDouble(), "roll", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getPose_Pitch(), ecorePackage.getEDouble(), "pitch", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getPose_Yaw(), ecorePackage.getEDouble(), "yaw", null, 1, 1, Pose.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       initEClass(limitEClass, Limit.class, "Limit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
       initEAttribute(getLimit_Effort(), ecorePackage.getEDouble(), "effort", null, 1, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEAttribute(getLimit_Velocity(), ecorePackage.getEDouble(), "velocity", null, 1, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEAttribute(getLimit_Lower(), ecorePackage.getEDouble(), "lower", null, 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
       initEAttribute(getLimit_Upper(), ecorePackage.getEDouble(), "upper", null, 0, 1, Limit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+      initEClass(axisEClass, Axis.class, "Axis", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+      initEAttribute(getAxis_X(), ecorePackage.getEDouble(), "x", null, 1, 1, Axis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getAxis_Y(), ecorePackage.getEDouble(), "y", null, 1, 1, Axis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+      initEAttribute(getAxis_Z(), ecorePackage.getEDouble(), "z", null, 1, 1, Axis.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
       // Initialize enums and add enum literals
       initEEnum(jointTypeEEnum, JointType.class, "JointType");

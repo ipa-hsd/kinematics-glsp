@@ -121,6 +121,12 @@ public class KinematicsgraphSwitch<T> extends Switch<T> {
             if (result == null) result = defaultCase(theEObject);
             return result;
          }
+         case KinematicsgraphPackage.AXIS: {
+            Axis axis = (Axis)theEObject;
+            T result = caseAxis(axis);
+            if (result == null) result = defaultCase(theEObject);
+            return result;
+         }
          default: return defaultCase(theEObject);
       }
    }
@@ -137,6 +143,21 @@ public class KinematicsgraphSwitch<T> extends Switch<T> {
     * @generated
     */
    public T caseLimit(Limit object) {
+      return null;
+   }
+
+   /**
+    * Returns the result of interpreting the object as an instance of '<em>Pose</em>'.
+    * <!-- begin-user-doc -->
+    * This implementation returns null;
+    * returning a non-null result will terminate the switch.
+    * <!-- end-user-doc -->
+    * @param object the target of the switch.
+    * @return the result of interpreting the object as an instance of '<em>Pose</em>'.
+    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+    * @generated
+    */
+   public T casePose(Pose object) {
       return null;
    }
 
@@ -201,17 +222,17 @@ public class KinematicsgraphSwitch<T> extends Switch<T> {
    }
 
    /**
-    * Returns the result of interpreting the object as an instance of '<em>Pose</em>'.
+    * Returns the result of interpreting the object as an instance of '<em>Axis</em>'.
     * <!-- begin-user-doc -->
     * This implementation returns null;
     * returning a non-null result will terminate the switch.
     * <!-- end-user-doc -->
     * @param object the target of the switch.
-    * @return the result of interpreting the object as an instance of '<em>Pose</em>'.
+    * @return the result of interpreting the object as an instance of '<em>Axis</em>'.
     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
     * @generated
     */
-   public T casePose(Pose object) {
+   public T caseAxis(Axis object) {
       return null;
    }
 

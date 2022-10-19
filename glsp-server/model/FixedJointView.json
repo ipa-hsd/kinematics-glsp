@@ -1,0 +1,42 @@
+{
+  "type": "VerticalLayout",
+  "elements": [
+    {
+      "type": "Control",
+      "scope": "#/properties/name"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/id"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/type"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/origin/properties/x"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/origin/properties/y"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/origin/properties/z"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/origin/properties/roll"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/origin/properties/pitch"
+    },
+    {
+      "type": "Control",
+      "scope": "#/properties/origin/properties/yaw"
+    }
+  ]
+}
+

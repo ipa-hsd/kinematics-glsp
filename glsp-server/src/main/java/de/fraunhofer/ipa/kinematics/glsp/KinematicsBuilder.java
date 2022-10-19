@@ -17,6 +17,7 @@ package de.fraunhofer.ipa.kinematics.glsp;
 
 import org.eclipse.glsp.graph.builder.AbstractGEdgeBuilder;
 
+import kinematicsgraph.Axis;
 import kinematicsgraph.FixedJointEdge;
 import kinematicsgraph.KinematicsgraphFactory;
 import kinematicsgraph.Limit;
@@ -66,6 +67,7 @@ public final class KinematicsBuilder {
 
       private Pose origin;
       private Limit limit;
+      private Axis axis;
 
       public RevoluteJointEdgeBuilder() {
          super(KinematicsModelTypes.REVOLUTE_JOINT);
@@ -82,12 +84,18 @@ public final class KinematicsBuilder {
          return self();
       }
 
+      public RevoluteJointEdgeBuilder setAxis(final Axis axis) {
+         this.axis = axis;
+         return self();
+      }
+
       @Override
       protected void setProperties(final RevoluteJointEdge edge) {
          // TODO Auto-generated method stub
          super.setProperties(edge);
          edge.setOrigin(origin);
          edge.setLimit(limit);
+         edge.setAxis(axis);
       }
 
       @Override
@@ -109,6 +117,7 @@ public final class KinematicsBuilder {
 
       private Pose origin;
       private Limit limit;
+      private Axis axis;
 
       public PrismaticJointEdgeBuilder() {
          super(KinematicsModelTypes.REVOLUTE_JOINT);
@@ -125,12 +134,18 @@ public final class KinematicsBuilder {
          return self();
       }
 
+      public PrismaticJointEdgeBuilder setAxis(final Axis axis) {
+         this.axis = axis;
+         return self();
+      }
+
       @Override
       protected void setProperties(final PrismaticJointEdge edge) {
          // TODO Auto-generated method stub
          super.setProperties(edge);
          edge.setOrigin(origin);
          edge.setLimit(limit);
+         edge.setAxis(axis);
       }
 
       @Override

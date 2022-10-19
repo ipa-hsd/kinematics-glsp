@@ -2,13 +2,16 @@
  */
 package kinematicsgraph.impl;
 
+import kinematicsgraph.Axis;
 import kinematicsgraph.KinematicsgraphPackage;
 import kinematicsgraph.Limit;
 import kinematicsgraph.RevoluteJointEdge;
 
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -20,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link kinematicsgraph.impl.RevoluteJointEdgeImpl#getLimit <em>Limit</em>}</li>
+ *   <li>{@link kinematicsgraph.impl.RevoluteJointEdgeImpl#getAxis <em>Axis</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,6 +38,16 @@ public class RevoluteJointEdgeImpl extends JointEdgeImpl implements RevoluteJoin
     * @ordered
     */
    protected Limit limit;
+
+   /**
+    * The cached value of the '{@link #getAxis() <em>Axis</em>}' reference.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @see #getAxis()
+    * @generated
+    * @ordered
+    */
+   protected Axis axis;
 
    /**
     * <!-- begin-user-doc -->
@@ -97,12 +111,53 @@ public class RevoluteJointEdgeImpl extends JointEdgeImpl implements RevoluteJoin
     * <!-- end-user-doc -->
     * @generated
     */
+   public Axis getAxis() {
+      if (axis != null && axis.eIsProxy()) {
+         InternalEObject oldAxis = (InternalEObject)axis;
+         axis = (Axis)eResolveProxy(oldAxis);
+         if (axis != oldAxis) {
+            if (eNotificationRequired())
+               eNotify(new ENotificationImpl(this, Notification.RESOLVE, KinematicsgraphPackage.REVOLUTE_JOINT_EDGE__AXIS, oldAxis, axis));
+         }
+      }
+      return axis;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public Axis basicGetAxis() {
+      return axis;
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
+   public void setAxis(Axis newAxis) {
+      Axis oldAxis = axis;
+      axis = newAxis;
+      if (eNotificationRequired())
+         eNotify(new ENotificationImpl(this, Notification.SET, KinematicsgraphPackage.REVOLUTE_JOINT_EDGE__AXIS, oldAxis, axis));
+   }
+
+   /**
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @generated
+    */
    @Override
    public Object eGet(int featureID, boolean resolve, boolean coreType) {
       switch (featureID) {
          case KinematicsgraphPackage.REVOLUTE_JOINT_EDGE__LIMIT:
             if (resolve) return getLimit();
             return basicGetLimit();
+         case KinematicsgraphPackage.REVOLUTE_JOINT_EDGE__AXIS:
+            if (resolve) return getAxis();
+            return basicGetAxis();
       }
       return super.eGet(featureID, resolve, coreType);
    }
@@ -117,6 +172,9 @@ public class RevoluteJointEdgeImpl extends JointEdgeImpl implements RevoluteJoin
       switch (featureID) {
          case KinematicsgraphPackage.REVOLUTE_JOINT_EDGE__LIMIT:
             setLimit((Limit)newValue);
+            return;
+         case KinematicsgraphPackage.REVOLUTE_JOINT_EDGE__AXIS:
+            setAxis((Axis)newValue);
             return;
       }
       super.eSet(featureID, newValue);
@@ -133,6 +191,9 @@ public class RevoluteJointEdgeImpl extends JointEdgeImpl implements RevoluteJoin
          case KinematicsgraphPackage.REVOLUTE_JOINT_EDGE__LIMIT:
             setLimit((Limit)null);
             return;
+         case KinematicsgraphPackage.REVOLUTE_JOINT_EDGE__AXIS:
+            setAxis((Axis)null);
+            return;
       }
       super.eUnset(featureID);
    }
@@ -147,6 +208,8 @@ public class RevoluteJointEdgeImpl extends JointEdgeImpl implements RevoluteJoin
       switch (featureID) {
          case KinematicsgraphPackage.REVOLUTE_JOINT_EDGE__LIMIT:
             return limit != null;
+         case KinematicsgraphPackage.REVOLUTE_JOINT_EDGE__AXIS:
+            return axis != null;
       }
       return super.eIsSet(featureID);
    }

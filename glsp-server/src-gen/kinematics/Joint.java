@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link kinematics.Joint#getOrigin <em>Origin</em>}</li>
  *   <li>{@link kinematics.Joint#getType <em>Type</em>}</li>
  *   <li>{@link kinematics.Joint#getLimit <em>Limit</em>}</li>
+ *   <li>{@link kinematics.Joint#getAxis <em>Axis</em>}</li>
  * </ul>
  *
  * @see kinematics.KinematicsPackage#getJoint()
@@ -137,11 +138,11 @@ public interface Joint extends EObject {
     */
    void setOrigin(Pose value);
 
-			/**
+   /**
     * Returns the value of the '<em><b>Type</b></em>' attribute.
     * The literals are from the enumeration {@link kinematics.JointType}.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @return the value of the '<em>Type</em>' attribute.
     * @see kinematics.JointType
     * @see #setType(JointType)
@@ -149,20 +150,20 @@ public interface Joint extends EObject {
     * @model required="true"
     * @generated
     */
-	JointType getType();
+   JointType getType();
 
-			/**
+   /**
     * Sets the value of the '{@link kinematics.Joint#getType <em>Type</em>}' attribute.
     * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+    * <!-- end-user-doc -->
     * @param value the new value of the '<em>Type</em>' attribute.
     * @see kinematics.JointType
     * @see #getType()
     * @generated
     */
-	void setType(JointType value);
+   void setType(JointType value);
 
-         /**
+   /**
     * Returns the value of the '<em><b>Limit</b></em>' containment reference.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -174,7 +175,7 @@ public interface Joint extends EObject {
     */
    Limit getLimit();
 
-         /**
+   /**
     * Sets the value of the '{@link kinematics.Joint#getLimit <em>Limit</em>}' containment reference.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -183,5 +184,27 @@ public interface Joint extends EObject {
     * @generated
     */
    void setLimit(Limit value);
+
+   /**
+    * Returns the value of the '<em><b>Axis</b></em>' containment reference.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return the value of the '<em>Axis</em>' containment reference.
+    * @see #setAxis(Axis)
+    * @see kinematics.KinematicsPackage#getJoint_Axis()
+    * @model containment="true"
+    * @generated
+    */
+   Axis getAxis();
+
+   /**
+    * Sets the value of the '{@link kinematics.Joint#getAxis <em>Axis</em>}' containment reference.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @param value the new value of the '<em>Axis</em>' containment reference.
+    * @see #getAxis()
+    * @generated
+    */
+   void setAxis(Axis value);
 
 } // Joint

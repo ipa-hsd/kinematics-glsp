@@ -4,6 +4,7 @@ package kinematicsgraph.impl;
 
 import kinematicsgraph.FixedJointEdge;
 import kinematicsgraph.KinematicsgraphPackage;
+
 import org.eclipse.emf.ecore.EClass;
 
 /**

@@ -11,8 +11,12 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pose">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="xyz" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rpy" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="z" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="roll" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="pitch" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="yaw" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JointEdge" eSuperTypes="glsp-graph.ecore#//GEdge">
     <eStructuralFeatures xsi:type="ecore:EReference" name="origin" lowerBound="1"
@@ -21,9 +25,17 @@
   <eClassifiers xsi:type="ecore:EClass" name="FixedJointEdge" eSuperTypes="#//JointEdge"/>
   <eClassifiers xsi:type="ecore:EClass" name="RevoluteJointEdge" eSuperTypes="#//JointEdge">
     <eStructuralFeatures xsi:type="ecore:EReference" name="limit" lowerBound="1" eType="#//Limit"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="axis" lowerBound="1" eType="#//Axis"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PrismaticJointEdge" eSuperTypes="#//JointEdge">
     <eStructuralFeatures xsi:type="ecore:EReference" name="limit" lowerBound="1" eType="#//Limit"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="axis" lowerBound="1" eType="#//Axis"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Axis">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="z" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -38,13 +38,67 @@ public class RequestModelElementActionHandler extends AbstractActionHandler<Requ
       Optional<EObject> semanticElement = modelIndex.getEObject(action.getSemanticUri());
       JsonNode json = mapper.valueToTree(semanticElement.get());
 
+      ((ObjectNode) json).remove("id");
+
       if (semanticElement.get() instanceof Joint) {
          ((ObjectNode) json).remove("parent");
          ((ObjectNode) json).remove("child");
 
-         if (((ObjectNode) json).has("limit")) {
-            ((ObjectNode) json).remove("limit");
+         if (((ObjectNode) json).get("origin").get("x") == null) {
+            ObjectNode node = (ObjectNode) json.get("origin");
+            node.put("x", 0);
          }
+         if (((ObjectNode) json).get("origin").get("y") == null) {
+            ObjectNode node = (ObjectNode) json.get("origin");
+            node.put("y", 0);
+         }
+         if (((ObjectNode) json).get("origin").get("z") == null) {
+            ObjectNode node = (ObjectNode) json.get("origin");
+            node.put("z", 0);
+         }
+         if (((ObjectNode) json).get("origin").get("roll") == null) {
+            ObjectNode node = (ObjectNode) json.get("origin");
+            node.put("roll", 0);
+         }
+         if (((ObjectNode) json).get("origin").get("pitch") == null) {
+            ObjectNode node = (ObjectNode) json.get("origin");
+            node.put("pitch", 0);
+         }
+         if (((ObjectNode) json).get("origin").get("yaw") == null) {
+            ObjectNode node = (ObjectNode) json.get("origin");
+            node.put("yaw", 0);
+         }
+
+         if (((ObjectNode) json).get("limit").get("lower") == null) {
+            ObjectNode node = (ObjectNode) json.get("limit");
+            node.put("lower", 0);
+         }
+         if (((ObjectNode) json).get("limit").get("upper") == null) {
+            ObjectNode node = (ObjectNode) json.get("limit");
+            node.put("upper", 0);
+         }
+         if (((ObjectNode) json).get("limit").get("velocity") == null) {
+            ObjectNode node = (ObjectNode) json.get("limit");
+            node.put("velocity", 0);
+         }
+         if (((ObjectNode) json).get("limit").get("effort") == null) {
+            ObjectNode node = (ObjectNode) json.get("limit");
+            node.put("effort", 0);
+         }
+
+         if (((ObjectNode) json).get("axis").get("x") == null) {
+            ObjectNode node = (ObjectNode) json.get("axis");
+            node.put("x", 0);
+         }
+         if (((ObjectNode) json).get("axis").get("y") == null) {
+            ObjectNode node = (ObjectNode) json.get("axis");
+            node.put("y", 0);
+         }
+         if (((ObjectNode) json).get("axis").get("z") == null) {
+            ObjectNode node = (ObjectNode) json.get("axis");
+            node.put("z", 0);
+         }
+
       }
 
       actionList.add(

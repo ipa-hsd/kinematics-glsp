@@ -96,6 +96,10 @@ public class KinematicsgraphAdapterFactory extends AdapterFactoryImpl {
             return createPrismaticJointEdgeAdapter();
          }
          @Override
+         public Adapter caseAxis(Axis object) {
+            return createAxisAdapter();
+         }
+         @Override
          public Adapter caseGArgumentable(GArgumentable object) {
             return createGArgumentableAdapter();
          }
@@ -138,6 +142,20 @@ public class KinematicsgraphAdapterFactory extends AdapterFactoryImpl {
     * @generated
     */
    public Adapter createLimitAdapter() {
+      return null;
+   }
+
+   /**
+    * Creates a new adapter for an object of class '{@link kinematicsgraph.Pose <em>Pose</em>}'.
+    * <!-- begin-user-doc -->
+    * This default implementation returns null so that we can easily ignore cases;
+    * it's useful to ignore a case when inheritance will catch all the cases anyway.
+    * <!-- end-user-doc -->
+    * @return the new adapter.
+    * @see kinematicsgraph.Pose
+    * @generated
+    */
+   public Adapter createPoseAdapter() {
       return null;
    }
 
@@ -198,16 +216,16 @@ public class KinematicsgraphAdapterFactory extends AdapterFactoryImpl {
    }
 
    /**
-    * Creates a new adapter for an object of class '{@link kinematicsgraph.Pose <em>Pose</em>}'.
+    * Creates a new adapter for an object of class '{@link kinematicsgraph.Axis <em>Axis</em>}'.
     * <!-- begin-user-doc -->
     * This default implementation returns null so that we can easily ignore cases;
     * it's useful to ignore a case when inheritance will catch all the cases anyway.
     * <!-- end-user-doc -->
     * @return the new adapter.
-    * @see kinematicsgraph.Pose
+    * @see kinematicsgraph.Axis
     * @generated
     */
-   public Adapter createPoseAdapter() {
+   public Adapter createAxisAdapter() {
       return null;
    }
 

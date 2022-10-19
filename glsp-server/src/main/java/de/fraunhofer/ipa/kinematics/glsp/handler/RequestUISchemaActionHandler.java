@@ -31,19 +31,18 @@ public class RequestUISchemaActionHandler extends AbstractActionHandler<RequestU
 
       List<Action> actionList = new ArrayList<>();
 
-      // TODO: move this to a utils class
-      ObjectMapper mapper = new ObjectMapper();
-      EMFModule module = new EMFModule();
-      mapper.registerModule(module);
-
       ResourceSet rset = modelState.getSemanticModel().eResource().getResourceSet();
       rset.getResourceFactoryRegistry()
          .getExtensionToFactoryMap()
          .put("json", new JsonResourceFactory());
 
-      // TODO: use relative path
-      URI uri = URI.createFileURI(
-         "/home/ipa-hsd/projects/kogrob2/urdf/glsp_tests/my_glsp_test/kinematics-glsp/glsp-server/model/JointView.json");
+      // TODO: move this to a utils class
+      ObjectMapper mapper = new ObjectMapper();
+      EMFModule module = new EMFModule();
+      mapper.registerModule(module);
+
+      String view = action.getModelUri() + "View.json";
+      URI uri = URI.createFileURI("./model/" + view);
 
       JsonNode jsonNode;
       try {

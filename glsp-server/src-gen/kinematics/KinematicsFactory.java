@@ -67,6 +67,15 @@ public interface KinematicsFactory extends EFactory {
    Limit createLimit();
 
    /**
+    * Returns a new object of class '<em>Axis</em>'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return a new object of class '<em>Axis</em>'.
+    * @generated
+    */
+   Axis createAxis();
+
+   /**
     * Returns the package supported by this factory.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->

@@ -1,0 +1,93 @@
+{
+	"type": "VerticalLayout",
+	"elements": [
+		{
+			"type": "Control",
+			"scope": "#/properties/name"
+		},
+		{
+			"type": "Control",
+			"scope": "#/properties/type"
+		},
+    {
+      "type": "Label",
+      "text": "origin"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+				{
+					"type": "Control",
+					"scope": "#/properties/origin/properties/x"
+				},
+				{
+					"type": "Control",
+					"scope": "#/properties/origin/properties/y"
+				},
+				{
+					"type": "Control",
+					"scope": "#/properties/origin/properties/z"
+				},
+				{
+					"type": "Control",
+					"scope": "#/properties/origin/properties/roll"
+				},
+				{
+					"type": "Control",
+					"scope": "#/properties/origin/properties/pitch"
+				},
+				{
+					"type": "Control",
+					"scope": "#/properties/origin/properties/yaw"
+				}
+			]
+		},
+		{
+      "type": "Label",
+      "text": "limit"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+			  {
+			    "type": "Control",
+			    "scope": "#/properties/limit/properties/lower"
+			  },
+			  {
+			    "type": "Control",
+			    "scope": "#/properties/limit/properties/upper"
+			  },
+			  {
+			    "type": "Control",
+			    "scope": "#/properties/limit/properties/velocity"
+			  },
+			  {
+			    "type": "Control",
+			    "scope": "#/properties/limit/properties/effort"
+			  }
+			]
+    },
+    {
+      "type": "Label",
+      "text": "axis"
+    },
+    {
+      "type": "HorizontalLayout",
+      "elements": [
+			  {
+			    "type": "Control",
+			    "scope": "#/properties/axis/properties/x"
+			  },
+			  {
+			    "type": "Control",
+			    "scope": "#/properties/axis/properties/y"
+			  },
+			  {
+			    "type": "Control",
+			    "scope": "#/properties/axis/properties/z"
+			  }
+			]
+    }
+  ]
+}
+

@@ -31,6 +31,15 @@ public interface KinematicsgraphFactory extends EFactory {
    Limit createLimit();
 
    /**
+    * Returns a new object of class '<em>Pose</em>'.
+    * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+    * @return a new object of class '<em>Pose</em>'.
+    * @generated
+    */
+   Pose createPose();
+
+   /**
     * Returns a new object of class '<em>Joint Edge</em>'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
@@ -67,13 +76,13 @@ public interface KinematicsgraphFactory extends EFactory {
    PrismaticJointEdge createPrismaticJointEdge();
 
    /**
-    * Returns a new object of class '<em>Pose</em>'.
+    * Returns a new object of class '<em>Axis</em>'.
     * <!-- begin-user-doc -->
     * <!-- end-user-doc -->
-    * @return a new object of class '<em>Pose</em>'.
+    * @return a new object of class '<em>Axis</em>'.
     * @generated
     */
-   Pose createPose();
+   Axis createAxis();
 
    /**
     * Returns the package supported by this factory.

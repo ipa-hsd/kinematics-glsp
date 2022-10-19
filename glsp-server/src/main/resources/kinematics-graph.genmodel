@@ -14,8 +14,12 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics-graph.ecore#//Limit/velocity"/>
     </genClasses>
     <genClasses ecoreClass="kinematics-graph.ecore#//Pose">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics-graph.ecore#//Pose/xyz"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics-graph.ecore#//Pose/rpy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics-graph.ecore#//Pose/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics-graph.ecore#//Pose/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics-graph.ecore#//Pose/z"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics-graph.ecore#//Pose/roll"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics-graph.ecore#//Pose/pitch"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics-graph.ecore#//Pose/yaw"/>
     </genClasses>
     <genClasses ecoreClass="kinematics-graph.ecore#//JointEdge">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kinematics-graph.ecore#//JointEdge/origin"/>
@@ -23,9 +27,16 @@
     <genClasses ecoreClass="kinematics-graph.ecore#//FixedJointEdge"/>
     <genClasses ecoreClass="kinematics-graph.ecore#//RevoluteJointEdge">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference kinematics-graph.ecore#//RevoluteJointEdge/limit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics-graph.ecore#//RevoluteJointEdge/axis"/>
     </genClasses>
     <genClasses ecoreClass="kinematics-graph.ecore#//PrismaticJointEdge">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics-graph.ecore#//PrismaticJointEdge/limit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference kinematics-graph.ecore#//PrismaticJointEdge/axis"/>
+    </genClasses>
+    <genClasses ecoreClass="kinematics-graph.ecore#//Axis">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics-graph.ecore#//Axis/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics-graph.ecore#//Axis/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute kinematics-graph.ecore#//Axis/z"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
